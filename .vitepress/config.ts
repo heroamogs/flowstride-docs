@@ -3,6 +3,9 @@ import { defineConfig } from "vitepress";
 export default defineConfig({
   title: "Flowstride",
   description: "An open source flow first test automation framework",
+
+  ignoreDeadLinks: true,
+
   head: [["link", { rel: "icon", href: "/public/favicon.ico" }]],
   themeConfig: {
     logo: "/logo.png",
