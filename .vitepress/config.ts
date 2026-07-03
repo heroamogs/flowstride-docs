@@ -25,8 +25,9 @@ export default defineConfig({
         text: "Introduction & Basics",
         collapsed: false,
         items: [
-          { text: "Getting Started", link: "/guide/getting-started" },
-          { text: "Core Concepts", link: "/guide/core-concepts" },
+          { text: "getting-started", link: "/guide/getting-started" },
+          { text: "why-flowstride", link: "/guide/why-flowstride" },
+          { text: "core-concepts", link: "/guide/core-concepts" },
           { text: "Your First Script", link: "/guide/your-first-script" },
         ],
       },
