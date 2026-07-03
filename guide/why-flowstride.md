@@ -252,10 +252,3 @@ Now that you understand why Flowstride was created, the next step is to learn th
 You'll see how Features, Scenarios, and Flowstride's execution lifecycle work together to produce predictable, readable automation.
 
 ---
-
-## Next Steps
-
-Continue with:
-
-- [Core Concepts & Philosophy](./core-concepts.md)
-- [Your First Script](./your-first-script.md)

@@ -230,10 +230,3 @@ The next guide explains the design decisions behind Flowstride and why it approa
 Understanding that philosophy will make the rest of the documentation much easier to follow.
 
 ---
-
-## Next Steps
-
-Continue with:
-
-- [Why Flowstride?](./why-flowstride.md)
-- [Core Concepts & Philosophy](./core-concepts.md)

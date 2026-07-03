@@ -1648,10 +1648,3 @@ Once you begin thinking this way, writing Flowstride becomes remarkably natural.
 # Next Steps
 
 Now that you understand how Flowstride thinks, it's time to dive deeper into the execution model before writing your first automation.
-
-Continue with:
-
-- [Execution Model](./execution-model.md)
-- [Your First Script](./first-script.md)
-- [Variables & Test Data](./variables.md)
-- [Session Management](./sessions.md)
