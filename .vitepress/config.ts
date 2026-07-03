@@ -29,6 +29,7 @@ export default defineConfig({
           { text: "why-flowstride", link: "/guide/why-flowstride" },
           { text: "core-concepts", link: "/guide/core-concepts" },
           { text: "execution-model", link: "/guide/execution-model" },
+          { text: "CLI & Flowstride Cloud", link: "/guide/the-cli" },
           { text: "Your First Script", link: "/guide/your-first-script" },
         ],
       },
