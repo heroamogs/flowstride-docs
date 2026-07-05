@@ -51,14 +51,14 @@ export const sidebar = {
               text: "Sessions",
               link: "/flow-language/getting-started/sessions",
             },
-            {
-              text: "Plugins",
-              link: "/flow-language/getting-started/plugins",
-            },
-            {
-              text: "Docstrings",
-              link: "/flow-language/getting-started/docstrings",
-            },
+            // {
+            //   text: "Plugins",
+            //   link: "/flow-language/getting-started/plugins",
+            // },
+            // {
+            //   text: "Docstrings",
+            //   link: "/flow-language/getting-started/docstrings",
+            // },
           ],
         },
 
