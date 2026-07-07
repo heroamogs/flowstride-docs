@@ -907,11 +907,3 @@ The engine intentionally detects as many authoring mistakes as possible before i
 :::
 
 ---
-
-## Next Steps
-
-You now understand how Flowstride executes every `.flow` script—from reading the file to producing the final report.
-
-The next step is to write your first automation.
-
-In the next chapter, you'll build your first Flowstride Scenario and see how the concepts you've learned throughout this guide come together in a real test.

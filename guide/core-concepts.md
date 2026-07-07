@@ -1644,7 +1644,3 @@ That philosophy influences every part of the framework.
 Once you begin thinking this way, writing Flowstride becomes remarkably natural.
 
 ---
-
-# Next Steps
-
-Now that you understand how Flowstride thinks, it's time to dive deeper into the execution model before writing your first automation.

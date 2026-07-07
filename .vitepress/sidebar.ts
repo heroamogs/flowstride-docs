@@ -55,28 +55,39 @@ export const sidebar = {
             //   text: "Plugins",
             //   link: "/flow-language/getting-started/plugins",
             // },
-            // {
-            //   text: "Docstrings",
-            //   link: "/flow-language/getting-started/docstrings",
-            // },
+            {
+              text: "Docstrings",
+              link: "/flow-language/getting-started/docstrings",
+            },
+          ],
+        },
+        {
+          text: "Dynamic Variables",
+          collapsed: true,
+
+          items: [
+            {
+              text: "Dynamic Variables",
+              link: "/flow-language/dynamic-variables/dynamic-variables",
+            },
           ],
         },
 
-        // {
-        //   text: "UI Automation",
-        //   collapsed: true,
+        {
+          text: "Flow Commands",
+          collapsed: true,
 
-        //   items: [
-        //     {
-        //       text: "flow.open",
-        //       link: "/flow-language/ui-automation/flow.open",
-        //     },
-        //     {
-        //       text: "flow.click",
-        //       link: "/flow-language/ui-automation/flow.click",
-        //     },
-        //   ],
-        // },
+          items: [
+            {
+              text: "flow.open",
+              link: "/flow-language/flow-commands/flow.open",
+            },
+            {
+              text: "flow.click",
+              link: "/flow-language/flow-commands/flow.click",
+            },
+          ],
+        },
 
         // {
         //   text: "API Automation",
