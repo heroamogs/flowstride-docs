@@ -86,6 +86,26 @@ export const sidebar = {
               text: "flow.click",
               link: "/flow-language/flow-commands/flow.click",
             },
+            {
+              text: "flow.forceClick",
+              link: "/flow-language/flow-commands/flow.forceClick",
+            },
+            {
+              text: "flow.type",
+              link: "/flow-language/flow-commands/flow.type",
+            },
+            {
+              text: "flow.forceType",
+              link: "/flow-language/flow-commands/flow.forceType",
+            },
+            {
+              text: "flow.passcode",
+              link: "/flow-language/flow-commands/flow.passcode",
+            },
+            {
+              text: "flow.upload",
+              link: "/flow-language/flow-commands/flow.upload",
+            },
           ],
         },
 
