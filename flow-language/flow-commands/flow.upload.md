@@ -10,7 +10,7 @@ Unlike traditional automation tools that rely on visible `<input type="file">` e
 
 ---
 
-## Why flow.upload Exists
+## The Problem It Solves
 
 Modern web applications rarely expose a visible file input.
 

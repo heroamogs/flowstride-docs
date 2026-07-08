@@ -10,7 +10,7 @@ This allows the same Flow script to work across different UI implementations wit
 
 ---
 
-## Why flow.passcode Exists
+## The Problem It Solves
 
 Modern web applications frequently implement OTP and verification screens using multiple input fields.
 

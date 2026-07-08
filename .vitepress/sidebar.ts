@@ -106,6 +106,22 @@ export const sidebar = {
               text: "flow.upload",
               link: "/flow-language/flow-commands/flow.upload",
             },
+            {
+              text: "flow.set",
+              link: "/flow-language/flow-commands/flow.set",
+            },
+            {
+              text: "flow.select",
+              link: "/flow-language/flow-commands/flow.select",
+            },
+            {
+              text: "flow.drag",
+              link: "/flow-language/flow-commands/flow.drag",
+            },
+            {
+              text: "flow.switchTo",
+              link: "/flow-language/flow-commands/flow.switchTo",
+            },
           ],
         },
 
