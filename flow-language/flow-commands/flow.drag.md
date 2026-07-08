@@ -22,7 +22,7 @@ Most standard automation tools only fire one set of these events, meaning your t
 
 ---
 
-## How flow.drag Works (The Magic Under the Hood)
+## How flow.drag Works
 
 Flowstride's `flow.drag` command abstracts away the underlying event matrix. When you tell the engine to move an element, the Web Adapter performs a high-fidelity human simulation.
 

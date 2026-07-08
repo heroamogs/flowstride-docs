@@ -39,7 +39,7 @@ Likewise, elements inside secure iframes cannot be located until the execution c
 
 ---
 
-## How flow.switchTo Works (The Magic Under the Hood)
+## How flow.switchTo Works
 
 `flow.switchTo` acts as Flowstride's context router.
 

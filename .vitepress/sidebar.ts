@@ -122,6 +122,26 @@ export const sidebar = {
               text: "flow.switchTo",
               link: "/flow-language/flow-commands/flow.switchTo",
             },
+            {
+              text: "flow.close",
+              link: "/flow-language/flow-commands/flow.close",
+            },
+            {
+              text: "flow.acceptDialog",
+              link: "/flow-language/flow-commands/flow.acceptDialog",
+            },
+            {
+              text: "flow.rejectDialog",
+              link: "/flow-language/flow-commands/flow.rejectDialog",
+            },
+            {
+              text: "flow.injectAudio",
+              link: "/flow-language/flow-commands/flow.injectAudio",
+            },
+            {
+              text: "flow.waitForPipeline",
+              link: "/flow-language/flow-commands/flow.waitForPipeline",
+            },
           ],
         },
 
