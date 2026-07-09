@@ -1,0 +1,298 @@
+/* =============================================================================
+   FLOWSTRIDE VITEPRESS THEME
+   ============================================================================= */
+
+/* ============================================================================
+   LIGHT THEME
+   ============================================================================ */
+
+/* Leave the default VitePress light theme untouched. */
+
+/* ============================================================================
+   DARK THEME VARIABLES
+   ============================================================================ */
+
+html.dark {
+  --vp-c-bg: #161224;
+  --vp-c-bg-soft: #1a1528;
+  --vp-c-bg-alt: #201934;
+
+  --vp-c-text-1: rgba(255, 255, 255, 0.96);
+  --vp-c-text-2: rgba(255, 255, 255, 0.74);
+  --vp-c-text-3: rgba(255, 255, 255, 0.56);
+
+  --vp-c-divider: rgba(255, 255, 255, 0.08);
+  --vp-c-divider-light: rgba(255, 255, 255, 0.05);
+
+  --vp-c-brand-1: #8b5cf6;
+  --vp-c-brand-2: #7c3aed;
+  --vp-c-brand-3: #6d28d9;
+
+  --vp-home-hero-name-color: transparent;
+
+  --vp-home-hero-name-background: linear-gradient(
+    90deg,
+    #d0d2ff,
+    #a78bfa,
+    #7c3aed
+  );
+}
+
+/* ============================================================================
+   BODY
+   ============================================================================ */
+
+html.dark body {
+  overflow-x: hidden;
+
+  background: #161224;
+}
+
+/* ============================================================================
+   LAYOUT
+   ============================================================================ */
+
+html.dark .Layout {
+  position: relative;
+
+  min-height: 100vh;
+
+  background: linear-gradient(
+    180deg,
+    #1c1630 0%,
+    #1b152d 30%,
+    #191428 65%,
+    #181326 100%
+  );
+}
+
+/* ============================================================================
+   PERMANENT PURPLE GLOW
+   ============================================================================ */
+
+html.dark .Layout::before {
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: -1;
+
+  background:
+    radial-gradient(
+      circle at 25% 15%,
+      rgba(124, 58, 237, 0.2),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 75% 18%,
+      rgba(168, 85, 247, 0.12),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 50% 65%,
+      rgba(99, 102, 241, 0.08),
+      transparent 45%
+    );
+
+  filter: blur(130px);
+}
+
+/* ============================================================================
+   NAVBAR
+   ============================================================================ */
+
+html.dark .VPNav {
+  background: rgba(12, 10, 20, 0.82);
+
+  backdrop-filter: blur(20px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ============================================================================
+   SIDEBAR
+   ============================================================================ */
+
+html.dark .VPSidebar {
+  background: rgba(18, 15, 30, 0.86);
+
+  backdrop-filter: blur(22px);
+
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ============================================================================
+   PAGE CONTAINER
+   ============================================================================ */
+
+html.dark .VPDoc {
+  background: transparent;
+}
+
+/* ============================================================================
+   HERO
+   ============================================================================ */
+
+html.dark .VPHero {
+  position: relative;
+}
+
+html.dark .VPHero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 900px;
+
+  height: 900px;
+
+  left: 60%;
+
+  top: -160px;
+
+  transform: translateX(-50%);
+
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.2), transparent 70%);
+
+  filter: blur(120px);
+
+  z-index: -1;
+}
+
+/* ============================================================================
+   FEATURE CARDS
+   ============================================================================ */
+
+html.dark .VPFeature {
+  background: rgba(255, 255, 255, 0.03);
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  border-radius: 18px;
+
+  backdrop-filter: blur(18px);
+
+  transition: 0.25s;
+}
+
+html.dark .VPFeature:hover {
+  border-color: rgba(139, 92, 246, 0.35);
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 0 40px rgba(124, 58, 237, 0.18);
+}
+
+/* ============================================================================
+   BUTTONS
+   ============================================================================ */
+
+html.dark .VPButton.brand {
+  background: linear-gradient(90deg, #7c3aed, #8b5cf6);
+
+  border: none;
+
+  box-shadow: 0 8px 28px rgba(124, 58, 237, 0.35);
+}
+
+/* ============================================================================
+   ARTICLE
+   ============================================================================ */
+
+html.dark .vp-doc {
+  background: transparent;
+}
+
+html.dark .vp-doc h1,
+html.dark .vp-doc h2,
+html.dark .vp-doc h3 {
+  color: white;
+}
+
+html.dark .vp-doc p {
+  color: rgba(255, 255, 255, 0.78);
+
+  line-height: 1.9;
+}
+
+/* ============================================================================
+   CODE BLOCKS
+   ============================================================================ */
+
+html.dark div[class*="language-"] {
+  background: rgba(15, 15, 22, 0.95);
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
+
+  border-radius: 18px;
+}
+
+/* ============================================================================
+   INLINE CODE
+   ============================================================================ */
+
+html.dark :not(pre) > code {
+  background: rgba(124, 58, 237, 0.14);
+
+  color: #b794ff;
+
+  border: none;
+}
+
+/* ============================================================================
+   TABLES
+   ============================================================================ */
+
+html.dark table {
+  border-radius: 12px;
+
+  overflow: hidden;
+}
+
+html.dark thead {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* ============================================================================
+   LINKS
+   ============================================================================ */
+
+html.dark a:hover {
+  color: #b794ff;
+}
+
+/* ============================================================================
+   FOOTER
+   ============================================================================ */
+
+html.dark .VPFooter {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+
+  background: transparent;
+}
+
+/* ============================================================================
+   SCROLLBAR
+   ============================================================================ */
+
+html.dark ::-webkit-scrollbar {
+  width: 10px;
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background: #181326;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #6d28d9;
+
+  border-radius: 999px;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #8b5cf6;
+}
