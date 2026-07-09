@@ -162,6 +162,14 @@ export const sidebar = {
               text: "flow.use",
               link: "/flow-language/flow-commands/flow.use",
             },
+            {
+              text: "flow.hover",
+              link: "/flow-language/flow-commands/flow.hover",
+            },
+            {
+              text: "flow.try",
+              link: "/flow-language/flow-commands/flow.try",
+            },
           ],
         },
 
