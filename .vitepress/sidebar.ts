@@ -142,6 +142,26 @@ export const sidebar = {
               text: "flow.waitForPipeline",
               link: "/flow-language/flow-commands/flow.waitForPipeline",
             },
+            {
+              text: "flow.check",
+              link: "/flow-language/flow-commands/flow.check",
+            },
+            {
+              text: "flow.uncheck",
+              link: "/flow-language/flow-commands/flow.uncheck",
+            },
+            {
+              text: "flow.expect",
+              link: "/flow-language/flow-commands/flow.expect",
+            },
+            {
+              text: "flow.save",
+              link: "/flow-language/flow-commands/flow.save",
+            },
+            {
+              text: "flow.use",
+              link: "/flow-language/flow-commands/flow.use",
+            },
           ],
         },
 

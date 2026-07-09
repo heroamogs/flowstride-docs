@@ -143,6 +143,25 @@ Then "Verify login"
 
 ---
 
+### Type using a Spatial Locator
+
+Spatial Locators can also be used while entering data, allowing Flowstride to identify the correct input field when similar fields exist on the same page.
+
+```flow
+Feature: User Registration
+
+Scenario: Enter an email address
+
+Given "User opens the registration page"
+  flow.open "/signup";
+
+When "User enters an email address"
+  flow.type input "Email Address" below "Personal Information" "$randomEmail";
+
+Then "The email field contains the entered value"
+  flow.expect input "Email Address" value "$randomEmail";
+```
+
 ## Supported Values
 
 `flow.type` accepts any valid string value, including:

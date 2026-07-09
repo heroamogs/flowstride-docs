@@ -196,6 +196,25 @@ This helps Flowstride narrow its search to button-like elements.
 
 ---
 
+### Click using a Spatial Locator
+
+When multiple elements contain similar text, a Spatial Locator helps Flowstride identify the correct target based on its position relative to another element.
+
+```flow
+Feature: Dashboard Navigation
+
+Scenario: Open the Notifications page
+
+Given "User is on the dashboard"
+  flow.open "/dashboard";
+
+When "User clicks the Notifications menu"
+  flow.click "Notifications" rightOf "Messages";
+
+Then "The Notifications page is displayed"
+  flow.expect visible "Notification Preferences";
+```
+
 ## Common Use Cases
 
 Use `flow.click` to:
