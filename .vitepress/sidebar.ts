@@ -181,6 +181,10 @@ export const sidebar = {
               text: "flow.post",
               link: "/flow-language/flow-commands/flow.post",
             },
+            {
+              text: "flow.extract",
+              link: "/flow-language/flow-commands/flow.extract",
+            },
           ],
         },
 
