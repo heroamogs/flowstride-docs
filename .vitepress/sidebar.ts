@@ -170,6 +170,17 @@ export const sidebar = {
               text: "flow.try",
               link: "/flow-language/flow-commands/flow.try",
             },
+            {
+              text: "flow.mail.getotp",
+              link: "/flow-language/flow-commands/flow.mail.getotp",
+            },
+            {
+              text: "APIs",
+            },
+            {
+              text: "flow.post",
+              link: "/flow-language/flow-commands/flow.post",
+            },
           ],
         },
 

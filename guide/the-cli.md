@@ -34,6 +34,10 @@ npx flowstride init
 
 npx flowstride run
 
+npx flowstride run --headed
+
+npx flowstride run --headless
+
 npx flowstride report
 
 npx flowstride login
@@ -74,6 +78,16 @@ For example:
 ```bash
 npx flowstride run
 ```
+
+:::info Note:
+
+- **_npx flowstride run_** => Runs on both CLI and Flowstride's default browser;
+
+- **_npx flowstride run --headless_** => Runs on only the CLI
+
+- **_npx flowstride run --headed_** => Runs on both CLI, Flowstride's default browser and also enables Playwright's chrome browser
+
+:::
 
 Using `npx` ensures the project uses its locally installed version of Flowstride rather than relying on a globally installed CLI.
 

@@ -1,10 +1,10 @@
 # Introduction
 
-Most automation frameworks teach you how to automate a browser.
+**Flowstride is a lightweight, unified framework that natively automates UI, API, Live OTP extraction, and complex iFrames from a single, human-readable script.**
 
-Flowstride teaches you how to automate a **user journey**.
+It is built on top of industry-proven engines; Playwright for bulletproof browser control and Undici for high-performance network routing. Flowstride delivers enterprise-grade testing power while completely stripping away the complex boilerplate.
 
-Before writing your first test, there is one idea that explains almost everything about Flowstride.
+Most traditional automation frameworks force you to write code that thinks like a machine. Flowstride teaches you how to automate a user journey.
 
 > **Flowstride is flow-first.**
 
