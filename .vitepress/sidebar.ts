@@ -193,6 +193,18 @@ export const sidebar = {
               text: "flow.put",
               link: "/flow-language/flow-commands/flow.put",
             },
+            {
+              text: "flow.patch",
+              link: "/flow-language/flow-commands/flow.patch",
+            },
+            {
+              text: "flow.delete",
+              link: "/flow-language/flow-commands/flow.delete",
+            },
+            {
+              text: "flow.graphql",
+              link: "/flow-language/flow-commands/flow.graphql",
+            },
           ],
         },
 
