@@ -185,6 +185,14 @@ export const sidebar = {
               text: "flow.extract",
               link: "/flow-language/flow-commands/flow.extract",
             },
+            {
+              text: "flow.get",
+              link: "/flow-language/flow-commands/flow.get",
+            },
+            {
+              text: "flow.put",
+              link: "/flow-language/flow-commands/flow.put",
+            },
           ],
         },
 
