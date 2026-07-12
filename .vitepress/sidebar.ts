@@ -208,12 +208,17 @@ export const sidebar = {
           ],
         },
 
-        // {
-        //   text: "API Automation",
-        //   collapsed: true,
+        {
+          text: "Flow Elements",
+          collapsed: true,
 
-        //   items: [],
-        // },
+          items: [
+            {
+              text: "button",
+              link: "/flow-language/flow-elements/button",
+            },
+          ],
+        },
 
         // {
         //   text: "Assertions",
