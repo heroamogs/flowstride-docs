@@ -217,6 +217,38 @@ export const sidebar = {
               text: "button",
               link: "/flow-language/flow-elements/button",
             },
+            {
+              text: "link",
+              link: "/flow-language/flow-elements/link",
+            },
+            {
+              text: "a",
+              link: "/flow-language/flow-elements/a",
+            },
+            {
+              text: "input",
+              link: "/flow-language/flow-elements/input",
+            },
+            {
+              text: "field",
+              link: "/flow-language/flow-elements/field",
+            },
+            {
+              text: "div",
+              link: "/flow-language/flow-elements/div",
+            },
+            {
+              text: "span",
+              link: "/flow-language/flow-elements/span",
+            },
+            {
+              text: "image/img",
+              link: "/flow-language/flow-elements/image",
+            },
+            {
+              text: "burger",
+              link: "/flow-language/flow-elements/burger",
+            },
           ],
         },
 
