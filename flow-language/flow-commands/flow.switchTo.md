@@ -18,7 +18,7 @@ Modern workflows frequently involve:
 
 - Opening a new browser tab.
 - Launching popup windows.
-- Embedding third-party applications inside secure iframes.
+- Embedding third party applications inside secure iframes.
 
 Examples include:
 
@@ -49,18 +49,20 @@ When executed, the Web Adapter determines what kind of target has been supplied 
 
 Flowstride analyses the supplied target and determines whether it represents:
 
-- a browser tab
-- a popup window
+- the most recently opened tab (`next`)
+- a specific browser tab or popup window
 - an iframe
 - the original page (`main`)
 
-If the target represents a browser page, Flowstride searches the active browser context for a page whose URL or title matches the supplied value and brings it to the foreground.
+If the target is `"next"`, Flowstride automatically waits for a new tab or window to open and instantly switches execution focus to it, regardless of its URL.
+
+If the target represents a specific browser page, Flowstride searches the active browser context for a page whose URL or title matches the supplied value and brings it to the foreground.
 
 If the target represents an iframe, Flowstride switches execution into that frame, allowing subsequent commands to interact directly with its contents.
 
 ---
 
-### Telemetry Synchronization
+### Telemetry Synchronisation
 
 Changing browser contexts can interrupt browser telemetry such as execution recording.
 
@@ -72,23 +74,61 @@ This ensures that screenshots, execution artifacts, and video recordings continu
 
 ## Syntax
 
+### Switch to the newest opened tab
+
 ```flow
-flow.switchTo "<target>";
+flow.switchTo "next";
+```
+
+### Switch to a specific URL or Title
+
+```flow
+flow.switchTo "accounts.google.com";
+```
+
+### Return to the main page
+
+```flow
+flow.switchTo "main";
 ```
 
 ---
 
 ## Parameters
 
-| Parameter | Required | Description                                                                 |
-| --------- | :------: | --------------------------------------------------------------------------- |
-| Target    |    ✅    | URL, page title, iframe selector, or `main` to return to the original page. |
+| Parameter | Required | Description                                                                                                          |
+| :-------- | :------: | :------------------------------------------------------------------------------------------------------------------- |
+| Target    |    ✅    | Use `"next"` for new tabs, `"main"` for the original page, or supply a specific URL, page title, or iframe selector. |
 
 ---
 
 ## Examples
 
-### Switch to a newly opened browser tab
+### Switch to a newly opened browser tab dynamically
+
+Use the `next` keyword when clicking a link opens a new tab, and you do not want to hardcode the destination URL.
+
+```flow
+Feature: External Navigation
+
+Scenario: Verify external link opens in a new tab
+
+Given "The user is on the dashboard"
+  flow.open "/dashboard";
+
+When "The user clicks the support link"
+  flow.click link "Help Centre";
+
+And "Switch to the newly opened tab"
+  flow.switchTo "next";
+
+Then "Verify the support page loaded"
+  flow.expect visible "How can we help you today";
+```
+
+---
+
+### Switch to a specific tab by URL
 
 ```flow
 Feature: Google Authentication
@@ -105,7 +145,7 @@ And "Switch to the Google tab"
   flow.switchTo "accounts.google.com";
 
 Then "Enter the email address"
-  flow.type input "Email" "user@flowstridemail.com";
+  flow.type input "Email" "user@example.com";
 ```
 
 ---
@@ -132,14 +172,6 @@ Then "Return to the main page"
 
 ---
 
-### Return to the original page
-
-```flow
-flow.switchTo "main";
-```
-
----
-
 ## When to Use flow.switchTo
 
 Use `flow.switchTo` whenever the application moves the user into a different browser context.
@@ -148,10 +180,10 @@ Typical examples include:
 
 - OAuth login pages
 - Browser popups
-- Newly opened tabs
+- Newly opened tabs (using `"next"`)
 - Embedded payment gateways
 - Embedded chat widgets
-- Third-party dashboards
+- Third party dashboards
 - Secure iframes
 
 ---
@@ -188,8 +220,6 @@ flow.switchTo "main";
 
 `flow.switchTo` expects the target page or iframe to exist.
 
-Ensure the action that opens the new tab or popup has completed before switching.
+Ensure the action that opens the new tab or popup has completed before switching. Using `"next"` automatically includes a brief waiting period to allow the browser to render the new tab.
 
 :::
-
----

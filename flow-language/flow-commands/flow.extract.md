@@ -2,34 +2,34 @@
 
 ## Introduction
 
-`flow.extract` is a **Flow Command** that retrieves values from the most recent API response and stores them in Flowstride variables.
+`flow.extract` is a **Flow Command** that retrieves values from the most recent API response or visible User Interface elements and stores them in Flowstride variables.
 
-Whether you need to capture a generated user ID, authentication token, session cookie, request identifier, or any other dynamic value, `flow.extract` allows you to reuse that data throughout your Flowstride Scenario without writing JavaScript or manually parsing JSON.
+Whether you need to capture a generated user ID, authentication token, session cookie, or scrape dynamic text directly from a data table, `flow.extract` allows you to reuse that data throughout your Flowstride Scenario without writing JavaScript or manually parsing JSON.
 
 ---
 
 ## The Problem It Solves
 
-Modern API workflows rarely consist of isolated requests.
+Modern workflows rarely consist of isolated actions.
 
-Most real-world scenarios require data from one request to be reused in another. For example:
+Most real world scenarios require data from one step to be reused in another. For example:
 
 - Creating a user and using the generated ID in a subsequent request.
 - Logging in and reusing the returned authentication token.
 - Capturing a session cookie for authenticated requests.
-- Extracting data from an API response and using it in a browser interaction.
+- Extracting a dynamic patient name from a dashboard table and using it in a browser interaction.
 
-Traditional automation requires writing JavaScript variables, parsing JSON objects, navigating nested structures, and manually handling HTTP headers and cookies.
+Traditional automation requires writing JavaScript variables, parsing JSON objects, navigating nested structures, and manually locating Document Object Model elements.
 
-`flow.extract` removes that complexity by making response data a first-class part of the Flowstride language.
+`flow.extract` removes that complexity by making data extraction a first class part of the Flowstride language.
 
 ---
 
 ## How flow.extract Works
 
-Flowstride automatically stores the most recent API response in memory.
+Flowstride automatically stores the most recent API response in memory and has direct access to the live Document Object Model.
 
-When `flow.extract` executes, it retrieves values directly from that stored response without issuing another network request.
+When `flow.extract` executes, it mathematically retrieves values directly from your chosen target.
 
 ### 1. Strict Target Validation
 
@@ -40,6 +40,9 @@ Supported targets are:
 - `resBody`
 - `resHeader`
 - `cookie`
+- `text`
+- `value`
+- `attribute`
 
 Flowstride also enforces strict camelCase syntax.
 
@@ -49,6 +52,7 @@ For example:
 
 ```flow
 flow.extract resBody "user.id" as "userId";
+flow.extract text "table[0] tr[1] td[9]" as "cellData";
 ```
 
 ❌ Invalid
@@ -61,7 +65,7 @@ flow.extract resbody "user.id" as "userId";
 
 ### 2. Deep JSON Traversal
 
-When extracting from the response body, Flowstride navigates nested JSON structures using a built-in JSON path resolver.
+When extracting from the response body, Flowstride navigates nested JSON structures using a built in JSON path resolver.
 
 Nested objects are fully supported.
 
@@ -83,7 +87,7 @@ Flowstride automatically resolves array indexes during extraction.
 
 Headers are retrieved directly from the stored response.
 
-Header names are matched case-insensitively.
+Header names are matched case insensitively.
 
 For example:
 
@@ -93,18 +97,30 @@ flow.extract resHeader "X-Request-Id" as "requestId";
 
 For cookies, Flowstride automatically parses the `Set-Cookie` response headers, locates the requested cookie, and extracts only the cookie value.
 
-Cookie metadata such as:
-
-- Path
-- Secure
-- HttpOnly
-- SameSite
-
-is automatically ignored.
+Cookie metadata such as Path, Secure, HttpOnly, and SameSite is automatically ignored.
 
 ---
 
-### 4. Scoped Variable Storage
+### 4. Smart DOM Extraction
+
+When extracting from the User Interface, Flowstride integrates seamlessly with spatial selectors and Flow Elements (including `table`, `tr`, `td`, and `th`).
+
+You can extract visible text, input field values, or specific HTML attributes.
+
+```flow
+// Extract visible text using table coordinates
+flow.extract text "table[0] tr[1] td[0]" as "userData";
+
+// Extract the value from an input field
+flow.extract value field "Email Address" as "userEmail";
+
+// Extract an attribute (like href) from a link
+flow.extract attribute link "Profile" "href" as "profileUrl";
+```
+
+---
+
+### 5. Scoped Variable Storage
 
 Extracted values are stored in Flowstride's variable engine.
 
@@ -114,35 +130,11 @@ Adding the `global` modifier stores the value as a **global variable**, making i
 
 ---
 
-### 5. Intelligent Error Reporting
+### 6. Intelligent Error Reporting
 
 If an extraction cannot be completed, Flowstride throws a detailed error rather than returning an undefined value.
 
-The runtime reports:
-
-- The failed extraction path
-- The HTTP response status
-- A truncated portion of the response body
-
-This helps quickly identify incorrect JSON paths or unexpected API responses.
-
----
-
-### 6. Automatic Response Memory
-
-`flow.extract` never performs another API request.
-
-Instead, it operates on the most recent API response already stored in memory.
-
-This allows commands such as:
-
-```flow
-flow.post ...
-flow.extract ...
-flow.expect ...
-```
-
-to work together naturally without additional network calls.
+The runtime reports the failed extraction path, the HTTP response status, or the missing User Interface element, helping you quickly identify incorrect paths or unexpected application states.
 
 ---
 
@@ -154,16 +146,16 @@ Extract a value from the response body.
 flow.extract resBody "data.user.id" as "userId";
 ```
 
-Extract a response header.
-
-```flow
-flow.extract resHeader "X-Request-Id" as "requestId";
-```
-
 Extract a cookie.
 
 ```flow
 flow.extract cookie "SessionId" as "sessionId";
+```
+
+Extract text from a table coordinate.
+
+```flow
+flow.extract text "table[0] tr[1] td[9]" as "actionText";
 ```
 
 Store the extracted value globally.
@@ -176,13 +168,14 @@ flow.extract resBody "token" as global "accessToken";
 
 ## Parameters
 
-| Parameter     | Required | Description                                                        |
-| ------------- | :------: | ------------------------------------------------------------------ |
-| Target        |    ✅    | The source to extract from (`resBody`, `resHeader`, or `cookie`).  |
-| Path / Key    |    ✅    | JSON path, header name, or cookie name to retrieve.                |
-| `as`          |    ✅    | Assigns the extracted value to a Flowstride variable.              |
-| `global`      | Optional | Stores the value as a global variable instead of a local variable. |
-| Variable Name |    ✅    | The destination variable.                                          |
+| Parameter       | Required | Description                                                                                     |
+| :-------------- | :------: | :---------------------------------------------------------------------------------------------- |
+| Target          |    ✅    | The source to extract from (`resBody`, `resHeader`, `cookie`, `text`, `value`, or `attribute`). |
+| Path / Selector |    ✅    | JSON path, header name, cookie name, or the Document Object Model selector.                     |
+| Attribute       | Optional | Required only if Target is `attribute`. Specifies the exact HTML attribute to scrape.           |
+| `as`            |    ✅    | Assigns the extracted value to a Flowstride variable.                                           |
+| `global`        | Optional | Stores the value as a global variable instead of a local variable.                              |
+| Variable Name   |    ✅    | The destination variable.                                                                       |
 
 ---
 
@@ -217,102 +210,58 @@ Then "Retrieve the created user"
 
 ---
 
-### Extract an authentication cookie
+### Extract data from a Table
 
-Retrieve a session cookie after login.
-
-```flow
-Feature: Authentication
-
-Scenario: Capture the session cookie
-
-Given "Authenticate the user"
-  flow.post "/api/login" with reqBody;
-  """
-  {
-      "email": "admin@example.com",
-      "password": "Password123"
-  }
-  """
-
-When "Store the session cookie"
-  flow.extract cookie "SessionId" as global "sessionCookie";
-
-Then "Authentication succeeds"
-  flow.expect status "200";
-```
-
----
-
-### Extract a response header
-
-Capture a request identifier returned by the server.
+Scrape the dynamic patient name from the first row of a dashboard table.
 
 ```flow
-Feature: Request Tracking
+Feature: Patient Records
 
-Scenario: Capture the request ID
+Scenario: Verify dynamic patient assignment
 
-Given "Call the tracking endpoint"
-  flow.get "/api/track";
+Given "The user is logged in"
+  flow.open "/dashboard";
 
-When "Store the request identifier"
-  flow.extract resHeader "X-Request-Id" as "requestId";
+When "Store the latest patient name"
+  flow.extract text "table[0] tr[1] td[0]" as "latestUser";
 
-Then "The request succeeds"
-  flow.expect status "200";
+Then "Search for the extracted patient"
+  flow.type field "Search User" "@latestUser";
 ```
 
 ---
 
 ## When to Use flow.extract
 
-Use `flow.extract` whenever you need to reuse dynamic values returned by an API, including:
+Use `flow.extract` whenever you need to reuse dynamic values returned by an API or rendered in the User Interface, including:
 
 - Generated IDs
 - Authentication tokens
 - Session cookies
 - Response headers
-- Nested JSON values
+- Dynamic table cell data
+- Input field values
 - Data shared between API and UI workflows
 
 ---
 
 ## Important Notes
 
-::: info Uses the latest API response
+::: info API Extractions Use Memory
 
-`flow.extract` always operates on the most recent API response stored in memory.
-
-It does not perform another network request.
-
-:::
-
-::: info Supports nested JSON
-
-Complex JSON structures and array indexes are supported.
-
-For example:
-
-```flow
-flow.extract resBody "users[0].email" as "email";
-```
+When targeting `resBody`, `resHeader`, or `cookie`, `flow.extract` operates on the most recent API response stored in memory. It does not perform another network request.
 
 :::
 
 ::: info Local and global variables
 
-By default, extracted values are stored as local variables.
-
-Use the `global` modifier when the value needs to be shared across multiple Flow Scenarios.
+By default, extracted values are stored as local variables. Use the `global` modifier when the value needs to be shared across multiple Flow Scenarios.
 
 :::
 
-::: info Automatic cookie parsing
+::: info Zero Index Coordinates
 
-Flowstride automatically parses `Set-Cookie` headers and extracts only the requested cookie value.
-
-You do not need to manually split cookie strings.
+When extracting text from tables, remember that computer arrays start at zero. The first table on the page is `table[0]`, the first row is `tr[0]`, and the first column is `td[0]`.
 
 :::
 
@@ -322,13 +271,7 @@ You do not need to manually split cookie strings.
 
 ::: warning Use the correct extraction target
 
-Only the following targets are supported:
-
-- `resBody`
-- `resHeader`
-- `cookie`
-
-Using any other target results in a parser error.
+Only the strictly defined targets (`resBody`, `resHeader`, `cookie`, `text`, `value`, `attribute`) are supported. Using any other target results in a parser error.
 
 :::
 
@@ -339,10 +282,8 @@ Always extract a value before referencing it.
 Correct:
 
 ```flow
-flow.extract resBody "token" as "accessToken";
-flow.expect resBody "token" equals "@accessToken";
+flow.extract text "tr[1] td[0]" as "userData";
+flow.expect visible "@userData";
 ```
 
 :::
-
----

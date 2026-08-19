@@ -249,15 +249,36 @@ export const sidebar = {
               text: "burger",
               link: "/flow-language/flow-elements/burger",
             },
+            {
+              text: "table",
+              link: "/flow-language/flow-elements/table",
+            },
           ],
         },
 
-        // {
-        //   text: "Assertions",
-        //   collapsed: true,
+        {
+          text: "Spatial Modifiers",
+          collapsed: true,
 
-        //   items: [],
-        // },
+          items: [
+            {
+              text: "leftOf/rightOf",
+              link: "/flow-language/spatial-modifiers/left-right-of",
+            },
+            {
+              text: "above/below",
+              link: "/flow-language/spatial-modifiers/above-below",
+            },
+            {
+              text: "inside",
+              link: "/flow-language/spatial-modifiers/inside",
+            },
+            {
+              text: "near",
+              link: "/flow-language/spatial-modifiers/near",
+            },
+          ],
+        },
 
         // {
         //   text: "Control Flow",
