@@ -39,7 +39,7 @@ Then "Loan should become approved";
 
 The Scenario immediately focuses on the business behaviour instead of spending several steps entering credentials and waiting for the application to authenticate.
 
-This produces faster, cleaner, and easier-to-maintain automation.
+This produces faster, cleaner, and easier to maintain automation.
 
 ---
 
@@ -58,7 +58,7 @@ The current implementation captures:
 
 When that Session is restored, Flowstride injects the captured state back into the browser before execution continues.
 
-Because Flowstride also provides first-class API automation, Sessions are designed to support hybrid UI and API workflows without changing the way your Scenarios are written.
+Because Flowstride also provides first class API automation, Sessions are designed to support hybrid UI and API workflows without changing the way your Scenarios are written.
 
 ---
 
@@ -183,9 +183,19 @@ The Session can then be restored during future executions without requiring anot
 
 Persistent Sessions are useful when:
 
-- Login is expensive or time-consuming.
-- Multi-factor authentication is involved.
+- Login is expensive or time consuming.
+- Multi factor authentication is involved.
 - A reusable authenticated state is shared across multiple test runs.
+
+---
+
+## Global Setup with .first.flow
+
+If you are using Global or Persistent Sessions, you must ensure that the Session is captured and saved before other Scenarios attempt to restore it.
+
+To guarantee your authentication file executes before anything else, append `.first.flow` to the filename (for example, `login.first.flow`).
+
+Flowstride automatically places any `.first.flow` file into a priority queue. The orchestration engine will execute this priority queue completely and sequentially before starting the standard test suite. This guarantees your Sessions are safely captured and ready, entirely preventing race conditions during parallel test execution.
 
 ---
 
@@ -211,7 +221,7 @@ Given "Reuse the authenticated session"
 
 ## Saving an API Authentication Session
 
-Sessions are not limited to browser-driven authentication.
+Sessions are not limited to browser driven authentication.
 
 You can authenticate through the API, save the authenticated state, and continue directly into the UI.
 
