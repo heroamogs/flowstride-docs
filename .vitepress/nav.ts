@@ -10,6 +10,11 @@ export const nav = [
     link: "/flow-language/getting-started/variables",
     activeMatch: "/flow-language/",
   },
+  {
+    text: "Manual Workspace",
+    link: "/manual-workspace/manual-testing",
+    activeMatch: "/manual-workspace/",
+  },
 
   //   {
   //     text: "Projects",

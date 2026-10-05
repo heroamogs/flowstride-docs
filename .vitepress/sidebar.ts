@@ -311,6 +311,19 @@ export const sidebar = {
     },
   ],
 
+  "/manual-workspace/": [
+    {
+      text: "Manual Workspace",
+      collapsed: false,
+      items: [
+        {
+          text: "Manual Flow",
+          link: "/manual-workspace/manual-testing",
+        },
+      ],
+    },
+  ],
+
   "/projects/": [
     {
       text: "Projects",
