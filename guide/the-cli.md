@@ -1,5 +1,7 @@
 # Using the Flowstride CLI
 
+For the combined candidate commands and support limits, see [Native CI & Games](./native-ci-games).
+
 The Flowstride Command Line Interface (CLI) is the primary way to interact with the framework.
 
 Whether you're creating a new project, running automation, viewing reports, or connecting to Flowstride Enterprise, every workflow begins with the CLI.
@@ -83,9 +85,11 @@ npx flowstride run
 
 - **_npx flowstride run_** => Runs on both CLI and Flowstride's default browser;
 
-- **_npx flowstride run --headless_** => Runs on only the CLI
+- **_npx flowstride run --headless_** => Uses a headless application browser; the interactive dashboard remains active.
 
-- **_npx flowstride run --headed_** => Runs on both CLI, Flowstride's default browser and also enables Playwright's chrome browser
+- **_npx flowstride run --headed_** => Shows the application browser alongside the interactive dashboard.
+
+- **_npx flowstride run --ci_** => Runs headlessly without a dashboard server, writes JSON/JUnit reports and exits with the test result.
 
 :::
 

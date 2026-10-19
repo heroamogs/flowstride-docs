@@ -4,6 +4,8 @@ export const sidebar = {
       text: "Introduction & Basics",
       collapsed: false,
       items: [
+        { text: "Native CI & Games", link: "/guide/native-ci-games" },
+        { text: "Cloud Evidence & Security", link: "/guide/cloud-evidence" },
         {
           text: "Getting Started",
           link: "/guide/getting-started",
