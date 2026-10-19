@@ -6,3 +6,7 @@ dist/
 cache/
 .vitepress/dist/
 .vitepress/cache/
+# Release checks
+development-audit.json
+runtime-audit.json
+*.tsbuildinfo
