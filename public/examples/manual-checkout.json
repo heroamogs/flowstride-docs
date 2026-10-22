@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "flowName": "Checkout — registered customer",
+    "version": "1.0",
+    "testPlan": "TP-CHECKOUT-01",
+    "environment": "Staging",
+    "lastUpdatedBy": "Documentation example"
+  },
+  "nodes": [
+    {
+      "id": 1,
+      "x": 80,
+      "y": 160,
+      "width": 320,
+      "height": 160,
+      "visual_step": "1",
+      "title": "Open the prepared cart",
+      "description": "Use test customer U-01 with cart C-01. Verify the staging build before starting.",
+      "steps": "<p>Sign in with the approved test account; open the prepared one-item cart.</p>",
+      "expected_result": "<p>The SKU, quantity and total match fixture C-01.</p>",
+      "references": "<p>TP-CHECKOUT-01 · REQ-ORDER-04 · fixtures U-01/C-01/A-01</p>",
+      "priority": "High",
+      "defect_report": "",
+      "defect_media": "",
+      "assigned_to": "",
+      "is_active": false
+    },
+    {
+      "id": 2,
+      "x": 470,
+      "y": 160,
+      "width": 320,
+      "height": 160,
+      "visual_step": "2",
+      "title": "Submit the order once",
+      "description": "Use the approved test checkout path; no real settlement is in scope.",
+      "steps": "<p>Enter address fixture A-01 and submit once. Record the order identifier.</p>",
+      "expected_result": "<p>Exactly one confirmation appears with an order ID.</p>",
+      "references": "<p>TP-CHECKOUT-01 · REQ-ORDER-04 · fixtures U-01/C-01/A-01</p>",
+      "priority": "High",
+      "defect_report": "",
+      "defect_media": "",
+      "assigned_to": "",
+      "is_active": false
+    },
+    {
+      "id": 3,
+      "x": 860,
+      "y": 160,
+      "width": 320,
+      "height": 160,
+      "visual_step": "3",
+      "title": "Verify order history",
+      "description": "Compare the persisted record with the confirmation.",
+      "steps": "<p>Open order history and locate the confirmed order.</p>",
+      "expected_result": "<p>The same ID, item, quantity and total appear; no duplicate exists.</p>",
+      "references": "<p>TP-CHECKOUT-01 · REQ-ORDER-04 · fixtures U-01/C-01/A-01</p>",
+      "priority": "High",
+      "defect_report": "",
+      "defect_media": "",
+      "assigned_to": "",
+      "is_active": false
+    }
+  ],
+  "groups": [
+    {
+      "id": 4,
+      "x": 40,
+      "y": 110,
+      "width": 1180,
+      "height": 260,
+      "title": "Checkout and verification",
+      "is_active": false
+    }
+  ],
+  "texts": [
+    {
+      "id": 5,
+      "x": 80,
+      "y": 30,
+      "width": 1000,
+      "height": 50,
+      "content": "Preconditions: approved staging build; disposable customer/cart/address. Cleanup: cancel the test order using the agreed process. No real payment settlement.",
+      "is_active": false
+    }
+  ],
+  "connections": [
+    {
+      "id": 6,
+      "start_x": 400,
+      "start_y": 240,
+      "end_x": 470,
+      "end_y": 240,
+      "start_node_id": 1,
+      "end_node_id": 2,
+      "start_anchor": "Right",
+      "end_anchor": "Left",
+      "is_active": false
+    },
+    {
+      "id": 7,
+      "start_x": 790,
+      "start_y": 240,
+      "end_x": 860,
+      "end_y": 240,
+      "start_node_id": 2,
+      "end_node_id": 3,
+      "start_anchor": "Right",
+      "end_anchor": "Left",
+      "is_active": false
+    }
+  ]
+}

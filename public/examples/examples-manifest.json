@@ -1,0 +1,15 @@
+{
+  "sourceFiles": {
+    "flowstride-storage-example/.gitignore": "56858f5fea164822b4e69b842d5de0bc4c97b193535ac1a0d724326751f661fb",
+    "flowstride-storage-example/README.txt": "f9b89bdfd6d909f0d1ad2e69ecc2d72650000a1a37f5b6651cd70c537f05ae90",
+    "flowstride-storage-example/app.mjs": "e4566f2ee05d6329da96b32f3676783e272c64eee436c2874d85f536ecad5e01",
+    "flowstride-storage-example/flows/restore.flow": "2f1896098d66cb69b296c21085d9cdf595622d8883e8b9e63a984d878d2fd4fe",
+    "flowstride-storage-example/flows/setup.first.flow": "ce8911b1ec699f4d8b960101ea6e85fcd82e07163f9ea43c2dd356d5bd0dea3e",
+    "flowstride-storage-example/flowstride.config.json": "5b51537bff1af80e62fa4ab9f737de3c665b37fc350d7fe74b07e645a809b163",
+    "flowstride-storage-example/package.json": "449d980781c3055a662d3d739020ff95d12b697174700e65c20724c11dbb93d2",
+    "manual-checkout.json": "2149f697d40c69b9d16d4353267d65ef4d4be50bc646323b60821cde838d7613"
+  },
+  "archives": {
+    "flowstride-storage-example.zip": "a647863dcf6900c02e9ed3bfa12b64f42fe6b1c297097e52436657dae4e06117"
+  }
+}

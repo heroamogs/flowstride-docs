@@ -1,61 +1,55 @@
-# Flowstride Documentation
+---
+search: false
+---
 
-This repository contains the official documentation for the **Flowstride** framework. The site is built using [VitePress](https://vitepress.dev/).
+# Flowstride documentation
 
-## How to run locally
+The official Flowstride documentation site, built with VitePress. Guides cover OS and Cloud capabilities, manual testing, automation, native CI, browser games, and evidence.
 
-If you would like to contribute to the documentation or fix a typo, you can run the site locally on your machine.
+## Run locally
 
-### Prerequisites
+Use Node.js 22.12 or newer and npm.
 
-- [Node.js](https://nodejs.org/) (Version 18.0.0 or higher)
-- `npm` or `yarn`
+```sh
+npm ci
+npm run dev -- --host 127.0.0.1 --port 5173
+```
 
-### Setup
+Open the URL printed in the terminal.
 
-1. **Clone the repository:**
+## Validate
 
-   ```bash
-   git clone [https://github.com/heroamogs/flowstride-docs.git](https://github.com/heroamogs/flowstride-docs.git)
-   cd flowstride-docs
-   ```
+```sh
+npm run check
+```
 
-2. **Install dependencies:**
-   Using npm:
+Checks validate public content, local links, example asset hashes and the manual design structure, then build the site with dead-link checking enabled. Local search is generated during the build. When engine validation is configured, Flow examples and the manual template are also checked against the available engines.
 
-   ```bash
-   npm install
-   ```
+To serve the production build locally:
 
-   Or using yarn:
+```sh
+npm run preview -- --host 127.0.0.1 --port 5173
+```
 
-   ```bash
-   yarn install
-   ```
+## Examples
 
-3. **Start the development server:**
-   Using npm:
+Editable example source lives in `public/examples`. After changing an example, regenerate its downloads and hash manifest:
 
-   ```bash
-   npm run dev
-   ```
+```sh
+python3 scripts/package-examples.py
+```
 
-   Or using yarn:
+The first-flow guide uses the normal `npm i flowstride` and `npx flowstride init` route, with no separate starter download. The optional storage example is a local demonstration, not a production authentication implementation.
 
-   ```bash
-   yarn dev
-   ```
+## Editorial rules
 
-4. **View in browser:**
-   Open [http://localhost:5173](http://localhost:5173) in your browser.
+- Verify syntax against the parser and behavior against the relevant engine or UI.
+- Use two-space indentation in examples. Expand multi-field or nested JSON objects across lines; keep short single-field objects inline with consistent spacing.
+- Distinguish native features, project plugins, and suggested team practices.
+- Document installation through npm and Cloud account login, including free accounts.
+- Keep internal release identifiers and distribution infrastructure out of public content and downloads.
+- Never include real credentials, private source, local user paths, or customer data.
+- Preserve existing documentation routes where possible.
+- Describe evidence access and collaboration limits accurately.
 
-## Contributing
-
-We welcome improvements to our documentation!
-
-- To suggest a change, open a Pull Request.
-- For major changes, please open an issue first to discuss the update.
-
-## License
-
-Released under the [MIT License](https://github.com/heroamogs/flowstride-os/blob/prod/LICENSE).
+The OS engine is MIT licensed. Cloud includes free accounts and plan-based features.

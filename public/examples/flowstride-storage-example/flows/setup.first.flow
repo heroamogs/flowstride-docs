@@ -1,0 +1,26 @@
+Feature: Customer access
+
+Scenario: A newly created customer can sign in
+
+Given "A customer exists"
+  flow.post "/api/customers" with reqBody
+  """
+  {
+    "email": "reader@example.test",
+    "name": "Documentation Reader"
+  }
+  """
+
+And "Customer creation succeeds"
+  flow.expect status "201";
+
+When "The customer signs in"
+  flow.open "/";
+  flow.type input "Email" "reader@example.test";
+  flow.click button "Sign in";
+
+When "Save the signed-in state"
+  flow.save session "docs-customer" persist;
+
+Then "The account is displayed"
+  flow.expect visible "Welcome, Documentation Reader";

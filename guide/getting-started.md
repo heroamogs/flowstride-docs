@@ -1,232 +1,52 @@
-# Introduction
+# Start with a workflow
 
-**Flowstride is a lightweight, unified framework that natively automates UI, API, Live OTP extraction, and complex iFrames from a single, human-readable script.**
+Flowstride lets you write browser and API tests in readable `.flow` files, inspect a run in a local dashboard, and run the same suite in CI. The Manual Workspace helps you design and carry out tests that still need a person.
 
-It is built on top of industry-proven engines; Playwright for bulletproof browser control and Undici for high-performance network routing. Flowstride delivers enterprise-grade testing power while completely stripping away the complex boilerplate.
+Choose a starting point:
 
-Most traditional automation frameworks force you to write code that thinks like a machine. Flowstride teaches you how to automate a user journey.
+| I want to…                               | Start here                                        |
+| ---------------------------------------- | ------------------------------------------------- |
+| Run a browser and API test               | [First automated flow](/guide/your-first-script)  |
+| Design a test without writing automation | [First manual flow](/manual-workspace/first-flow) |
+| Run existing tests on GitHub             | [Native CI](/guide/native-ci-games)               |
+| Test a browser game                      | [Game testing](/games/getting-started)            |
+| Connect a Cloud account                  | [OS and Cloud](/guide/editions)                   |
 
-> **Flowstride is flow-first.**
+## Install the public engine
 
-That does **not** simply mean it uses a `.flow` file.
+Use **Node.js 22.12 or newer** and an npm project. In a new folder:
 
-It means Flowstride encourages you to automate software the same way a real user experiences it.
-
-Users don't inspect HTML before clicking a button.
-
-They don't search for CSS selectors.
-
-They don't write XPath expressions.
-
-They simply look at the screen.
-
-They see **"Log in"** and click it.
-
-They see **"Email"** and type into it.
-
-They see **"Logout"** and know they have successfully signed in.
-
-Flowstride encourages exactly the same way of thinking.
-
----
-
-## What Does "Flow-First" Mean?
-
-Flow-first means your automation should describe **what the user sees** and **what the user is trying to accomplish**, rather than how the application is implemented internally.
-
-Consider the following Flowstride scenario.
-
-```flow
-Feature: User Login
-
-Scenario: User logs into the application
-
-Given "User lands on home page"
-    flow.open "https://www.qacar.online/"
-
-When "User clicks Log in"
-    flow.click "Log in" near "Sign up"
-
-When "User enters credentials"
-    flow.type "Email" "user@flowstridemail.com"
-    flow.type "Password" "Test@12345"
-
-Then "User successfully signs in"
-    flow.expect visible "Logout"
+```sh
+npm init -y
+npm i flowstride
+npx flowstride init
 ```
 
-Take a moment to look at the script.
+`init` creates `flows`, `manual_flows`, `plugins`, `fixtures`, and `reports`, plus a sample flow. It also attempts to install Chromium. `install` explicitly installs the browser matching your Flowstride package.
 
-Did you notice something?
+For relative browser and API URLs, set `BASE_URL` in a project-root `.env` file. A JSON configuration file is optional. [Configuration and environments](/guide/configuration#set-the-base-url-in-env) explains both options.
 
-There isn't a single CSS selector.
+Replace the generated example with a flow for your own application. [Your first automated flow](/guide/your-first-script) walks through configuration, test credentials, and the first run. The generated sample points at a hosted application whose accounts and behavior may change.
 
-There isn't a single XPath.
+## Connect a Cloud account
 
-There isn't a single call to inspect the DOM.
+OS runs locally without an account. Cloud includes free accounts and additional features within your workspace limits. Create a Cloud account and developer token, then run:
 
-Instead, the automation is written using the same information available to the person using the application.
+```sh
+npx flowstride login
+npx flowstride status
+```
 
-- The user sees **Log in**.
-- The user sees **Sign up**.
-- The user sees **Email**.
-- The user sees **Password**.
-- The user sees **Logout**.
+Authenticate with a developer token and accept the Cloud engine installation when offered. See [OS and Cloud](/guide/editions) for engine selection and fallback.
 
-That is what **flow-first** means.
+## Run, inspect, repeat
 
-Flowstride encourages you to automate what users experience, not what the DOM looks like.
+```sh
+npx flowstride run flows
+npx flowstride run flows --ci
+npx flowstride open
+```
 
----
+The first command opens the interactive automation dashboard. The second runs without a dashboard and writes CI reports. The third opens the separate Manual Workspace. Follow the localhost URL printed in the terminal; ports are allocated dynamically.
 
-## Why This Matters
-
-Traditional browser automation often begins with a question like:
-
-> _"What selector should I use?"_
-
-Flowstride begins with a different question:
-
-> **"What does the user see?"**
-
-That small difference has a surprisingly large impact.
-
-Tests become easier to read.
-
-Reviews become easier.
-
-Maintenance becomes simpler because the automation focuses on the behaviour being validated instead of the implementation details used to locate elements.
-
-As applications evolve, business workflows usually change far less frequently than their HTML structure.
-
-Flowstride is designed around that observation.
-
----
-
-## More Than Browser Automation
-
-Modern software rarely consists of a browser alone.
-
-A typical workflow might involve:
-
-1. Creating a customer through an API.
-2. Approving the customer.
-3. Opening the application.
-4. Signing in.
-5. Retrieving an OTP.
-6. Completing verification.
-7. Confirming the dashboard is displayed.
-
-Although these actions span multiple systems, they still represent a **single business process**.
-
-Flowstride allows that workflow to be expressed as one continuous flow instead of splitting it across multiple tools or disconnected scripts.
-
----
-
-## What Is Flowstride?
-
-Flowstride is a **flow-first automation platform**.
-
-It combines three major components that work together.
-
-### A Dedicated Language
-
-Flowstride introduces a language designed specifically for automation.
-
-Rather than writing browser instructions directly in JavaScript or TypeScript, automation is written using `.flow` files that describe complete workflows.
-
----
-
-### A Structured Runtime
-
-Before a scenario executes, Flowstride validates its structure and prepares it for execution.
-
-During execution, the runtime coordinates the different parts of the automation while maintaining a consistent execution lifecycle.
-
----
-
-### Automation Engines
-
-Flowstride includes dedicated automation engines responsible for different parts of execution.
-
-At a high level, these engines handle responsibilities such as browser automation, API communication, and execution orchestration while working together as part of the same runtime.
-
----
-
-## Designed Around Business Workflows
-
-Flowstride encourages tests that answer questions like:
-
-- Can a customer register successfully?
-- Can an administrator approve a new account?
-- Can a user complete two-factor authentication?
-- Can an order be placed successfully?
-- Can a payment be verified?
-
-Instead of asking:
-
-- Which selector should I use?
-- Which XPath should I copy?
-- Which helper function should I write?
-
-The focus shifts from browser mechanics to business behaviour.
-
----
-
-## Who Is Flowstride For?
-
-Flowstride is designed for teams building and maintaining automated quality assurance solutions.
-
-This includes:
-
-- QA Engineers
-- Software Development Engineers in Test (SDETs)
-- Automation Engineers
-- Developers responsible for automated testing
-- Teams building long-lived automation projects
-
-Whether you're automating a small application or a large enterprise platform, Flowstride provides a structured way to express automation that remains readable as projects grow.
-
----
-
-## How This Documentation Is Organised
-
-This documentation is divided into two main sections.
-
-### Guide
-
-The Guide teaches Flowstride step by step.
-
-If you're new to Flowstride, start here.
-
-Each chapter builds upon concepts introduced in previous chapters.
-
----
-
-### Reference
-
-The Reference contains detailed documentation for Flowstride commands, syntax, and capabilities.
-
-Once you're familiar with the language, this section becomes your day-to-day reference.
-
----
-
-:::tip Learn the Concepts First
-
-Flowstride is intentionally different from traditional browser automation frameworks.
-
-Rather than memorising commands, spend a little time understanding the philosophy behind the language first.
-
-Once the core ideas click, the rest of the framework becomes much easier to learn.
-
-:::
-
----
-
-## What's Next?
-
-The next guide explains the design decisions behind Flowstride and why it approaches automation differently from traditional testing tools.
-
-Understanding that philosophy will make the rest of the documentation much easier to follow.
-
----
+You can use OS without a Cloud account, or connect a free Cloud account. Cloud features and usage limits depend on the workspace plan; the Cloud engine is installed through an authenticated private channel. [Learn how selection and fallback work](/guide/editions).

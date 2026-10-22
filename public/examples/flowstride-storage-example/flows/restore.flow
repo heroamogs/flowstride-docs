@@ -1,0 +1,13 @@
+Feature: Stored customer access
+
+Scenario: Session storage is restored before application startup
+
+Given "A saved customer session"
+  flow.use session "docs-customer";
+
+When "The application opens in a fresh browser"
+  flow.open "/";
+
+Then "The temporary state is available"
+  flow.expect attribute "#session-state" "data-mode" "signed-in";
+  flow.expect visible "Welcome, Documentation Reader";

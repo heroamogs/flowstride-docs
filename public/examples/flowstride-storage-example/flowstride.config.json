@@ -1,0 +1,10 @@
+{
+  "testDir": "flows",
+  "baseUrl": "http://127.0.0.1:4174",
+  "timeout": 10000,
+  "recordVideo": true,
+  "webServer": {
+    "command": "node app.mjs",
+    "url": "http://127.0.0.1:4174"
+  }
+}
