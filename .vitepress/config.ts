@@ -23,7 +23,7 @@ export default defineConfig({
         { name: 'comment.line.double-slash', match: '//.*$' },
         { name: 'string.quoted.double', begin: '"', end: '"', patterns: [{name:'constant.character.escape',match:'\\\\.'}] },
         { name: 'keyword.control', match: '\\b(?:Feature|Scenario|Given|When|Then|And|let|only|stop)\\b' },
-        { name: 'entity.name.function', match: '\\b(?:flow|game)\\.[A-Za-z.]+' },
+        { name: 'entity.name.function', match: '\\b(?:flow|game)\\.[A-Za-z_][A-Za-z0-9_.]*' },
         { name: 'constant.language', match: '\\b(?:true|false|null|persist|global)\\b' },
         { name: 'constant.numeric', match: '\\b[0-9]+(?:\\.[0-9]+)?\\b' }
       ]

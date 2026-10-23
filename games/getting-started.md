@@ -55,7 +55,7 @@ npx flowstride run flows --ci --device phone
 npx flowstride run flows --ci --device landscape
 ```
 
-Phone and landscape use Chromium device emulation. They do not establish physical-device compatibility. Touch dragging uses Chromium CDP. Other browser engines and game engines require their own qualification.
+Phone and landscape are browser device-emulation profiles, not physical-device qualification. Chromium provides the mobile-emulation path; Firefox omits the unsupported mobile flag. Touch dragging/swiping uses Chromium CDP and needs a touch-capable profile. Mouse/keyboard, state and canvas checks can be run on other engines where compatible; qualify your actual game. [Browser compatibility](/guide/browser-compatibility) lists the limits.
 
 ## What to assert
 

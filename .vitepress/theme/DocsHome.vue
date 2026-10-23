@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const paths = [
-  { n: '01', tag: 'AUTOMATE', title: 'Your first working flow', detail: 'Create data with an API, use it in the browser, and verify the outcome. Start with a complete local example.', link: '/guide/your-first-script', action: 'Write a flow' },
+  { n: '01', tag: 'AUTOMATE', title: 'Your first working flow', detail: 'Install Flowstride, configure your application, and verify a browser journey. Add API setup when your test needs it.', link: '/guide/your-first-script', action: 'Write a flow' },
   { n: '02', tag: 'TEST MANUALLY', title: 'A case worth repeating', detail: 'Plan the coverage, map the journey, record outcomes, and hand over a defect someone can reproduce.', link: '/manual-workspace/manual-testing', action: 'Open the manual guide' },
   { n: '03', tag: 'RUN IN CI', title: 'From laptop to pipeline', detail: 'Run your existing flows without a custom runner. Keep clear failure status, reports, and evidence.', link: '/guide/native-ci-games', action: 'Set up native CI' },
   { n: '04', tag: 'TEST GAMES', title: 'Beyond the DOM', detail: 'Drive a canvas, inspect game state, compare screens, and select live Three.js objects.', link: '/games/getting-started', action: 'Explore game testing' }
@@ -11,6 +11,8 @@ const references = [
   ['Sessions & storage', '/flow-language/getting-started/sessions', 'Save and restore authentication state'],
   ['Dashboard & Replay', '/reporting/dashboard', 'Inspect a screen or replay a request'],
   ['OS & Cloud', '/guide/editions', 'Understand the installation and handoff'],
+  ['Native browser workflows', '/guide/native-browser-workflows', 'Profiles, mocks, downloads, accessibility and components'],
+  ['API and UI together', '/guide/api-and-ui', 'Prepare data and verify the browser journey in one flow'],
   ['Troubleshooting', '/guide/troubleshooting', 'Resolve common execution problems']
 ];
 </script>

@@ -1,6 +1,6 @@
 # flow.extract
 
-Save part of the current API response or a browser element into a scenario variable.
+Save part of the current API response or a browser element into a flow-file variable. Later scenarios in that file can reuse local extracted values; the next file starts fresh.
 
 ```flow
 flow.extract resBody "user.id" as "userId";

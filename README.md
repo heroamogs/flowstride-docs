@@ -23,7 +23,7 @@ Open the URL printed in the terminal.
 npm run check
 ```
 
-Checks validate public content, local links, example asset hashes and the manual design structure, then build the site with dead-link checking enabled. Local search is generated during the build. When engine validation is configured, Flow examples and the manual template are also checked against the available engines.
+Checks validate public content, local links, JSON examples, example asset hashes and the manual design structure, then build the site with dead-link checking enabled. Local search is generated during the build. When engine validation is configured, Flow examples and the manual template are also checked against the available engines.
 
 To serve the production build locally:
 

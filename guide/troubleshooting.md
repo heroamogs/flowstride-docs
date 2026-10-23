@@ -6,7 +6,31 @@ Check `npx flowstride --version`, the engine banner, the Cloud host printed duri
 
 ## Browser executable is missing
 
-Run `npx flowstride install` after updating Flowstride. On Linux use `install --with-deps`. Matching the browser to the installed package matters more than installing a separate global Playwright version.
+Run `npx flowstride install` after updating Flowstride for Chromium, or `npx flowstride install firefox webkit` for those engines. On Linux add `--with-deps`. Matching the browser to the installed package matters more than installing a separate global Playwright version.
+
+## Firefox/WebKit was installed but the test still uses Chromium
+
+Installation downloads binaries; it does not change the default. Use `npx flowstride run flows --browser firefox --headed` or select WebKit explicitly. Check the terminal's launched browser/version and **Test browser** in the dashboard. An open dashboard tab is separate from the tested application. [Browser selection](/guide/browser-compatibility).
+
+## An explicit locale or offline HAR check differs by browser
+
+Chromium currently has a custom-locale override limitation. Firefox/WebKit can reject navigation when forced browser-offline mode is combined with HAR playback. For HAR acceptance, keep that flag unset, stop the server and use `notFound: "abort"`. [Current compatibility limits](/guide/browser-compatibility#feature-and-platform-boundaries).
+
+## A retry passed but CI failed
+
+Check `failOnFlaky`. With that policy enabled, a recovered scenario fails the overall run even though its final-step metrics pass. Earlier attempts remain in `summary.json`. A retry repeats the scenario; assertion polling only rereads the condition. [Waiting and retries](/guide/waiting-and-retries).
+
+## A network wait or download times out
+
+Arm the event before clicking its trigger. Confirm URL/method/status filters and the active profile. Browser routes do not intercept direct API calls; service workers can bypass route handling unless blocked. A timeout begins when the event is armed. [Network/download reference](/reference/native-browser-commands#network-routes-and-events).
+
+## A downloaded file already exists
+
+Native download saving rejects an existing destination. Use a fresh project-local name, for example `downloads/report-$uuid.json`, and assert the saved event's content. Do not treat a rejected overwrite as a failed download event.
+
+## A component will not mount
+
+Install the project's required React/React DOM or Vue packages, check the project-local module/export path and provide required application providers through a wrapper. Flowstride's harness does not automatically load your app's Vite configuration or backend. [Component guide](/guide/native-browser-workflows#component-tests).
 
 ## A run has finished but the command stays open
 

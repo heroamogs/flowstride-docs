@@ -31,7 +31,7 @@ flow.get "/api/users/@userId";
 flow.extract attribute "#order" "data-order-id" as "orderId";
 ```
 
-Local extracted variables are scoped to the scenario. To explicitly share within a process:
+Local extracted variables remain available to later scenarios in the same file and reset at the next file. Browser profiles isolate browser storage, not the file's runner variables; use distinct variable names for different users. To explicitly share within a process:
 
 ```flow
 flow.extract resBody "id" as global "customerId";

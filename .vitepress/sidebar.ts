@@ -71,6 +71,10 @@ export const sidebar = {
           "link": "/guide/your-first-script"
         },
         {
+          "text": "API and UI in one flow",
+          "link": "/guide/api-and-ui"
+        },
+        {
           "text": "Dashboard & Replay",
           "link": "/reporting/dashboard"
         },
@@ -109,6 +113,32 @@ export const sidebar = {
         {
           "text": "Plugins & SDK",
           "link": "/flow-language/getting-started/plugins"
+        }
+      ]
+    },
+    {
+      "text": "Native automation",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Native browser workflows",
+          "link": "/guide/native-browser-workflows"
+        },
+        {
+          "text": "Native command reference",
+          "link": "/reference/native-browser-commands"
+        },
+        {
+          "text": "Waiting & retries",
+          "link": "/guide/waiting-and-retries"
+        },
+        {
+          "text": "API and UI in one flow",
+          "link": "/guide/api-and-ui"
+        },
+        {
+          "text": "Browser compatibility",
+          "link": "/guide/browser-compatibility"
         }
       ]
     },
@@ -363,6 +393,28 @@ export const sidebar = {
       ]
     },
     {
+      "text": "Native automation",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Native command reference",
+          "link": "/reference/native-browser-commands"
+        },
+        {
+          "text": "Waiting & retries",
+          "link": "/guide/waiting-and-retries"
+        },
+        {
+          "text": "API and UI in one flow",
+          "link": "/guide/api-and-ui"
+        },
+        {
+          "text": "Browser compatibility",
+          "link": "/guide/browser-compatibility"
+        }
+      ]
+    },
+    {
       "text": "Run and configure",
       "collapsed": false,
       "items": [
@@ -377,6 +429,10 @@ export const sidebar = {
         {
           "text": "CLI reference",
           "link": "/guide/the-cli"
+        },
+        {
+          "text": "Native browser workflows",
+          "link": "/guide/native-browser-workflows"
         },
         {
           "text": "Native CI",
@@ -439,6 +495,32 @@ export const sidebar = {
         {
           "text": "Cloud evidence & access",
           "link": "/guide/cloud-evidence"
+        }
+      ]
+    },
+    {
+      "text": "Native automation",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Native browser workflows",
+          "link": "/guide/native-browser-workflows"
+        },
+        {
+          "text": "Native command reference",
+          "link": "/reference/native-browser-commands"
+        },
+        {
+          "text": "Waiting & retries",
+          "link": "/guide/waiting-and-retries"
+        },
+        {
+          "text": "API and UI in one flow",
+          "link": "/guide/api-and-ui"
+        },
+        {
+          "text": "Browser compatibility",
+          "link": "/guide/browser-compatibility"
         }
       ]
     },
@@ -511,6 +593,28 @@ export const sidebar = {
       ]
     },
     {
+      "text": "Native automation",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Native command reference",
+          "link": "/reference/native-browser-commands"
+        },
+        {
+          "text": "Waiting & retries",
+          "link": "/guide/waiting-and-retries"
+        },
+        {
+          "text": "API and UI in one flow",
+          "link": "/guide/api-and-ui"
+        },
+        {
+          "text": "Browser compatibility",
+          "link": "/guide/browser-compatibility"
+        }
+      ]
+    },
+    {
       "text": "Run and configure",
       "collapsed": false,
       "items": [
@@ -525,6 +629,10 @@ export const sidebar = {
         {
           "text": "CLI reference",
           "link": "/guide/the-cli"
+        },
+        {
+          "text": "Native browser workflows",
+          "link": "/guide/native-browser-workflows"
         },
         {
           "text": "Native CI",
@@ -565,6 +673,32 @@ export const sidebar = {
         {
           "text": "Capabilities & limits",
           "link": "/reference/capabilities"
+        }
+      ]
+    },
+    {
+      "text": "Native automation",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Native browser workflows",
+          "link": "/guide/native-browser-workflows"
+        },
+        {
+          "text": "Native command reference",
+          "link": "/reference/native-browser-commands"
+        },
+        {
+          "text": "Waiting & retries",
+          "link": "/guide/waiting-and-retries"
+        },
+        {
+          "text": "API and UI in one flow",
+          "link": "/guide/api-and-ui"
+        },
+        {
+          "text": "Browser compatibility",
+          "link": "/guide/browser-compatibility"
         }
       ]
     },
@@ -755,6 +889,28 @@ export const sidebar = {
       ]
     },
     {
+      "text": "Native automation",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Native command reference",
+          "link": "/reference/native-browser-commands"
+        },
+        {
+          "text": "Waiting & retries",
+          "link": "/guide/waiting-and-retries"
+        },
+        {
+          "text": "API and UI in one flow",
+          "link": "/guide/api-and-ui"
+        },
+        {
+          "text": "Browser compatibility",
+          "link": "/guide/browser-compatibility"
+        }
+      ]
+    },
+    {
       "text": "Run and configure",
       "collapsed": false,
       "items": [
@@ -769,6 +925,10 @@ export const sidebar = {
         {
           "text": "CLI reference",
           "link": "/guide/the-cli"
+        },
+        {
+          "text": "Native browser workflows",
+          "link": "/guide/native-browser-workflows"
         },
         {
           "text": "Native CI",

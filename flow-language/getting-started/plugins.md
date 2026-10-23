@@ -57,9 +57,13 @@ A bare alias path resolves under `pluginsDir` (default `plugins`). An explicit p
 
 `state.set` is not the same namespace as DSL `flow.extract` variables. Return values are not automatically bound by the current alias-call grammar. Use explicit plugin state or native extraction instead of inventing `as` syntax after a plugin action.
 
+## Prefer native commands for supported workflows
+
+Profiles, retrying assertions, network mocks/waits, downloads, clocks, spies/stubs, traces/HAR, accessibility and components have [native commands](/reference/native-browser-commands). A heading check like the plugin example can also use `flow.assert.that` with `role: "heading"`, an exact `name` and `condition: "visible"`. Use a plugin where application-specific behavior still needs code.
+
 ## Extension boundaries
 
-A Playwright Page is not the Playwright Test runner. Features such as runner fixtures, projects and retries need their own integration; importing `@playwright/test` into both engine paths can cause module-loading conflicts.
+A Playwright Page is not the Playwright Test runner. Flowstride owns its native [scenario retries](/guide/waiting-and-retries) and [CI matrix/sharding](/guide/native-ci-games#browser-matrices-and-shards). Playwright Test fixtures/projects are not activated by obtaining a Page; importing `@playwright/test` into both engine paths can cause module-loading conflicts.
 
 Some legacy SDK members are placeholders: `db.connect` is not a production database driver, and `otp.generate` is not a TOTP implementation. Use a suitable library in a project plugin when that behavior is required. Credentials still belong in environment secrets.
 

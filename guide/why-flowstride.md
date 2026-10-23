@@ -16,7 +16,7 @@ Readable targets make reviews easier. Element qualifiers, CSS selectors, and spa
 
 ## Keep API setup and browser behavior together
 
-Create data with an API, extract a returned identifier, then use the UI to exercise the customer journey. Both parts share scenario variables, so you can verify the same entity through each interface.
+Create data with an API, extract a returned identifier, then use the UI to exercise the customer journey. Both parts share extracted/generated values in the flow file, so you can verify the same entity through each interface. [API and UI in one flow](/guide/api-and-ui) shows the complete journey.
 
 ## Use one suite locally and in CI
 
@@ -28,4 +28,4 @@ Map a user journey, write observable expected results, execute it manually, and 
 
 ## Know the boundary
 
-Flowstride uses Playwright for browser control, but does not expose every Playwright feature as a native DSL command. It currently qualifies Chromium and device emulation, with explicit support for browser-game input and state bridges. See [capabilities and limits](/reference/capabilities) for the distinction between native features and plugin extensions.
+Flowstride uses Playwright for browser control, but does not expose every Playwright feature as a native DSL command. It supports Chromium, Firefox and WebKit, with native profiles, retrying assertions, network control, downloads, evidence, accessibility, component tests and browser-game APIs. Browser/device qualification still has [explicit limits](/guide/browser-compatibility). See [capabilities and limits](/reference/capabilities) for the distinction between native features and plugin extensions.

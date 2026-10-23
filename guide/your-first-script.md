@@ -113,6 +113,8 @@ flow.expect status "201";
 
 The endpoint, request fields, response status, authentication, and account preparation must match your application. Flowstride does not create that endpoint. Put setup commands under `Given` in a complete scenario, assert the response, and use the same prepared customer in the browser. See the [API command reference](/reference/api-commands).
 
+For the complete signup → API approval → browser login → OTP pattern, see [API and UI in one flow](/guide/api-and-ui). Shared test data does not require a separate runner or browser plugin.
+
 ## Optional: use VS Code
 
 Open the project folder in VS Code and use the official **Flowstride Automation** extension from publisher **flowstride** for `.flow` highlighting, completions, snippets and the editor's **Run Test** action. The CLI is still installed in your project; the extension does not replace the runtime.

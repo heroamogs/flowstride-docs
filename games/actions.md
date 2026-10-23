@@ -46,7 +46,7 @@ Then "The move is recorded"
   }
 ```
 
-Coordinates must remain inside a visible, uncovered canvas. Relative coordinates use fractions of its bounds; 1.0 is the outside boundary, not an inclusive last pixel. Use touch on a profile that supports touch. Gesture/key durations must be within the configured timeout.
+Coordinates must remain inside a visible, uncovered canvas. Relative coordinates use fractions of its bounds; 1.0 is the outside boundary, not an inclusive last pixel. Use Chromium and a touch-capable profile for touch dragging/swiping. Mouse/keyboard checks follow the selected browser's behavior. Gesture/key durations must be within the configured timeout.
 
 ## Screens and pixel comparisons
 

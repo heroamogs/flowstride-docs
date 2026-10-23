@@ -43,11 +43,29 @@ Store `FLOWSTRIDE_TOKEN` as a repository/environment secret, not in YAML. Use th
 
 1. Install the project's locked npm dependencies.
 2. Connect your Cloud account and install its engine with `npx flowstride login`. Free accounts can use this flow within their workspace limits.
-3. Install the matching Chromium and Linux dependencies.
+3. Install the selected matching browser and Linux dependencies.
 4. Run the suite.
 5. Retain artifacts with an always-run upload step.
 
 The generated OS workflow does not add your credentials or a private installation automatically. Keep untrusted pull requests away from Cloud tokens. A public OS CI run does not require a token.
+
+## Browser matrices and shards
+
+Generate independent jobs for each browser and CI file shard:
+
+```sh
+npx flowstride ci init github --browsers chromium,firefox,webkit --shards 3
+```
+
+This makes nine jobs: three engines × three shards. It still refuses to overwrite an existing workflow; review and edit that workflow when your setup changes. The action identifiers after `@` are pinned source commit hashes, not secret keys. Keep Cloud tokens in CI secrets.
+
+A shard assigns a subset of files to one CI machine. Cloud `--workers` distributes files across processes on one machine; the two controls are different. OS can use CI shards while retaining its sequential execution inside each job.
+
+For manual shard commands and merging, see [distributed native runs](/guide/native-browser-workflows#browser-matrices-and-multiple-ci-machines). Keep separate artifact directories and preserve each summary beside its `run-*` evidence. The generator retains matrix artifacts; it does not automatically create a final merge job. Merge complete sets for one browser configuration at a time, using the same engine/package, source suite and relevant settings.
+
+## Retries and CI status
+
+Configure `retries` explicitly; zero is the default. Assertion polling does not rerun a scenario. A recovered scenario is marked flaky, and `failOnFlaky: true` makes that run fail CI even when final step counts pass. Interrupted and incomplete runs remain nonzero outcomes. [Waiting and retries](/guide/waiting-and-retries) explains expected results and retained attempts.
 
 ## Reporting
 

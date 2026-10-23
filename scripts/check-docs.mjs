@@ -36,7 +36,7 @@ for (const file of publicContent) {
   }
 }
 const pages = sourceFiles.filter(file => file.endsWith('.md'));
-let links = 0, snippets = 0;
+let links = 0, snippets = 0, jsonSnippets = 0;
 for (const file of pages) {
   const text = fs.readFileSync(file, 'utf8');
   const prose = text.replace(/```[\s\S]*?```/g, '');
@@ -48,6 +48,10 @@ for (const file of pages) {
     const publicTarget = local.startsWith('/') ? path.join(root, 'public', local) : '';
     assert([target, target + '.md', path.join(target, 'index.md'), publicTarget].some(p => p && fs.existsSync(p)), `${path.relative(root, file)}: missing ${href}`);
     links++;
+  }
+  for (const match of text.matchAll(/```json\s*\n([\s\S]*?)```/g)) {
+    try { JSON.parse(match[1]); } catch (error) { throw Error(`${path.relative(root, file)}: invalid JSON example: ${error.message}`); }
+    jsonSnippets++;
   }
   for (const match of text.matchAll(/```flow\s*\n([\s\S]*?)```/g)) {
     snippets++;
@@ -80,5 +84,5 @@ for (const location of [process.env.FLOWSTRIDE_OS_ROOT, cloudEngineRoot].filter(
   const require = createRequire(path.join(path.resolve(location), 'package.json'));
   require('./dist/manual/security').manualCanvasSchema.parse(design);
 }
-console.log(`Documentation checks passed: ${publicContent.length} public source files checked for internal release details, ${pages.length} Markdown pages, ${links} local links, ${snippets} Flow snippets, example archive hashes and manual design structure.`);
+console.log(`Documentation checks passed: ${publicContent.length} public source files checked for internal release details, ${pages.length} Markdown pages, ${links} local links, ${snippets} Flow snippets, ${jsonSnippets} JSON snippets, example archive hashes and manual design structure.`);
 console.log(process.env.FLOWSTRIDE_OS_ROOT && cloudEngineRoot ? 'All Flow snippets parsed by both current engines; manual template validated by both schemas.' : 'Optional: set FLOWSTRIDE_OS_ROOT and FLOWSTRIDE_CLOUD_ROOT to built package folders for cross-engine syntax/schema checks.');

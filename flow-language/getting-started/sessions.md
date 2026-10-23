@@ -27,13 +27,19 @@ The snapshot concerns the active origin. It does not capture IndexedDB, every ta
 
 | Form | Use |
 | --- | --- |
-| `flow.save session "name"` | Save in the worker's local memory |
+| `flow.save session "name"` | Save in local memory for the current flow file |
 | `flow.save global session "name"` | Save in process-level global memory |
 | `flow.save session "name" persist` | Also write `.flowstride/sessions/name.json` |
 | `flow.use session "name"` | Reuse local state or a persisted record |
 | `flow.use global session "name"` | Use the process-global session or persisted record |
 
 Use simple, project-safe names. Persisted files can contain credentials; exclude `.flowstride/` from Git and artifacts. Global memory is not shared across Cloud worker processes. Avoid concurrent writes to the same persisted session name.
+
+## Separate live users from saved snapshots
+
+A saved session is a snapshot, not a second live browser. Save reads the selected profile; use restores into the selected profile. You can keep a customer and an administrator logged in independently with [named browser profiles](/guide/native-browser-workflows#separate-users-in-one-test), then save separate snapshots such as `customer-login` and `admin-login`.
+
+Existing sequential login scenarios still work. Use profiles when both users must remain live without replacing one another's cookies/storage. Profiles do not isolate runner variables or roll back application data.
 
 ## Old sessions
 

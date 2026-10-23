@@ -9,7 +9,7 @@ npm i flowstride
 npx flowstride init
 ```
 
-The npm package provides Flowstride OS. It runs locally without a Cloud account. `init` creates the project folders and an example flow, and installs Chromium.
+The npm package provides Flowstride OS. It runs locally without a Cloud account. `init` creates the project folders and an example flow, and attempts Chromium installation. If that setup fails, install the matching browser explicitly.
 
 To install the browser explicitly:
 
@@ -17,7 +17,14 @@ To install the browser explicitly:
 npx flowstride install
 ```
 
-Keep the package and its matching browser together when updating your project.
+To use additional engines:
+
+```sh
+npx flowstride install chromium firefox webkit
+npx flowstride run flows --browser firefox
+```
+
+Keep the package and its matching browsers together when updating your project. [Browser compatibility](/guide/browser-compatibility) explains headed runs, dashboard windows and engine limits.
 
 ## Keep project installs reproducible
 
@@ -48,10 +55,10 @@ Update the OS dependency in your project:
 
 ```sh
 npm i flowstride
-npx flowstride install
+npx flowstride install chromium firefox webkit
 ```
 
-For an installed Cloud engine, use:
+Install only the browsers your suite uses. For an installed Cloud engine, use:
 
 ```sh
 npx flowstride update

@@ -6,14 +6,16 @@ Run these commands from your npm project using `npx flowstride`, for example `np
 | --- | --- |
 | `flowstride --version` | Print the CLI package version |
 | `flowstride init` | Create the project folders, sample flow and ignore entries; attempt Chromium setup |
-| `flowstride install` | Install the matching Chromium browser |
+| `flowstride install [browsers...]` | Install matching `chromium`, `firefox` or `webkit` binaries; defaults to Chromium |
 | `flowstride install --with-deps` | Also install operating-system dependencies, useful on Linux CI |
 | `flowstride run [path]` | Run a file or folder; defaults to configured `testDir` |
 | `flowstride open` | Launch the Manual Workspace |
 | `flowstride login` | Connect a Cloud account using a developer token and install its engine when needed |
 | `flowstride login --global` | Store credentials for use across projects on this machine |
 | `flowstride status` | Check the current Cloud session/workspace |
-| `flowstride ci init github` | Explicitly generate `.github/workflows/flowstride.yml` |
+| `flowstride ci init github` | Explicitly generate `.github/workflows/flowstride.yml`; optional `--browsers` and `--shards` |
+| `flowstride trace <file>` | Open a project-local trace ZIP |
+| `flowstride merge <summaries...>` | Merge complete, compatible shard results; optional `--output <new-directory>` |
 
 ## Run options
 
@@ -23,7 +25,11 @@ Run these commands from your npm project using `npx flowstride`, for example `np
 | `--headed` / `--headless` | Set browser visibility; CI forces headless |
 | `--bail`, `-b` | Stop later work after a failure |
 | `--workers <number>` | Requested parallel workers; Cloud capability subject to workspace limits |
-| `--device <profile>` | `desktop`, `phone`, or `landscape` |
+| `--device <profile>` | `desktop`, `phone`, or `landscape`; [engine limits apply](/guide/browser-compatibility) |
+| `--browser <engine>` | Select `chromium` (default), `firefox`, or `webkit` |
+| `--shard <index/total>` | Select one deterministic CI file shard, for example `1/3` |
+| `--shard-history <file>` | Use a complete merge's timing history for consistent shard balancing |
+| `--update-baselines` | Deliberately create/update ARIA baselines locally; refused in CI |
 | `--config <file>` | Project-local configuration file |
 | `--env <name>` | Load `.env.<name>` before default `.env` |
 
@@ -34,6 +40,8 @@ npx flowstride run flows --config flowstride.test.json
 ```
 
 `--workers` is a run option, not a configuration-file field. Workspace and CPU limits may reduce the requested count. OS uses sequential execution.
+
+`--browser` selects the engine for this run; `install` only downloads it. For whole-scenario retries, use configuration `retries` and `failOnFlaky`; there is no `--retries` flag. [Native command reference](/reference/native-browser-commands) lists the JSON command options.
 
 ## Authentication
 

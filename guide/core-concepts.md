@@ -36,11 +36,15 @@ Run commands from your project folder. Configuration, fixtures, plugins, flow ta
 | `{{env.BASE_URL}}` | Read an environment value |
 | `$randomEmail` | Generate a value and remember it |
 | `@randomEmail` | Reuse the generated value |
-| `@userId` | Reuse an extracted scenario value |
+| `@userId` | Reuse an extracted value in the same flow file |
 | `@global[userId]` | Reuse an explicitly global extracted value in the same process |
 | `let game = "flowstride:game"` | Register a command alias, not a general variable assignment |
 
 See [variables](/flow-language/getting-started/variables) and [sessions](/flow-language/getting-started/sessions). Process memory is not a shared store between parallel Cloud workers.
+
+## API and UI share the journey
+
+API setup, extraction, browser actions and assertions can live in one scenario. Share generated credentials explicitly and assert each API result before continuing. [API and UI in one flow](/guide/api-and-ui) shows signup, administrator approval, browser login and Cloud OTP verification.
 
 ## A manual design and a manual run are different records
 

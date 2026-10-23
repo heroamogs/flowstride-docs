@@ -8,6 +8,8 @@ Interactive authenticated runs can report to Cloud where allowed. Native CI requ
 
 Automated video uploads use short-lived workspace authorization with bounded file size and media type. The automated video maximum is **50 MiB**. Eligibility depends on the workspace and service. Playback requires authentication and workspace membership.
 
+Trace ZIPs, HAR, DOM/accessibility snapshots and downloaded files stay in local/CI evidence; they are not automatically uploaded by the automated video path. Retain those artifacts explicitly when you need them. [Evidence formats](/reporting/artifacts#attempts-profiles-and-diagnostic-files).
+
 ## Manual runs
 
 Submitting a manual run saves its local record first, then attempts Cloud synchronization when credentials are available. A synchronization warning does not erase the local run.

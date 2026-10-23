@@ -13,7 +13,7 @@ flow.expect attribute "#order" "data-state" "approved";
 flow.expect attribute "#order" "class" contains "selected";
 ```
 
-Text checks locate visible text; they are not a two-string selector/expected-text command. Value checks compare the input's value exactly. Although the parser accepts a contains marker for value, the current value adapter uses exact comparison; use exact expectations or a focused plugin for another comparison.
+Text checks locate visible text; they are not a two-string selector/expected-text command. Value checks compare the input's value exactly. Although the parser accepts a contains marker for value, the current value adapter uses exact comparison; use exact expectations or native `flow.assert.that` with `condition: "value"` and a regex `matches` for another supported comparison.
 
 ### Attribute assertions
 
@@ -26,6 +26,21 @@ flow.expect attribute "#disabled-button" "disabled" "";
 ```
 
 HTML boolean attributes often have an empty string value rather than `"true"`. Check the actual DOM contract.
+
+## More native browser conditions
+
+Use [flow.assert.that](/reference/native-browser-commands#retrying-assertions) for enabled/checked/focused state, counts, CSS/properties, accessible names, URLs/titles and storage values. It polls the specified condition without rerunning the preceding action:
+
+```flow
+flow.assert.that {
+  "selector": "#email",
+  "condition": "value",
+  "matches": "^reader@",
+  "timeout": 5000
+};
+```
+
+[Waiting and retries](/guide/waiting-and-retries) distinguishes assertion polling from whole-scenario retries.
 
 ## API checks
 

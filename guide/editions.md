@@ -11,6 +11,10 @@ Both options run tests on your computer or your CI runner. Cloud adds account-co
 | Browser and API flows | Included | Included |
 | Interactive local dashboard | Included | Included |
 | Native CI and browser-game APIs | Included | Included |
+| Chromium, Firefox and WebKit | Included | Included |
+| Profiles, mocks, downloads and retrying assertions | Included | Included |
+| Trace/HAR, accessibility and component workflows | Included | Included |
+| Scenario retries and CI file sharding | Included | Included |
 | Manual canvas, execution and local run files | Included | Included |
 | Parallel execution | Sequential engine | Available within workspace and machine limits |
 | FlowMail OTP retrieval | Not available | Available within workspace quotas and service availability |
@@ -44,7 +48,7 @@ Paste the developer token into the masked prompt and accept the Cloud engine ins
 
 The launcher selects the Cloud engine when a compatible installation and valid account authorization are available. If the Cloud engine is missing, incompatible or cannot be authorized, it explains the selection and can fall back to OS.
 
-Read the engine banner at the start of a run. Fallback keeps OS capabilities available; account-connected features such as parallel execution and FlowMail require Cloud access within your workspace limits.
+Read the engine banner at the start of a run. The native browser workflows use the same syntax in both engines. An older Cloud installation that cannot run a requested native workflow triggers an explained OS fallback. Fallback keeps OS capabilities available; account-connected features such as parallel execution and FlowMail require Cloud access within your workspace limits.
 
 Installing project dependencies again may remove the Cloud engine. If that happens, run `npx flowstride login` after dependency installation. See [installation and updates](/guide/releases) and [authentication troubleshooting](/guide/troubleshooting).
 

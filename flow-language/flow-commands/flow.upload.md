@@ -12,4 +12,6 @@ flow.upload "fixtures/avatar.png" into "Upload avatar";
 
 The file and resolved symlink target must remain inside the project. Flowstride waits for the file chooser and observes its completion even if the initiating click is slow.
 
+To receive and check a file from the application, use native [download arm/save/expect](/reference/native-browser-commands#downloads) instead.
+
 Use this command inside a complete [Given/When/Then scenario](/guide/core-concepts). See the [browser command index](/reference/ui-commands) for related actions.

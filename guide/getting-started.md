@@ -11,6 +11,8 @@ Choose a starting point:
 | Run existing tests on GitHub             | [Native CI](/guide/native-ci-games)               |
 | Test a browser game                      | [Game testing](/games/getting-started)            |
 | Connect a Cloud account                  | [OS and Cloud](/guide/editions)                   |
+| Combine API setup with browser login | [API and UI in one flow](/guide/api-and-ui) |
+| Use separate users, mocks or downloads | [Native browser workflows](/guide/native-browser-workflows) |
 
 ## Install the public engine
 
@@ -22,7 +24,7 @@ npm i flowstride
 npx flowstride init
 ```
 
-`init` creates `flows`, `manual_flows`, `plugins`, `fixtures`, and `reports`, plus a sample flow. It also attempts to install Chromium. `install` explicitly installs the browser matching your Flowstride package.
+`init` creates `flows`, `manual_flows`, `plugins`, `fixtures`, and `reports`, plus a sample flow. It also attempts to install Chromium. `install` explicitly installs matching Chromium; pass `firefox` or `webkit` to install those engines. Use `run --browser` to select one. [Browser setup](/guide/browser-compatibility).
 
 For relative browser and API URLs, set `BASE_URL` in a project-root `.env` file. A JSON configuration file is optional. [Configuration and environments](/guide/configuration#set-the-base-url-in-env) explains both options.
 

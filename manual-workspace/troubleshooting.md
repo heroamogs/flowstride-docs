@@ -2,7 +2,7 @@
 
 ## The workspace will not open
 
-Run from the intended project and follow the printed localhost URL. Keep the terminal process running. If the private CLI says authentication is required, sign in with a valid workspace token or explicitly use the public OS launcher for local OS behavior.
+Run from the intended project and follow the printed localhost URL. Keep the terminal process running. If the Cloud engine says authentication is required, sign in with a valid workspace token or explicitly use the public OS launcher for local OS behavior.
 
 ## The canvas is blank
 

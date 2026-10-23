@@ -40,7 +40,9 @@ Create `flowstride.config.json` in the project root when you want to customize e
 | `baseUrl` | No configured value | Base for relative browser/API URLs; use an explicit HTTP(S) URL |
 | `timeout` | `30000` | Positive integer timeout in milliseconds |
 | `headless` | `true` | Browser visibility; CI forces `true` |
-| `device` | `desktop` | Chromium desktop, phone emulation or landscape emulation |
+| `device` | `desktop` | Desktop, phone or landscape emulation; [browser limits apply](/guide/browser-compatibility) |
+| `browser` | `chromium` | `chromium`, `firefox` or `webkit`; CLI `--browser` takes precedence |
+| `browserOptions` | Empty object | Validated context settings for the default profile |
 | `viewport` | Profile viewport | Object with positive integer `width` and `height` |
 | `pluginsDir` | `plugins` at runtime | Folder containing project TypeScript plugins |
 | `artifactsDir` | `flowstride-artifacts` | Project-local native CI output directory |
@@ -49,8 +51,19 @@ Create `flowstride.config.json` in the project root when you want to customize e
 | `bail` | `false` | Stop later work after failure |
 | `defaultDialogBehavior` | `dismiss` | Unhandled dialog behavior: `accept` or `dismiss` |
 | `cloudSync` | Disabled by default in CI | Explicitly allow authenticated CI reporting |
+| `trace` | Disabled | Automatically retain browser trace ZIPs |
+| `har` | Disabled | Record HTTP traffic to HAR before browser context creation |
+| `domSnapshots` | Disabled | Capture diagnostic HTML for dashboard history |
+| `retries` | `0` | Whole-scenario retries; integer from 0 through 10 |
+| `failOnFlaky` | `false` | Fail CI if a scenario passed only after retrying |
+| `shard` | Unset | CI file assignment such as `1/3`; CLI `--shard` takes precedence |
+| `shardHistory` | Unset | Project-local timing map from a complete merge |
 
 Paths, including symlink targets, must stay inside the project. The artifact directory cannot be the project root. Do not put tokens or application passwords in this file.
+
+## Native browser settings and evidence
+
+`browser` selects `chromium` (default), `firefox` or `webkit`. `browserOptions` validates context settings. Optional `trace`, `har` and `domSnapshots` capture local evidence. `retries` defaults to zero; `failOnFlaky` fails a run that needed a retry. See [native browser workflows](/guide/native-browser-workflows) for examples and [supported browser settings](/reference/native-browser-commands#browser-settings) for exact keys. Baseline writing is a deliberate local CLI action, not a persistent configuration switch.
 
 ## Start a local application for CI
 
