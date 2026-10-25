@@ -26,7 +26,9 @@ The image/video chooser and server impose different limits. The effective server
 | Defect images | Up to 6 per step in the chooser; PNG/JPG/JPEG/GIF; 5 MiB each in the chooser |
 | Defect clips | Up to 4 per step in the chooser; MP4/WebM |
 | Defect upload request | Local server caps each file at **40 MiB**; a larger video accepted by the UI can still be rejected |
-| Design reference upload | Local server cap is 100 MiB; keep references substantially smaller for usability |
+| Design reference images | One per step; PNG/JPG/JPEG/GIF; up to **5 MiB** in the chooser |
+| Design reference video | One per step; MP4/WebM; up to **40 MiB** in the chooser |
+| Design reference upload endpoint | Server request cap is 100 MiB; the stricter chooser limits above still apply |
 | Template/run JSON | Save payload cap is 2 MiB; attach files rather than embedding binary data |
 
 Cloud eligibility and limits may be stricter. Do not treat the UI's 100 MB video message as the effective defect-upload allowance. Prefer short clips well below 40 MiB and images below 5 MiB.
@@ -42,3 +44,7 @@ Removing a local cache file or a link from the form does not by itself prove a p
 ## Make evidence useful
 
 Capture enough context to identify the step, product state and error, then stop. Use a filename/issue reference that is understandable later. Avoid recordings of passwords, customer data, browser notifications or unrelated windows. Verify the saved record can open the media before handing the defect to another person.
+
+## Replace or remove a reference
+
+Preview the selected image/video to confirm it explains the intended design. To replace a reference when its one-image/one-video slot is occupied, remove the old item, add the replacement, then save the design. Keep any media still referenced by historical runs in your backup/retention process. Design reference limits and multi-file defect evidence limits are separate.

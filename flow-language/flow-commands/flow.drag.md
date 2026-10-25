@@ -1,15 +1,15 @@
 # flow.drag
 
-Drag a source element into a destination.
-
-## Example
+Drag a DOM target into a destination. Available in OS and Cloud.
 
 ```flow
-flow.drag "Item A" into "Completed";
+flow.drag "#task-102" into "#done-column";
+flow.assert.that {
+  "selector": "#done-column #task-102",
+  "condition": "visible"
+};
 ```
 
-## Behavior and limits
+Replace the selectors with your application's draggable item and drop zone. The adapter attempts native dragging and supported pointer/HTML5 fallbacks. Different widgets accept different event sequences; command completion alone does not prove the application accepted the move.
 
-For coordinate-based canvas gestures use native game drag/swipe rather than pretending a canvas object is a DOM element.
-
-Use this command inside a complete [Given/When/Then scenario](/guide/core-concepts). See the [browser command index](/reference/ui-commands) for related actions.
+Assert the resulting column, position or saved business state. Canvas gestures use [game.drag or game.swipe](/games/actions#input) instead. [Targeting](/guide/targeting) explains how to select a unique DOM source/destination.

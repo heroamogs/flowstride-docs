@@ -45,7 +45,9 @@ Given "A new user signs up through the API"
 When "An authorized administrator approves the user through the API"
   flow.post "{{env.NEW_USER_APPROVAL}}" with reqHeader "Authorization" "Bearer {{env.ADMIN_API_TOKEN}}" with reqBody
   """
-  { "userId": "@newUserId" }
+  {
+    "userId": "@newUserId"
+  }
   """
 
 And "The approval succeeds"
@@ -95,3 +97,7 @@ The browser and direct API adapter are separate clients. Reusing an email/passwo
 For simultaneous customer/admin browser users, use [named profiles](/guide/native-browser-workflows#separate-users-in-one-test). For ordinary API-to-UI setup, no additional profile is required.
 
 Browser network mocks do not intercept direct API commands. [Network routes and waits](/guide/native-browser-workflows#mock-requests-and-wait-for-network-events) control browser traffic. Without FlowMail, the same API/UI pattern works in OS with an application-appropriate login or test-OTP mechanism.
+
+## Continue learning
+
+[API testing](/guide/api-testing) covers GraphQL variables, assertion operators and explicit cookie-session transfer. [Email OTP](/guide/email-otp) explains segmented inputs, inbox polling and delivery diagnosis. [Included examples](/guide/working-examples) provide a local API/UI application with a passing flow and an intentional failing check.

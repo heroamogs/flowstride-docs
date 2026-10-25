@@ -6,6 +6,8 @@ Flowstride provides native browser, API, manual-testing and CI workflows. OS run
 | --- | --- | --- |
 | Browser engines | Chromium, Firefox and WebKit; explicit installation and selection | WebKit is an engine, not the installed Safari application; see [browser compatibility](/guide/browser-compatibility) |
 | Browser actions | Navigation, smart targets, inputs, selects, checks, drag, hover, tabs, dialogs and uploads | Use distinguishable controls; force actions bypass some actionability checks |
+| Tables and cells | Search through application controls, indexed table/row/cell targeting, row-scoped actions, cell extraction and assertions | Use record identifiers when rows move; virtualized or paginated records must first be rendered. [Examples](/guide/table-testing) |
+| Audio-to-text testing | Audio-file microphone input, duration-based waiting and rendered transcript assertions in OS and Cloud | Injection requires Chromium; your application performs transcription. [Examples and limits](/guide/audio-to-text) |
 | API and UI together | HTTP/GraphQL setup, extraction and browser actions in the same scenario | Browser and direct API clients do not automatically share every credential |
 | Retrying assertions | Element state, text/value, attributes, CSS/properties, accessible names, URL/title and storage | Polls the condition; does not repeat the preceding action or API call |
 | Independent users | Named browser profiles with separate cookies, storage, pages and permissions | Profiles are local to a flow file; shared backend state remains application-defined |

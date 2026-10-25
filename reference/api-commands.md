@@ -28,3 +28,5 @@ flow.extract resBody "id" as "orderId";
 Use strict camelCase for `reqBody`, `reqHeader`, `resBody`, `resHeader`, and `responseTime`. Triple-quoted [docstrings](/flow-language/getting-started/docstrings) keep JSON readable. Assert a response before relying on data extracted from it.
 
 [Browser network routes](/guide/native-browser-workflows#mock-requests-and-wait-for-network-events) affect browser traffic, not these direct API calls. API calls and a browser page are separate clients. Do not assume every cookie/token from one is automatically active in the other; use an explicit session workflow and verify the resulting application behavior.
+
+For HTTP methods, chained comparisons, GraphQL variables/mutations and explicit API-cookie browser login, read [API testing](/guide/api-testing). For a complete local application and deliberate failing check, use [the included examples](/guide/working-examples).

@@ -15,3 +15,5 @@ The file and resolved symlink target must remain inside the project. Flowstride 
 To receive and check a file from the application, use native [download arm/save/expect](/reference/native-browser-commands#downloads) instead.
 
 Use this command inside a complete [Given/When/Then scenario](/guide/core-concepts). See the [browser command index](/reference/ui-commands) for related actions.
+
+After selecting the file, assert the application's accepted filename, preview or successful upload response. The chooser completing does not prove server-side validation accepted the file. Use project fixtures and an explicit result check; [failure diagnostics](/guide/assertions-and-diagnostics) retains chooser/path and underlying error details.

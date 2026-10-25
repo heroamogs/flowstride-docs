@@ -23,7 +23,9 @@ Open the URL printed in the terminal.
 npm run check
 ```
 
-Checks validate public content, local links, JSON examples, example asset hashes and the manual design structure, then build the site with dead-link checking enabled. Local search is generated during the build. When engine validation is configured, Flow examples and the manual template are also checked against the available engines.
+Checks validate public content, JSON formatting, example asset hashes and the manual design structure, then build the site and verify rendered links and heading anchors, including navigation. Local search is generated during the build.
+
+CI installs the released public OS parser to validate every Flow example, the homepage preview and independent language-rule checks. For local cross-engine validation, set `FLOWSTRIDE_OS_ROOT` and `FLOWSTRIDE_CLOUD_ROOT` to built engine folders before running the same command. Those local paths are not part of the site. Syntax validation does not establish that an illustrative endpoint, account or external service exists; runnable fixtures need execution checks too.
 
 To serve the production build locally:
 

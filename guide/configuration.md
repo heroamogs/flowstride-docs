@@ -101,4 +101,19 @@ Existing shell/CI variables take precedence over profile values; profile values 
 
 Cloud host selection uses `FLOWSTRIDE_API_URL`, then legacy `NEXTJS_WEBHOOK_URL`. These select the API host; they do not enable a managed runner.
 
-Ignore `.env*`, `.flowstride/`, and `flowstride-artifacts/` in Git. Share a placeholder `.env.example` instead.
+Keep secrets and execution evidence out of Git. For example, add these project `.gitignore` entries, with an explicit exception for shared placeholders:
+
+```text
+node_modules/
+.env
+.env.*
+!.env.example
+.flowstride/
+flowstride-artifacts/
+```
+
+Share placeholder values in `.env.example`; supply the real values locally or through CI secrets.
+
+## Command payloads versus configuration strings
+
+Environment values inside native `.flow` command objects/arrays are resolved at execution time; their property names are not templated. The JSON configuration loader does not perform the same recursive substitution through arbitrary fields. For example, use a [native profile command](/guide/browser-environments#profile-settings-and-environment-values) for environment-valued HTTP credentials rather than assuming `{{env.HTTP_PASSWORD}}` in every configured browser option is expanded.

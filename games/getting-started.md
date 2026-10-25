@@ -62,3 +62,23 @@ Phone and landscape are browser device-emulation profiles, not physical-device q
 Use state/UI assertions for rules and progression. Use pixel differences to confirm a visible change or preservation. A pixel change alone does not establish a correct move, a valid score or persistence.
 
 Explore the [game action reference](/games/actions), [state/fixtures](/games/state-and-fixtures), and [Three.js integration](/games/threejs).
+
+## Run the included canvas game
+
+Use a new npm project so the example configuration does not replace your own:
+
+```sh
+npm init -y
+npm i flowstride
+npx flowstride install chromium
+cp -R node_modules/flowstride/examples/native-game/. .
+npx flowstride run --ci
+```
+
+On PowerShell, copy the contents with `Copy-Item -Recurse node_modules/flowstride/examples/native-game/* .`. The example includes `server.mjs`, configuration and `flows/canvas.flow`. Its `webServer` starts the local app, waits for readiness and stops it after the run.
+
+Expected: seven passing commands covering navigation, fixture reset, an initial snapshot, a canvas tap, state, visual change and a checkpoint. Inspect `flowstride-artifacts/summary.json`, JUnit and the run's video/checkpoint files.
+
+For a deliberate negative check, copy the flow under a separate filename and change one expected state value to one the app cannot produce. Run only that file with `--ci`; it must fail with a nonzero exit and retain the failed step's diagnostic evidence. Restore or exclude the negative file from the passing suite.
+
+The same installed example can run with a connected Cloud engine. Device-emulation, touch and browser limits remain as described above; the example does not claim coverage of every game engine or a real phone.

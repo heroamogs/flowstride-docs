@@ -9,6 +9,8 @@ Both options run tests on your computer or your CI runner. Cloud adds account-co
 | Capability | OS | Cloud |
 | --- | --- | --- |
 | Browser and API flows | Included | Included |
+| Table/cell targeting, search and assertions | Included | Included |
+| Audio input and transcript checks (Chromium) | Included | Included |
 | Interactive local dashboard | Included | Included |
 | Native CI and browser-game APIs | Included | Included |
 | Chromium, Firefox and WebKit | Included | Included |

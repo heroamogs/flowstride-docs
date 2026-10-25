@@ -24,7 +24,11 @@ jobs:
         run: npm ci
       - name: Audit runtime dependencies
         run: npm audit --omit=dev --audit-level=high --json > runtime-audit.json
+      - name: Install released public parser for example validation
+        run: npm i --ignore-scripts --prefix "$RUNNER_TEMP/flowstride-doc-validation" flowstride@1.0.23
       - name: Validate documentation and build
+        env:
+          FLOWSTRIDE_OS_ROOT: ${{ runner.temp }}/flowstride-doc-validation/node_modules/flowstride
         run: npm run check
       - name: Record full dependency audit
         if: always()

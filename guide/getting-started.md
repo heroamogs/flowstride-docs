@@ -9,6 +9,8 @@ Choose a starting point:
 | Run a browser and API test               | [First automated flow](/guide/your-first-script)  |
 | Design a test without writing automation | [First manual flow](/manual-workspace/first-flow) |
 | Run existing tests on GitHub             | [Native CI](/guide/native-ci-games)               |
+| Search a table or act on a specific cell | [Table and cell testing](/guide/table-testing) |
+| Verify speech-to-text in an application | [Audio-to-text testing](/guide/audio-to-text) |
 | Test a browser game                      | [Game testing](/games/getting-started)            |
 | Connect a Cloud account                  | [OS and Cloud](/guide/editions)                   |
 | Combine API setup with browser login | [API and UI in one flow](/guide/api-and-ui) |

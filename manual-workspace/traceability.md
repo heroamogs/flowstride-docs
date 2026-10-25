@@ -4,7 +4,7 @@ Traceability answers: which requirement was tested, by which case, on which buil
 
 ## Use stable identifiers
 
-Put a plan ID in **Test Plan**, requirement/design links in each step's **References**, and a clear version on the design. Include the product build and data identifiers in the test notes or defect report.
+Put a plan ID in **Test Plan**, requirement/design links in the rich-text Description or Steps, and a clear version on the design. Use **References** for design images/video; it is a media control, not a freeform link editor. Include the product build and data identifiers in the test notes or defect report.
 
 A practical mapping might look like this:
 

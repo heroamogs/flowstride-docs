@@ -5,6 +5,68 @@ const paths = [
   { n: '03', tag: 'RUN IN CI', title: 'From laptop to pipeline', detail: 'Run your existing flows without a custom runner. Keep clear failure status, reports, and evidence.', link: '/guide/native-ci-games', action: 'Set up native CI' },
   { n: '04', tag: 'TEST GAMES', title: 'Beyond the DOM', detail: 'Drive a canvas, inspect game state, compare screens, and select live Three.js objects.', link: '/games/getting-started', action: 'Explore game testing' }
 ];
+const features = [
+  {
+    "title": "API + UI, together",
+    "detail": "Create through an API, extract a value and verify the same record in the browser.",
+    "link": "/guide/api-and-ui"
+  },
+  {
+    "title": "Email OTP journeys",
+    "detail": "Reuse generated credentials and retrieve a delivered code through FlowMail.",
+    "link": "/guide/email-otp"
+  },
+  {
+    "title": "Tables and cells",
+    "detail": "Find a row, act inside a cell and carry extracted data into another page.",
+    "link": "/guide/table-testing"
+  },
+  {
+    "title": "Tabs and iframes",
+    "detail": "Move between windows and verify controls inside embedded documents.",
+    "link": "/guide/tabs-and-iframes"
+  },
+  {
+    "title": "Audio-to-text",
+    "detail": "Feed a microphone fixture and verify the transcript your application produces.",
+    "link": "/guide/audio-to-text"
+  },
+  {
+    "title": "Forms and dates",
+    "detail": "Select dependent options, set dates and check the exact accepted values.",
+    "link": "/guide/forms-and-dates"
+  },
+  {
+    "title": "Independent users",
+    "detail": "Keep customer and admin browser profiles independently signed in.",
+    "link": "/guide/native-browser-workflows#separate-users-in-one-test"
+  },
+  {
+    "title": "Network and downloads",
+    "detail": "Mock responses, wait for events and verify exported files natively.",
+    "link": "/guide/native-browser-workflows#mock-requests-and-wait-for-network-events"
+  },
+  {
+    "title": "Accessible components",
+    "detail": "Mount a component, check its behavior and inspect accessibility regressions.",
+    "link": "/guide/component-testing"
+  },
+  {
+    "title": "Useful failure evidence",
+    "detail": "Read target and condition results, actual values, call logs and source locations.",
+    "link": "/guide/assertions-and-diagnostics"
+  },
+  {
+    "title": "Data and saved sessions",
+    "detail": "Generate once, reuse deliberately and restore origin-scoped browser storage.",
+    "link": "/flow-language/getting-started/variables"
+  },
+  {
+    "title": "Canvas and Three.js games",
+    "detail": "Drive input, select objects and verify exposed game state and rendering.",
+    "link": "/games/getting-started"
+  }
+];
 const references = [
   ['Language & variables', '/flow-language/getting-started/variables', 'Syntax, scope and generated data'],
   ['Commands & assertions', '/reference/ui-commands', 'Find the action or check you need'],
@@ -22,7 +84,7 @@ const references = [
       <div class="hero-copy">
         <p class="eyebrow"><span class="eyebrow-line"></span> THE FLOWSTRIDE HANDBOOK</p>
         <h1 id="home-title">Test the journey.<br><span>Keep the story.</span></h1>
-        <p class="hero-lead">Readable automation. Thoughtful manual testing. One place to learn the workflow, from the first step to the evidence.</p>
+        <p class="hero-lead">Browser, API and game automation in readable flows. Manual tests with clear steps, outcomes and evidence. Learn the complete journey, from setup to CI and diagnosis.</p>
         <div class="hero-actions">
           <a class="home-button primary" href="/guide/getting-started">Start building <span aria-hidden="true">↗</span></a>
           <a class="home-button secondary" href="/manual-workspace/manual-testing">Explore manual testing <span aria-hidden="true">→</span></a>
@@ -30,19 +92,21 @@ const references = [
         <p class="hero-footnote">Browser & API <span>·</span> Manual flows <span>·</span> Native CI <span>·</span> Browser games</p>
       </div>
       <div class="flow-preview" aria-label="An example Flowstride test">
-        <div class="preview-title"><span class="file-icon" aria-hidden="true">ƒ</span> flows/customer.flow <span class="preview-pill">FLOW LANGUAGE</span></div>
-        <pre v-pre><code><span class="syn-key">Feature:</span> Customer access
-<span class="syn-key">Scenario:</span> A customer signs in
+        <div class="preview-title"><span class="file-icon" aria-hidden="true">ƒ</span> flows/order.flow <span class="preview-pill">FLOW LANGUAGE</span></div>
+        <pre v-pre><code><span class="syn-key">Feature:</span> Order verification
+<span class="syn-key">Scenario:</span> API and browser agree
 
-<span class="syn-key">Given</span> <span class="syn-string">"A customer exists"</span>
-  <span class="syn-call">flow.post</span> <span class="syn-string">"/api/customers"</span>
+<span class="syn-key">Given</span> <span class="syn-string">"The order exists"</span>
+  <span class="syn-call">flow.get</span> <span class="syn-string">"/api/orders/FS-101"</span>;
+  <span class="syn-call">flow.expect</span> status <span class="syn-string">"200"</span>;
+  <span class="syn-call">flow.extract</span> resBody <span class="syn-string">"id"</span> as <span class="syn-string">"orderId"</span>;
 
-<span class="syn-key">When</span> <span class="syn-string">"The customer opens the app"</span>
-  <span class="syn-call">flow.open</span> <span class="syn-string">"/account"</span>
+<span class="syn-key">When</span> <span class="syn-string">"The same order is opened"</span>
+  <span class="syn-call">flow.open</span> <span class="syn-string">"/orders/@orderId"</span>;
 
-<span class="syn-key">Then</span> <span class="syn-string">"The account is available"</span>
-  <span class="syn-call">flow.expect</span> visible <span class="syn-string">"My account"</span>;</code></pre>
-        <div class="preview-bottom"><span class="preview-status"><span aria-hidden="true">✓</span> One readable journey</span><a href="/guide/your-first-script">Try the complete example →</a></div>
+<span class="syn-key">Then</span> <span class="syn-string">"Its identifier is visible"</span>
+  <span class="syn-call">flow.expect</span> text <span class="syn-string">"@orderId"</span>;</code></pre>
+        <div class="preview-bottom"><span class="preview-status"><span aria-hidden="true">✓</span> One readable journey</span><a href="/guide/api-and-ui">Build an API + UI journey →</a></div>
       </div>
     </section>
 
@@ -54,6 +118,11 @@ const references = [
           <h3>{{ path.title }}</h3><p>{{ path.detail }}</p><span class="card-action">{{ path.action }} <span aria-hidden="true">→</span></span>
         </a>
       </div>
+    </section>
+
+    <section class="workflow-section" aria-labelledby="workflow-title">
+      <div class="section-heading"><div><p class="eyebrow">FROM A SIMPLE CHECK TO A COMPLETE JOURNEY</p><h2 id="workflow-title">Explore what your flows can do.</h2></div><a class="text-link" href="/guide/feature-map">See the feature map →</a></div>
+      <div class="workflow-grid"><a v-for="feature in features" :key="feature.link" :href="feature.link" class="workflow-card"><h3>{{ feature.title }} <span aria-hidden="true">↗</span></h3><p>{{ feature.detail }}</p></a></div>
     </section>
 
     <section class="reference-section" aria-labelledby="reference-title">

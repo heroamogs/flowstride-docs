@@ -101,3 +101,28 @@ Then "The board changes visibly"
 | `fixture` | Run an application-registered named fixture in explicit test mode |
 
 `select`, state and fixture actions depend on [the browser bridge](/games/state-and-fixtures). Application-specific rules remain in your game or project plugin.
+
+## Keyboard chords and reviewed visual baselines
+
+```flow
+game.key {
+  "key": "Shift+ArrowRight",
+  "duration": 100
+};
+```
+
+This holds the chord's keys and releases them in reverse order, including cleanup after an error. Your game must define what the combination means; follow it with a state/UI assertion. Click/focus the game first when it requires focus. A literal `+` is treated as that single key.
+
+For a durable visual baseline, capture a stable canvas with `game.checkpoint`, inspect the PNG, and deliberately copy the accepted file into a project-local baseline directory. Then compare:
+
+```flow
+game.expectVisual {
+  "canvas": "#board",
+  "baseline": "baselines/board.png",
+  "maxChange": 0.001
+};
+```
+
+The current image and baseline must have equal dimensions. Fix the viewport, fonts, animations and relevant state before capture. Review a changed image before replacing an accepted baseline. `--update-baselines` is for ARIA baselines; it does not silently accept new game screenshots.
+
+Named `snapshot`/`snapshotState` entries remain in worker memory. They are not durable global baselines or values automatically exposed as DSL `@name` extractions. Check state for game rules and pixels for rendering; neither alone proves every aspect of a move.

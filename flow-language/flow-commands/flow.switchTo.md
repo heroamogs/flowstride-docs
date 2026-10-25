@@ -1,16 +1,17 @@
 # flow.switchTo
 
-Switch the active browser page by direction or a title/URL fragment.
-
-## Example
+Select a page/tab in the current browser profile. Available in OS and Cloud.
 
 ```flow
+flow.click "Open receipt";
 flow.switchTo "next";
+flow.expect text "Receipt" inside "h1";
 flow.switchTo "previous";
+flow.expect visible "Order summary";
 ```
 
-## Behavior and limits
+`next` can wait for a newly opened page. `previous` moves through page creation order, not browsing history. A title/URL fragment such as `flow.switchTo "receipt";` chooses the first matching page; keep fragments unique.
 
-This changes a page in the current browser context. Use [named browser profiles](/guide/native-browser-workflows#separate-users-in-one-test) to keep independent users logged in at the same time.
+Tabs share their profile's cookies/storage rules. [Named profiles](/guide/native-browser-workflows#separate-users-in-one-test) keep independently authenticated users separate. This command does not enter an iframe. `flow.close` dismisses a modal, while `flow.browser.close` closes a named profile and its pages.
 
-Use this command inside a complete [Given/When/Then scenario](/guide/core-concepts). See the [browser command index](/reference/ui-commands) for related actions.
+[Tabs, windows and iframes](/guide/tabs-and-iframes) includes a complete popup-and-return scenario and frame-scoped assertions.

@@ -22,7 +22,7 @@ npx flowstride run flows --ci --bail
 
 ## Focus and debug stops
 
-`only.Scenario:` focuses one scenario within that file. Only one focus marker is allowed per file. Other files remain eligible. `stop.When` and other `stop.` blocks are debugging controls. Remove focus and stop markers before a complete acceptance run; CI records incomplete execution as a nonzero result.
+`only.Scenario:` focuses one scenario within that file. Only one focus marker is allowed per file. Other files remain eligible. `stop.When` and other `stop.` blocks halt after the first successfully executed command in that block, even when the block contains further commands. They are debugging controls. Remove focus and stop markers before a complete acceptance run; CI records incomplete execution as a nonzero result.
 
 ## Interactive and CI lifecycles
 
@@ -35,3 +35,7 @@ Test outcome and Cloud reporting outcome are separate. A passing test with a fai
 ## Explicit retries and distributed runs
 
 Retries are opt in and preserve earlier attempt diagnostics. A later success is reported as flaky; external application changes are not rolled back. [Native browser workflows](/guide/native-browser-workflows) explains retry configuration, independent users, matrices, file sharding and complete result merging.
+
+## Read a command failure
+
+The terminal and UI retain the command, relevant target/resource, source file/line and the original error/call log where available. Native assertions also retain target and condition checks with expected/actual values. Later unexecuted work is not labelled successful. See [assertions and diagnostics](/guide/assertions-and-diagnostics) for examples across browser, API, sessions, plugins, games, audio and OTP.

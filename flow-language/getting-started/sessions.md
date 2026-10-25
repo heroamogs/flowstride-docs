@@ -1,56 +1,82 @@
-# Save and reuse sessions
+# Save and restore browser sessions
 
-Sessions let a flow reuse browser state instead of repeating every login action. Save only after you have verified that authentication succeeded.
+A saved session is a snapshot of the currently selected browser profile. OS and Cloud can retain cookies, localStorage and sessionStorage, then restore them for a later scenario or CLI invocation.
 
-```flow
-flow.expect visible "Logout";
-flow.save session "customer" persist;
-```
-
-A later flow can restore before opening the application:
+## Save after a verified login
 
 ```flow
-flow.use session "customer";
-flow.open "/account";
-flow.expect visible "Logout";
+flow.open "/login";
+flow.type input "Email" "{{env.TEST_EMAIL}}";
+flow.type input "Password" "{{env.TEST_PASSWORD}}";
+flow.click button "Sign in";
+flow.expect visible "My account";
+flow.save session "reader-login" persist;
 ```
 
-## Storage included
+Put these actions under `Given`/`When` in a complete scenario, with a final outcome assertion under `Then`. Save after verifying the application's authenticated state. Persisted data belongs under the project's `.flowstride/sessions/`; keep it outside Git and public artifacts.
 
-Flowstride saves cookies, localStorage, sessionStorage and the active page's HTTP(S) origin. The session can also retain API material from the runner's current state. Verify the application behavior after use rather than assuming a particular login mechanism is compatible.
+In another run:
 
-Temporary sessionStorage is restored immediately on the saved origin or before the first matching page starts. It is not injected into another origin or a foreign top-level page's iframe. The initializer is removed after use, so later app changes or clears survive reloads.
+```flow
+Feature: Restore the reader account
 
-The snapshot concerns the active origin. It does not capture IndexedDB, every tab, arbitrary JavaScript memory or a full user profile. Restored keys merge into existing storage rather than clearing all unrelated keys.
+  Scenario: Open the account without signing in again
+    Given "The saved browser state is restored"
+      flow.use session "reader-login";
 
-## Scope and persistence
+    When "The account page is opened"
+      flow.open "/account";
 
-| Form | Use |
+    Then "The account remains authenticated"
+      flow.expect visible "My account";
+```
+
+The application must still accept that session and retain its backend account/data. An expired cookie or restarted in-memory demo server can invalidate the login even when the snapshot loads correctly.
+
+## Scope and lifetime
+
+| Command | Lifetime |
 | --- | --- |
-| `flow.save session "name"` | Save in local memory for the current flow file |
-| `flow.save global session "name"` | Save in process-level global memory |
-| `flow.save session "name" persist` | Also write `.flowstride/sessions/name.json` |
-| `flow.use session "name"` | Reuse local state or a persisted record |
-| `flow.use global session "name"` | Use the process-global session or persisted record |
+| `flow.save session "name";` | Current file's local runner memory |
+| `flow.save global session "name";` | Current process's global session memory |
+| `flow.save session "name" persist;` | Also writes a local snapshot for later invocations |
+| `flow.use session "name";` | Load a local in-memory or persisted snapshot |
+| `flow.use global session "name";` | Load a process-global or persisted snapshot |
 
-Use simple, project-safe names. Persisted files can contain credentials; exclude `.flowstride/` from Git and artifacts. Global memory is not shared across Cloud worker processes. Avoid concurrent writes to the same persisted session name.
+Use simple project-safe names. Process globals do not cross parallel worker processes or CI machines. Avoid several workers writing the same persisted name at once.
 
-## Separate live users from saved snapshots
+## Browser storage and origins
 
-A saved session is a snapshot, not a second live browser. Save reads the selected profile; use restores into the selected profile. You can keep a customer and an administrator logged in independently with [named browser profiles](/guide/native-browser-workflows#separate-users-in-one-test), then save separate snapshots such as `customer-login` and `admin-login`.
+The snapshot records the active origin. Both Web Storage types are restored only for the matching top-level HTTP(S) origin and seed once. They are not injected into an unrelated page's iframe, and later application changes/clears survive reloads. Saved keys merge with existing storage rather than clearing all unrelated keys.
 
-Existing sequential login scenarios still work. Use profiles when both users must remain live without replacing one another's cookies/storage. Profiles do not isolate runner variables or roll back application data.
+A matching origin includes scheme, host and port. `http://localhost:3000` and `http://127.0.0.1:3000` are different origins. Legacy snapshots without origin metadata prefer the configured application base URL, then an available current application page. Configure the intended `BASE_URL` before using an older record.
 
-## Old sessions
+The snapshot does not capture IndexedDB, arbitrary JavaScript memory, every tab or the application's database. The worker can also incorporate compatible cookies from its latest API response; see [API cookie login](/guide/api-testing#cookie-api-login-followed-by-a-browser-session).
 
-Cookie/local-storage snapshots remain compatible. An older snapshot with sessionStorage but no origin uses the current application origin or `baseUrl`. Open the intended application first or configure `baseUrl`; otherwise restoration fails rather than guessing where to place temporary data.
+## Customer and administrator at the same time
 
-A matching origin includes scheme, host and port. `http://localhost:3000` and `http://127.0.0.1:3000` are different origins.
+Saved names and live profiles solve different problems. Create a `customer` profile, verify its login and save `customer-login`. Create an `admin` profile, verify its login and save `admin-login`. Use `flow.browser.use` to switch between their live pages; use `flow.use session` to restore a saved snapshot into the selected profile.
 
-## Try a complete local example
+```flow
+flow.browser.create {
+  "name": "customer"
+};
+flow.use session "customer-login";
+flow.open "/account";
+flow.browser.create {
+  "name": "admin"
+};
+flow.use session "admin-login";
+flow.open "/admin";
+flow.browser.use {
+  "name": "customer"
+};
+```
 
-[Download the storage example](/examples/flowstride-storage-example.zip). It uses a small local application: the setup flow saves a signed-in session, then a fresh browser restores it before startup. Follow the included installation instructions, then run `npx flowstride run --ci`. No hosted account or custom runner is needed.
+This fragment assumes both persisted snapshots already exist. [Named profiles](/guide/native-browser-workflows#separate-users-in-one-test) explains isolation. Sequential customer/admin scenarios also remain valid when simultaneous live logins are unnecessary.
 
-## SDK sessions
+## Try the local example
 
-`SessionManager` save/use also retains sessionStorage and origin. Custom authentication refresh and fixture logic remains application-specific. Do not import internal workers to implement it; use a narrow supported [plugin](/flow-language/getting-started/plugins) where needed.
+[Copy the included examples](/guide/working-examples), then run the session-saving flow followed by its restore flow in a new process while the same demo server remains active. The restore asserts cookies and both storage types before application startup reads them.
+
+Cloud provides [local cleanup commands](/cloud/advanced-workflows#clear-local-runner-data) for saved sessions. Removing browser state does not revoke a Cloud developer token or delete an application account.

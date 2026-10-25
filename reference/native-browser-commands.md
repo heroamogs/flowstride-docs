@@ -161,3 +161,9 @@ A snapshot without `baseline` captures evidence. With `baseline`, it compares a 
 | `flow.component.unmount` | `{}` | Unmount the current page's mounted component |
 
 Install the project's React/React DOM or Vue packages as appropriate. Flowstride manages a local Vite harness; it does not automatically load your app's Vite configuration, providers, router or backend. React updates follow React rendering; Vue replaces supplied prop keys; vanilla update remounts the factory. Mounting another component disposes the previous harness.
+
+## Interpret a failed command
+
+Native assertions preserve successful lookup checks and failed conditions separately. The terminal, interactive views and CI JSON/JUnit retain the target, expected/actual condition, timeout and source location. Dependent checks remain not evaluated when a prerequisite is missing. See [assertions and diagnostics](/guide/assertions-and-diagnostics).
+
+For complete workflows beyond individual command arguments, use [browser environments](/guide/browser-environments), [component testing](/guide/component-testing), [tabs and iframes](/guide/tabs-and-iframes), and [the feature map](/guide/feature-map).

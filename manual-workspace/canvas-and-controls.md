@@ -15,7 +15,7 @@ The canvas represents test steps, organization and the intended execution path. 
 
 Groups organize the display and reporting. Moving a node into a group does not change the application's behavior. Keep group boundaries clear so the intended grouping is readable.
 
-The UI also contains a Requirement tool entry. Do not rely on it as a complete requirements-management or traceability system; use the implemented Test Plan/reference fields and an external requirements record as described in [traceability](/manual-workspace/traceability).
+The UI also contains a Requirement tool entry. Do not rely on it as a complete requirements-management or traceability system; use the implemented Test Plan and rich-text notes and an external requirements record as described in [traceability](/manual-workspace/traceability).
 
 ## Design shortcuts
 
@@ -42,3 +42,25 @@ Use a linear path with one outgoing arrow per node. Use separate flows for alter
 Use the toolbar zoom controls and Hand tool to keep the current section visible. Keep text readable, place the primary path in a consistent direction, and use notes for context instead of putting every detail inside node titles.
 
 Entering Execution Mode changes keyboard behavior. [Read the execution controls](/manual-workspace/execution#record-outcomes) before using Delete, Tab or Escape.
+
+## Make a connected, readable case
+
+1. Add the first Step and give it a short action title.
+2. Add the next Step and connect their anchors with the Arrow tool. An anchor-to-anchor connection defines progression; a decorative free arrow does not create an executable relationship between steps.
+3. Continue with one outgoing connection per step, then check the highlighted start in Execution Mode.
+4. Add a Group around a coherent part of the journey, such as authentication or checkout. Group membership follows node-center placement inside its bounds.
+5. Add Text for preconditions, fixture IDs or cleanup reminders. Resize text independently so notes remain readable.
+
+Dragging a group moves its contained nodes. Floating notes are separate entities; confirm their position after reorganizing a group. Deleting a group does not mean every contained step should disappear. Review the resulting canvas and save intentionally.
+
+The visual step-number menu can change the displayed label. Internal IDs/connections still define progression. Displaying a node as “1” does not make it the execution start.
+
+## Move, copy and recover edits
+
+Wheel panning, zoom/recenter controls and edge auto-pan help navigate a large canvas. Use Hand when you intend to move the view and Select when you intend to move an entity. Check the active tool before dragging.
+
+Copy/paste uses an internal canvas clipboard and remaps copied entity/connection IDs. Check that the copied path remains connected to the intended new nodes; clipboard content is not a portable project export. Undo retains up to 50 in-memory snapshots. Save templates and backups for durable recovery.
+
+## Connections panel
+
+The property editor's **Connections** tab is a scaffold. Use the implemented canvas arrow anchors to connect steps; do not rely on that tab as a connection-management form, conditional branch editor or loop designer.

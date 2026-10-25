@@ -1,15 +1,18 @@
 # flow.set
 
-Set a target field value directly, useful for controls such as date fields.
-
-## Example
+Set a field's value directly, useful for controls such as date inputs. Available in OS and Cloud.
 
 ```flow
-flow.set input "Date of birth" to "1995-05-10";
+flow.set input "Date" to "2026-11-14";
+flow.assert.that {
+  "selector": "input[name='date']",
+  "condition": "value",
+  "value": "2026-11-14"
+};
 ```
 
-## Behavior and limits
+Choose a valid date for the application. Native date inputs use `YYYY-MM-DD`, regardless of their display locale. Use a unique input selector if the readable label does not resolve the actual control.
 
-Direct setting is different from a real sequence of keystrokes. Verify that application validation and the resulting state behave as intended.
+The adapter applies a value setter and dispatches input/change events. This differs from typing a sequence of keystrokes. A widget may still reject the value; verify its resulting state and validation behavior. The calendar fallback finds supported matching day controls and does not universally navigate month/year widgets.
 
-Use this command inside a complete [Given/When/Then scenario](/guide/core-concepts). See the [browser command index](/reference/ui-commands) for related actions.
+[Forms and dates](/guide/forms-and-dates) combines From/To selections, date input and exact assertions.

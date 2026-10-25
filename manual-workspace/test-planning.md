@@ -17,7 +17,7 @@ Record the following in your test plan and flow description/reference material:
 | What proves success? | One confirmation, one matching order ID and correct total |
 | What cleanup is needed? | Cancel the test order and restore stock if required |
 
-The workspace has a **Test Plan** field, an **Environment** field, a version, and per-step references/priority. Use them for concise identifiers and links. It does not provide a dedicated typed field for every item in this table.
+The workspace has a **Test Plan** field, an **Environment** field, a version, and per-step priority/design media. Use Test Plan and rich-text notes for concise identifiers and links; References contains image/video media. It does not provide a dedicated typed field for every item in this table.
 
 ## Choose coverage deliberately
 

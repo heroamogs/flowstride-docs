@@ -66,3 +66,22 @@ Then "The score is one"
 ```
 
 Feature aliases apply to its scenarios. A scenario can also declare its own alias. Custom aliases point at a project-local plugin; see [plugins](/flow-language/getting-started/plugins).
+
+## Reuse data across pages
+
+```flow
+flow.extract text "table[0] tr[6] td[0]" as "petName";
+flow.open "/booking/quote";
+flow.type input "First Name" "@petName";
+flow.assert.that {
+  "selector": "input[name='firstName']",
+  "condition": "value",
+  "value": "@petName"
+};
+```
+
+Adapt the table coordinate, route and input to your application. Extraction retains the value while navigation changes the page. The assertion proves the destination received it. [Table and cell workflows](/guide/table-testing) covers stable record selection and cell-scoped actions.
+
+## Interpolation boundaries
+
+Workers resolve string values inside command objects and arrays; JSON property names are not interpolated. The configuration loader applies selected overrides such as `BASE_URL` rather than performing the same substitution through every JSON field. Put supported environment-valued browser credentials in a [native profile command](/guide/browser-environments#profile-settings-and-environment-values).

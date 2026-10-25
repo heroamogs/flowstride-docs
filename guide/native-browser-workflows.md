@@ -4,6 +4,8 @@ OS and Cloud support these commands directly in `.flow` files. Existing commands
 
 Keep both engine installations current when using these features. If an older Cloud installation cannot execute a requested native workflow, the launcher explains the selection and uses OS fallback for the run. Existing commands can still use an older compatible Cloud engine; Cloud-only services require a compatible Cloud installation.
 
+For focused examples of existing browser actions, see [table and cell testing](/guide/table-testing) and [audio-to-text testing](/guide/audio-to-text). Both use the same syntax in OS and Cloud; audio injection requires Chromium.
+
 ## Separate users in one test
 
 A **profile** is an independent browser context: its cookies, local storage, session storage, pages and permissions are separate. The original profile is named `default`. Creating a profile selects it; switching profiles returns to the page that user was using.
@@ -376,3 +378,9 @@ npx flowstride merge shard-1/summary.json shard-2/summary.json shard-3/summary.j
 Merging rejects missing/duplicate shards, mixed source suites and mixed browser configurations. A failed or interrupted shard cannot become a passing merge. Setup `.first.flow` files execute independently on every machine, so setup must be safe to repeat. Metrics count actual shard executions, including repeated setup work.
 
 For later runs, use `--shard-history path/to/timings.json` from a previous complete merge. Every machine must use the same file: history assigns longer files first while preserving deterministic, disjoint standard-file coverage. There is no hosted scheduling service or shared in-memory state between machines.
+
+## Readable results and further examples
+
+Supported native assertions can appear under an intermediate `And` before `Then`, or together inside the final `Then`. No block can follow `Then` in the same scenario. Their diagnostics preserve lookup, role/name, uniqueness and condition results separately. A failed condition does not erase a successful target check. [Assertions and diagnostics](/guide/assertions-and-diagnostics) explains this in terminal, UI and CI reports.
+
+For focused end-to-end tutorials, continue with [browser environments](/guide/browser-environments), [component testing](/guide/component-testing), [tabs and iframes](/guide/tabs-and-iframes), [API testing](/guide/api-testing), and [included runnable examples](/guide/working-examples).

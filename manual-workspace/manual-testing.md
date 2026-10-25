@@ -34,3 +34,7 @@ The manual canvas and the automated runner are different workspaces. `run` execu
 Design templates, saved runs and media have separate folders under `manual_flows`. Local saving and Cloud synchronization are different operations. Credentials available to the workspace can trigger remote defect/run uploads; do not assume that a localhost page means every action stays offline.
 
 [Understand editions and limits](/manual-workspace/capabilities) before adopting Cloud evidence, audit or collaboration processes. The guides distinguish implemented controls from suggested team practices.
+
+## Practice the complete lifecycle
+
+Start with [the local profile-review exercise](/manual-workspace/practical-walkthrough). It includes a real application, a supplied design, three passing observations, a deliberate expected/actual mismatch, defect recording and saved-history review. Install through npm and copy its included fixtures; no hosted application or downloaded starter project is required.

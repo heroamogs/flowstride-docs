@@ -33,3 +33,9 @@ Execution follows the first outgoing connection, starting with the lowest intern
 The defect chooser advertises a larger video limit than the local upload server accepts. The effective request cap is 40 MiB. Aggregate pending counts include Blocked and Skipped work. Client-provided author/tester labels do not prove identity.
 
 Keep these limits in mind when planning coverage and reviewing saved outcomes.
+
+## Local access and safe sharing
+
+The current manual server binds to loopback by default and validates local request origins/hosts. Imported content and save payloads are validated and rich HTML is sanitized. These controls do not turn the server into a public team-hosting endpoint. Keep it local and share reviewed run files or eligible Cloud records through their documented channels.
+
+For a complete exercise with a real local application, a passing run and a deliberate mismatch, use [the profile-review walkthrough](/manual-workspace/practical-walkthrough).

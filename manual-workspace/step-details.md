@@ -10,18 +10,25 @@ A good step describes one meaningful action and a result someone can observe. Th
 | Description | Purpose, assumptions or a relevant risk | Repeating the title without context |
 | Steps | Exact actions, controls and test data references | “Test checkout” |
 | Expected Result | The visible/data outcome that establishes success | “It works” |
-| References | Requirement, design, fixture or issue links | Credentials or access tokens |
+| References | Design images/video uploaded through the media controls | Treating it as a freeform requirement-link editor |
 | Priority | The team's agreed execution priority | Treating priority as defect severity |
 
 Rich-text fields support ordinary emphasis, lists and links. Imported/pasted content is sanitized; scripts, unsafe links and arbitrary formatting should not be expected to survive. Keep a document link rather than embedding a large report into a field.
 
 ## Example: an observable case
 
-**Title:** Submit a valid delivery address  
-**Description:** Verify address acceptance without placing a second order. Preconditions: cart C-01, customer U-01, staging build B-123.  
-**Steps:** Open Delivery; enter address fixture A-01; select Continue once.  
-**Expected Result:** Review displays the address from A-01, preserves the cart total, and shows no validation error.  
-**References:** REQ-CHECKOUT-07 and fixture A-01.  
+**Title:** Submit a valid delivery address
+
+**Description:** Verify address acceptance without placing a second order. Preconditions: cart C-01, customer U-01, staging build B-123.
+
+**Steps:** Open Delivery; enter address fixture A-01; select Continue once.
+
+**Expected Result:** Review displays the address from A-01, preserves the cart total, and shows no validation error.
+
+**Traceability in Description/Test Plan:** REQ-CHECKOUT-07 and fixture A-01.
+
+**References:** An optional design screenshot showing the intended review layout.
+
 **Priority:** High.
 
 The fixture identifier refers to test data your team controls. The workspace does not create that customer or address automatically.
@@ -35,3 +42,11 @@ If the requirement is unclear, record the uncertainty, obtain a decision, update
 ## Review before execution
 
 Ask another person to execute the case without verbal instructions. They should identify the starting state, action, expected result, and cleanup. Split steps whose outcome cannot be attributed to one logical action, while keeping tiny mechanical clicks together when they represent one action.
+
+## Field behavior and reference media
+
+Put requirement IDs, fixture IDs and external issue/design links in the rich-text Description/Steps or your Test Plan record. The **References** control is a media upload/preview/delete area. It stores media URLs; it is not a general requirements editor.
+
+Priority choices are **Low**, **Medium**, **High** and **Critical**; an unset value displays Low. An environment label such as **Local**, **Dev**, **Staging** or **Prod** records context; it does not start a server, choose browser configuration or navigate the application.
+
+Visible character counters help authoring but should not be interpreted as the only enforced validation limit. The server separately validates the save schema and request size. Keep long external documents linked from the notes instead of embedding them into a step.

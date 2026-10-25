@@ -1,15 +1,15 @@
 # flow.close
 
-Find and activate a close control associated with a target region/modal.
-
-## Example
+Dismiss a visible modal identified by its text. Available in OS and Cloud.
 
 ```flow
-flow.close "Account settings";
+flow.close "Voice Recordings";
+flow.assert.that {
+  "selector": "[role='dialog']",
+  "condition": "hidden"
+};
 ```
 
-## Behavior and limits
+The helper locates a visible modal region and uses a close candidate or supported top-right geometry. Give it text unique to the intended modal, and adapt the hidden assertion to your markup. Nested dialogs, unusual close controls and repeated modal text can require a more explicit action.
 
-This is a modal/region interaction, not a general command to close a BrowserContext or every browser tab. Use `flow.browser.close` with a profile name to close a [named browser profile](/reference/native-browser-commands#profiles-and-runtime-settings).
-
-Use this command inside a complete [Given/When/Then scenario](/guide/core-concepts). See the [browser command index](/reference/ui-commands) for related actions.
+Command completion is not proof that every overlay disappeared; assert the outcome. This is not a tab-close command. [Audio-to-text](/guide/audio-to-text#a-login-recording-and-transcript-review-journey) shows its use in a complete recording review.

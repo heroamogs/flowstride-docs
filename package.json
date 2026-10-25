@@ -7,7 +7,7 @@
     "dev": "vitepress dev",
     "build": "vitepress build",
     "preview": "vitepress preview",
-    "check": "node scripts/check-docs.mjs && vitepress build",
+    "check": "node scripts/check-docs.mjs && vitepress build && node scripts/check-built.mjs",
     "check:content": "node scripts/check-docs.mjs"
   },
   "keywords": [],

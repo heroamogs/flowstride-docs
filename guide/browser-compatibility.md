@@ -25,7 +25,8 @@ WebKit is the browser engine used by Safari. Selecting it does not automate your
 | Desktop/phone/landscape | Device emulation; physical phones and every operating-system combination need separate acceptance |
 | Firefox mobile settings | Explicit `isMobile: true` is rejected; built-in phone profiles omit that flag. A small viewport is not a claim of identical mobile-browser behavior |
 | Touch dragging/swiping | Uses Chromium CDP; choose Chromium and a touch-capable profile |
-| Audio-file microphone injection | Requires Chromium; this is fixture input rather than an audio-recognition service |
+| Tables and cells | Search, coordinate targeting, row actions and assertions in all three engines; [runnable examples](/guide/table-testing) |
+| Audio-file microphone injection | Requires Chromium in OS and Cloud; [audio-to-text testing](/guide/audio-to-text) checks your application's transcription |
 | Three.js integration | Real scene fixtures are qualified on Chromium; qualify other engines against your actual game |
 | Custom locale in Chromium | Chromium's current stealth behavior can expose `en-US` despite a requested locale. Use Firefox/WebKit for locale-sensitive checks and verify the observed language |
 | HAR playback with forced offline mode | Firefox/WebKit can reject navigation when `flow.browser.offline` is true, before HAR fulfillment. Keep that flag unset for HAR playback and stop the real server to verify the recording |

@@ -72,6 +72,18 @@ Except the two empty checks, conditions take an expected string. Use dotted/inde
 
 ## Transcript text
 
-`flow.expect transcript contains "hello world"` checks normalized text rendered in the page. It is not an audio-recognition engine. Your application must perform any actual transcription.
+```flow
+flow.expect transcript contains "Hello Flowstride. Your order is ready.";
+```
+
+Available in OS and Cloud. The command polls the page body's rendered text, comparing after lowercasing, removing punctuation and collapsing whitespace. It checks a contained phrase, not an exact transcript or a word-error score. Your application performs the transcription.
+
+The normalizer keeps ASCII word characters and whitespace. For accented/non-Latin text, or to restrict the check to the new transcript, use a native assertion on a specific result element. A phrase already displayed in instructions or an old transcript could satisfy the whole-page helper. Input/textarea results need a value assertion.
+
+The [audio-to-text guide](/guide/audio-to-text) covers fixture preparation, Chromium microphone input, start/stop controls, timing and scoped transcript assertions.
 
 A failed required assertion fails the scenario. Native CI returns nonzero and records the failure. Do not wrap a required check in `flow.try`.
+
+## Placement and diagnostics
+
+Use `flow.expect` and supported native assertions in an intermediate `And` before `Then`, or put several checks inside the final `Then`. The next declaration after the final block must be another `Scenario`. Required failures fail the attempt; subsequent unexecuted steps are not tested. [Assertions and diagnostics](/guide/assertions-and-diagnostics) explains target checks, actual/expected values, deadlines and file/line evidence. [API testing](/guide/api-testing#assert-a-response-precisely) explains literal versus type negation and chained operators with behavioral examples.

@@ -9,6 +9,10 @@ export const sidebar = {
           "link": "/manual-workspace/manual-testing"
         },
         {
+          "text": "Complete local walkthrough",
+          "link": "/manual-workspace/practical-walkthrough"
+        },
+        {
           "text": "Plan a useful test",
           "link": "/manual-workspace/test-planning"
         },
@@ -117,6 +121,48 @@ export const sidebar = {
       ]
     },
     {
+      "text": "Practical workflows",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Targeting decisions",
+          "link": "/guide/targeting"
+        },
+        {
+          "text": "API + UI in one flow",
+          "link": "/guide/api-and-ui"
+        },
+        {
+          "text": "API contracts & GraphQL",
+          "link": "/guide/api-testing"
+        },
+        {
+          "text": "Email OTP",
+          "link": "/guide/email-otp"
+        },
+        {
+          "text": "Forms, dropdowns & dates",
+          "link": "/guide/forms-and-dates"
+        },
+        {
+          "text": "Tables, cells & reuse",
+          "link": "/guide/table-testing"
+        },
+        {
+          "text": "Tabs, windows & iframes",
+          "link": "/guide/tabs-and-iframes"
+        },
+        {
+          "text": "Audio-to-text",
+          "link": "/guide/audio-to-text"
+        },
+        {
+          "text": "Assertions & diagnostics",
+          "link": "/guide/assertions-and-diagnostics"
+        }
+      ]
+    },
+    {
       "text": "Native automation",
       "collapsed": false,
       "items": [
@@ -139,6 +185,14 @@ export const sidebar = {
         {
           "text": "Browser compatibility",
           "link": "/guide/browser-compatibility"
+        },
+        {
+          "text": "Tables and cells",
+          "link": "/guide/table-testing"
+        },
+        {
+          "text": "Audio-to-text testing",
+          "link": "/guide/audio-to-text"
         }
       ]
     },
@@ -411,6 +465,14 @@ export const sidebar = {
         {
           "text": "Browser compatibility",
           "link": "/guide/browser-compatibility"
+        },
+        {
+          "text": "Tables and cells",
+          "link": "/guide/table-testing"
+        },
+        {
+          "text": "Audio-to-text testing",
+          "link": "/guide/audio-to-text"
         }
       ]
     },
@@ -477,6 +539,28 @@ export const sidebar = {
   ],
   "/reporting/": [
     {
+      "text": "Understand a result",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Failure diagnosis",
+          "link": "/guide/assertions-and-diagnostics"
+        },
+        {
+          "text": "Dashboard & Replay",
+          "link": "/reporting/dashboard"
+        },
+        {
+          "text": "CI artifacts",
+          "link": "/reporting/artifacts"
+        },
+        {
+          "text": "Manual run review",
+          "link": "/manual-workspace/reporting"
+        }
+      ]
+    },
+    {
       "text": "Review and connect",
       "collapsed": false,
       "items": [
@@ -521,6 +605,14 @@ export const sidebar = {
         {
           "text": "Browser compatibility",
           "link": "/guide/browser-compatibility"
+        },
+        {
+          "text": "Tables and cells",
+          "link": "/guide/table-testing"
+        },
+        {
+          "text": "Audio-to-text testing",
+          "link": "/guide/audio-to-text"
         }
       ]
     },
@@ -571,6 +663,28 @@ export const sidebar = {
   ],
   "/cloud/": [
     {
+      "text": "Cloud workspace",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Authentication & tokens",
+          "link": "/cloud/authentication"
+        },
+        {
+          "text": "OS & Cloud selection",
+          "link": "/guide/editions"
+        },
+        {
+          "text": "Execution, refresh & cleanup",
+          "link": "/cloud/advanced-workflows"
+        },
+        {
+          "text": "Cloud reporting & evidence",
+          "link": "/guide/cloud-evidence"
+        }
+      ]
+    },
+    {
       "text": "Review and connect",
       "collapsed": false,
       "items": [
@@ -611,6 +725,14 @@ export const sidebar = {
         {
           "text": "Browser compatibility",
           "link": "/guide/browser-compatibility"
+        },
+        {
+          "text": "Tables and cells",
+          "link": "/guide/table-testing"
+        },
+        {
+          "text": "Audio-to-text testing",
+          "link": "/guide/audio-to-text"
         }
       ]
     },
@@ -654,6 +776,28 @@ export const sidebar = {
     }
   ],
   "/reference/": [
+    {
+      "text": "Find a capability",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Feature map",
+          "link": "/guide/feature-map"
+        },
+        {
+          "text": "Assertions & diagnostics",
+          "link": "/guide/assertions-and-diagnostics"
+        },
+        {
+          "text": "API contracts",
+          "link": "/guide/api-testing"
+        },
+        {
+          "text": "Included working examples",
+          "link": "/guide/working-examples"
+        }
+      ]
+    },
     {
       "text": "Reference",
       "collapsed": false,
@@ -699,6 +843,14 @@ export const sidebar = {
         {
           "text": "Browser compatibility",
           "link": "/guide/browser-compatibility"
+        },
+        {
+          "text": "Tables and cells",
+          "link": "/guide/table-testing"
+        },
+        {
+          "text": "Audio-to-text testing",
+          "link": "/guide/audio-to-text"
         }
       ]
     },
@@ -907,6 +1059,14 @@ export const sidebar = {
         {
           "text": "Browser compatibility",
           "link": "/guide/browser-compatibility"
+        },
+        {
+          "text": "Tables and cells",
+          "link": "/guide/table-testing"
+        },
+        {
+          "text": "Audio-to-text testing",
+          "link": "/guide/audio-to-text"
         }
       ]
     },
@@ -1007,6 +1167,174 @@ export const sidebar = {
         {
           "text": "Capabilities & limits",
           "link": "/reference/capabilities"
+        }
+      ]
+    }
+  ],
+  "/guide/": [
+    {
+      "text": "Start with Flowstride",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Feature map",
+          "link": "/guide/feature-map"
+        },
+        {
+          "text": "Install & get started",
+          "link": "/guide/getting-started"
+        },
+        {
+          "text": "Your first flow",
+          "link": "/guide/your-first-script"
+        },
+        {
+          "text": "Included working examples",
+          "link": "/guide/working-examples"
+        },
+        {
+          "text": "Core concepts",
+          "link": "/guide/core-concepts"
+        },
+        {
+          "text": "Find the right control",
+          "link": "/guide/targeting"
+        },
+        {
+          "text": "Why Flowstride",
+          "link": "/guide/why-flowstride"
+        }
+      ]
+    },
+    {
+      "text": "Real application journeys",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "API + UI in one flow",
+          "link": "/guide/api-and-ui"
+        },
+        {
+          "text": "API contracts & GraphQL",
+          "link": "/guide/api-testing"
+        },
+        {
+          "text": "Email OTP",
+          "link": "/guide/email-otp"
+        },
+        {
+          "text": "Forms, dropdowns & dates",
+          "link": "/guide/forms-and-dates"
+        },
+        {
+          "text": "Tables, cells & reuse",
+          "link": "/guide/table-testing"
+        },
+        {
+          "text": "Tabs, windows & iframes",
+          "link": "/guide/tabs-and-iframes"
+        },
+        {
+          "text": "Audio-to-text",
+          "link": "/guide/audio-to-text"
+        }
+      ]
+    },
+    {
+      "text": "Native browser automation",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Native browser workflows",
+          "link": "/guide/native-browser-workflows"
+        },
+        {
+          "text": "Browser environments",
+          "link": "/guide/browser-environments"
+        },
+        {
+          "text": "Component testing",
+          "link": "/guide/component-testing"
+        },
+        {
+          "text": "Assertions & failure diagnosis",
+          "link": "/guide/assertions-and-diagnostics"
+        },
+        {
+          "text": "Waiting & retries",
+          "link": "/guide/waiting-and-retries"
+        },
+        {
+          "text": "Command reference",
+          "link": "/reference/native-browser-commands"
+        }
+      ]
+    },
+    {
+      "text": "Run and configure",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Configuration & .env",
+          "link": "/guide/configuration"
+        },
+        {
+          "text": "Execution & failures",
+          "link": "/guide/execution-model"
+        },
+        {
+          "text": "Browser compatibility",
+          "link": "/guide/browser-compatibility"
+        },
+        {
+          "text": "Native CI & GitHub Actions",
+          "link": "/guide/native-ci-games"
+        },
+        {
+          "text": "CLI reference",
+          "link": "/guide/the-cli"
+        },
+        {
+          "text": "OS & Cloud",
+          "link": "/guide/editions"
+        },
+        {
+          "text": "Installation & updates",
+          "link": "/guide/releases"
+        },
+        {
+          "text": "Troubleshooting",
+          "link": "/guide/troubleshooting"
+        }
+      ]
+    },
+    {
+      "text": "Review and explore",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Dashboard & Replay",
+          "link": "/reporting/dashboard"
+        },
+        {
+          "text": "Reports & artifacts",
+          "link": "/reporting/artifacts"
+        },
+        {
+          "text": "Manual testing",
+          "link": "/manual-workspace/manual-testing"
+        },
+        {
+          "text": "Browser games",
+          "link": "/games/getting-started"
+        },
+        {
+          "text": "Cloud authentication",
+          "link": "/cloud/authentication"
+        },
+        {
+          "text": "Cloud execution workflows",
+          "link": "/cloud/advanced-workflows"
         }
       ]
     }

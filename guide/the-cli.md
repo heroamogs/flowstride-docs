@@ -60,3 +60,7 @@ CI can provide `FLOWSTRIDE_TOKEN` as a secret, then call `login` when the Cloud 
 For an installed Cloud engine, use `npx flowstride update` to check for updates. See [installation and updates](/guide/releases).
 
 Run tests locally or in your own CI, with optional authenticated Cloud reporting.
+
+## Cloud cleanup
+
+The installed Cloud CLI additionally supports `reset --values`, `reset --sessions` and `run --fresh` for local runner state. These are not equivalent OS switches and do not delete application/backend data or Cloud login credentials. Read [the cleanup scope](/cloud/advanced-workflows#clear-local-runner-data) before using them.
