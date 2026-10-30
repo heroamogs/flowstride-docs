@@ -11,3 +11,7 @@ cache/
 development-audit.json
 runtime-audit.json
 *.tsbuildinfo
+
+dependency-audit.json
+
+test-results/

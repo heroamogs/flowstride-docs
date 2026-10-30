@@ -8,7 +8,10 @@
     "build": "vitepress build",
     "preview": "vitepress preview",
     "check": "node scripts/check-docs.mjs && vitepress build && node scripts/check-built.mjs",
-    "check:content": "node scripts/check-docs.mjs"
+    "check:content": "node scripts/check-docs.mjs",
+    "test:unit": "node --test tests/*.test.mjs",
+    "test:browser": "node --test scripts/browser-regression.mjs",
+    "test": "npm run test:unit"
   },
   "keywords": [],
   "author": "Samuel Okolo",
@@ -16,6 +19,11 @@
   "description": "Official documentation site for Flowstride test automation framework",
   "devDependencies": {
     "vitepress": "^1.6.4",
-    "vue": "^3.5.35"
+    "vue": "^3.5.44"
+  },
+  "overrides": {
+    "vitepress": {
+      "vite": "6.4.5"
+    }
   }
 }
