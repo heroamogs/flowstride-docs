@@ -54,6 +54,8 @@ Create `flowstride.config.json` in the project root when you want to customize e
 | `trace` | Disabled | Automatically retain browser trace ZIPs |
 | `har` | Disabled | Record HTTP traffic to HAR before browser context creation |
 | `domSnapshots` | Disabled | Capture diagnostic HTML for dashboard history |
+| `security.evidence.screenshots` | Enabled | Automatic step screenshots and live dashboard frames |
+| `security.evidence.cloudVideo` | Enabled where eligible | Allow automatic Cloud video upload; separate from metrics and manual attachments |
 | `retries` | `0` | Whole-scenario retries; integer from 0 through 10 |
 | `failOnFlaky` | `false` | Fail CI if a scenario passed only after retrying |
 | `shard` | Unset | CI file assignment such as `1/3`; CLI `--shard` takes precedence |
@@ -64,6 +66,12 @@ Paths, including symlink targets, must stay inside the project. The artifact dir
 ## Native browser settings and evidence
 
 `browser` selects `chromium` (default), `firefox` or `webkit`. `browserOptions` validates context settings. Optional `trace`, `har` and `domSnapshots` capture local evidence. `retries` defaults to zero; `failOnFlaky` fails a run that needed a retry. See [native browser workflows](/guide/native-browser-workflows) for examples and [supported browser settings](/reference/native-browser-commands#browser-settings) for exact keys. Baseline writing is a deliberate local CLI action, not a persistent configuration switch.
+
+## Limit sensitive evidence
+
+Use the `security.evidence` object to control automatic screenshots and Cloud video separately from test assertions. Disabling screenshots also disables live dashboard frames. HAR, trace, DOM, downloads and explicit visual commands have separate capture paths; a single switch does not sanitize every export. See [the complete low-capture configuration](/security/evidence-and-replay#reduce-capture) before testing sensitive application data.
+
+`cloudSync` controls opt-in native CI reporting. It is not a global offline switch for interactive authenticated runs or explicit manual uploads.
 
 ## Start a local application for CI
 

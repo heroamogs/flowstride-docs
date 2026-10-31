@@ -73,6 +73,12 @@ The default artifact root is `flowstride-artifacts`. It contains the latest `sum
 
 CI Cloud reporting is optional. Set `cloudSync: true` and supply appropriate authentication only when needed. Reporting/video failures are tracked separately from test outcomes and do not remove local results.
 
+## Protect secrets and evidence
+
+Keep jobs that execute untrusted pull-request code separate from jobs with Cloud or application secrets. Tests, plugins, dependency installation and configured server commands run with the runner's privileges. The plugin SDK is not a security sandbox.
+
+The generated artifact upload requests 14 days of retention. Review the uploaded paths, repository access and retention policy. Disabling Cloud reporting does not disable your CI platform's own artifact upload. Never collect `.env`, saved credentials or login snapshots as test evidence. Use [evidence capture controls](/security/evidence-and-replay#reduce-capture) and review [CI and safe sharing](/security/ci-and-sharing).
+
 ## Games use the same CI runner
 
 Declare `let game = "flowstride:game"` to use native game actions. The application's state/fixture integration remains application code. See [browser games](/games/getting-started) for a complete guide.

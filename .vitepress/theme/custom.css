@@ -112,3 +112,19 @@ a:focus-visible,button:focus-visible { outline:2px solid var(--vp-c-brand-1);out
 .workflow-card p { margin-top:9px;color:var(--vp-c-text-2);font-size:13px;line-height:1.75; }
 @media(max-width:900px) { .workflow-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 @media(max-width:580px) { .workflow-grid { grid-template-columns:1fr; } .workflow-section .section-heading { align-items:start;flex-direction:column; } }
+
+/* Keep the full documentation navigation in the menu until it fits. */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .VPNavBar .VPNavBarMenu,
+  .VPNavBar .VPNavBarAppearance,
+  .VPNavBar .VPNavBarSocialLinks,
+  .VPNavBar .VPNavBarExtra {
+    display: none !important;
+  }
+  .VPNavBar .VPNavBarHamburger {
+    display: flex !important;
+  }
+  .VPNavScreen {
+    display: block !important;
+  }
+}

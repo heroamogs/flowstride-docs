@@ -44,7 +44,7 @@ npx flowstride login
 npx flowstride status
 ```
 
-Paste the developer token into the masked prompt and accept the Cloud engine installation when offered. Installation uses an authenticated private channel; no separate public package installation is required. Free accounts can use this connection flow too. See [Cloud authentication](/cloud/authentication).
+Paste the developer token into the masked prompt and accept the Cloud engine installation when offered. Installation uses an authenticated private channel; no separate public package installation is required. Archive integrity and package/path checks run before installation, and failed checks preserve the existing installation. [Installation security](/security/local-data#cloud-connections-and-installation). Free accounts can use this connection flow too. See [Cloud authentication](/cloud/authentication).
 
 ## Engine selection and fallback
 

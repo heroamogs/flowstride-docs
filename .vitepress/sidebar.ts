@@ -91,6 +91,20 @@ export const sidebar = {
           "link": "/guide/releases"
         }
       ]
+    },
+    {
+      "text": "Security and privacy",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Security overview",
+          "link": "/security/"
+        },
+        {
+          "text": "Evidence & Replay privacy",
+          "link": "/security/evidence-and-replay"
+        }
+      ]
     }
   ],
   "/flow-language/": [
@@ -421,6 +435,20 @@ export const sidebar = {
           "link": "/reference/capabilities"
         }
       ]
+    },
+    {
+      "text": "Security and privacy",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Security overview",
+          "link": "/security/"
+        },
+        {
+          "text": "Evidence & Replay privacy",
+          "link": "/security/evidence-and-replay"
+        }
+      ]
     }
   ],
   "/games/": [
@@ -533,6 +561,20 @@ export const sidebar = {
         {
           "text": "Cloud evidence & access",
           "link": "/guide/cloud-evidence"
+        }
+      ]
+    },
+    {
+      "text": "Security and privacy",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Security overview",
+          "link": "/security/"
+        },
+        {
+          "text": "Evidence & Replay privacy",
+          "link": "/security/evidence-and-replay"
         }
       ]
     }
@@ -659,6 +701,20 @@ export const sidebar = {
           "link": "/reference/capabilities"
         }
       ]
+    },
+    {
+      "text": "Security and privacy",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Security overview",
+          "link": "/security/"
+        },
+        {
+          "text": "Evidence & Replay privacy",
+          "link": "/security/evidence-and-replay"
+        }
+      ]
     }
   ],
   "/cloud/": [
@@ -771,6 +827,20 @@ export const sidebar = {
         {
           "text": "Troubleshooting",
           "link": "/guide/troubleshooting"
+        }
+      ]
+    },
+    {
+      "text": "Security and privacy",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Security overview",
+          "link": "/security/"
+        },
+        {
+          "text": "Evidence & Replay privacy",
+          "link": "/security/evidence-and-replay"
         }
       ]
     }
@@ -1015,6 +1085,20 @@ export const sidebar = {
           "link": "/flow-language/flow-commands/flow.graphql"
         }
       ]
+    },
+    {
+      "text": "Security and privacy",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Security overview",
+          "link": "/security/"
+        },
+        {
+          "text": "Evidence & Replay privacy",
+          "link": "/security/evidence-and-replay"
+        }
+      ]
     }
   ],
   "/": [
@@ -1167,6 +1251,20 @@ export const sidebar = {
         {
           "text": "Capabilities & limits",
           "link": "/reference/capabilities"
+        }
+      ]
+    },
+    {
+      "text": "Security and privacy",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Security overview",
+          "link": "/security/"
+        },
+        {
+          "text": "Evidence & Replay privacy",
+          "link": "/security/evidence-and-replay"
         }
       ]
     }
@@ -1335,6 +1433,74 @@ export const sidebar = {
         {
           "text": "Cloud execution workflows",
           "link": "/cloud/advanced-workflows"
+        }
+      ]
+    },
+    {
+      "text": "Security and privacy",
+      "collapsed": true,
+      "items": [
+        {
+          "text": "Security overview",
+          "link": "/security/"
+        },
+        {
+          "text": "Evidence & Replay privacy",
+          "link": "/security/evidence-and-replay"
+        }
+      ]
+    }
+  ],
+  "/security/": [
+    {
+      "text": "Security and privacy",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Overview",
+          "link": "/security/"
+        },
+        {
+          "text": "Local data & installation",
+          "link": "/security/local-data"
+        },
+        {
+          "text": "Evidence & Replay privacy",
+          "link": "/security/evidence-and-replay"
+        },
+        {
+          "text": "Cloud access & storage",
+          "link": "/security/cloud-and-access"
+        },
+        {
+          "text": "CI & safe sharing",
+          "link": "/security/ci-and-sharing"
+        },
+        {
+          "text": "Report a vulnerability",
+          "link": "/security/reporting-vulnerabilities"
+        }
+      ]
+    },
+    {
+      "text": "Related guides",
+      "collapsed": false,
+      "items": [
+        {
+          "text": "Authentication & tokens",
+          "link": "/cloud/authentication"
+        },
+        {
+          "text": "Configuration",
+          "link": "/guide/configuration"
+        },
+        {
+          "text": "Manual evidence",
+          "link": "/manual-workspace/defects-and-evidence"
+        },
+        {
+          "text": "Native CI",
+          "link": "/guide/native-ci-games"
         }
       ]
     }

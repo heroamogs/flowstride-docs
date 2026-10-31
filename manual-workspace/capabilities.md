@@ -12,7 +12,7 @@ Use this guide to plan manual testing around the capabilities available in OS an
 | Cloud mode history | Saved report review with historical editing/toolbar locks | Not a resumable or cryptographically immutable run |
 | Cloud | Authenticated run synchronization where eligible | Not live collaborative canvas editing |
 | Assignees | Descriptive values attached to defects | No notification, directory validation or issue creation |
-| Evidence | Local reference/defect media; remote defect upload when available | Manual remote links remain shareable; local references do not travel automatically |
+| Evidence | Local reference/defect media; remote defect upload when available | New Cloud attachments require workspace access; historical links need separate review; local references do not travel automatically |
 | Reports | Saved step-level report and eligible Cloud review | Automated TestCase PDF is not a promised manual PDF export |
 | Automation | A manual case can guide `.flow` authoring | No native one-click converter |
 

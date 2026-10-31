@@ -53,6 +53,10 @@ A matching origin includes scheme, host and port. `http://localhost:3000` and `h
 
 The snapshot does not capture IndexedDB, arbitrary JavaScript memory, every tab or the application's database. The worker can also incorporate compatible cookies from its latest API response; see [API cookie login](/guide/api-testing#cookie-api-login-followed-by-a-browser-session).
 
+## Protect persisted login material
+
+A session snapshot can contain enough information to act as that application user. Flowstride restricts local file access, but does not encrypt the snapshot or revoke the application login when the file is removed. Keep it out of Git, shared ZIPs and CI artifacts. [Local data and cleanup](/security/local-data#saved-sessions-and-cleanup).
+
 ## Customer and administrator at the same time
 
 Saved names and live profiles solve different problems. Create a `customer` profile, verify its login and save `customer-login`. Create an `admin` profile, verify its login and save `admin-login`. Use `flow.browser.use` to switch between their live pages; use `flow.use session` to restore a saved snapshot into the selected profile.

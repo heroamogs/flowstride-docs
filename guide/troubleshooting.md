@@ -10,7 +10,7 @@ Run `npx flowstride install` after updating Flowstride for Chromium, or `npx flo
 
 ## Firefox/WebKit was installed but the test still uses Chromium
 
-Installation downloads binaries; it does not change the default. Use `npx flowstride run flows --browser firefox --headed` or select WebKit explicitly. Check the terminal's launched browser/version and **Test browser** in the dashboard. An open dashboard tab is separate from the tested application. [Browser selection](/guide/browser-compatibility).
+Installation downloads binaries; it does not change the default. Use `npx flowstride run flows --browser firefox` or select WebKit explicitly. Check the terminal's launched browser/version and **Test browser** in the dashboard. An open dashboard tab is separate from the tested application. [Browser selection](/guide/browser-compatibility).
 
 ## An explicit locale or offline HAR check differs by browser
 
@@ -58,10 +58,18 @@ Confirm that both machines use the same application, test data and configuration
 
 New snapshots record the source origin. Old snapshots with session storage but no origin need the application open or an explicit `baseUrl`. Keep the same scheme, host and port. IndexedDB and arbitrary application memory are not part of this snapshot. [Session guide](/flow-language/getting-started/sessions).
 
-## Replay fails or copied cURL contains secrets
+## Replay refuses to send a masked request
 
 Replay removes invalid HTTP/2 pseudo-headers and rebuilds transport metadata for the edited body. Check the local request error and target response separately.
 
-The local Copy raw cURL action deliberately includes original request credentials. Do not paste that command into an issue or public log. Historical redacted records cannot recover the original data.
+Both Replay and cURL Copy use masked templates. Replace required `[REDACTED]` fields with test values before a manual resend; remove optional fields only when the target API permits it. The dashboard and worker reject unresolved placeholders, and entered credentials are re-masked after Send. The original captured credentials are not silently reused. `emailVerified` remains its actual value/type. [Replay privacy](/security/evidence-and-replay#send-a-request-manually-with-replay).
+
+A copied command edited outside Flowstride can contain secrets again; review it before sharing. Historical redacted data cannot recover originals.
+
+## Private state or a Cloud installation is rejected
+
+Use an owned project folder and supported filesystem permissions. Do not replace private files with symbolic links or loosen permissions to bypass an error. A shared drive or ACL failure needs investigation on the actual machine. [Local data protection](/security/local-data#filesystem-protection).
+
+Cloud installs require the authenticated final service URL and a valid archive checksum. A rejected checksum or unsafe archive is not a successful update; keep the existing installation and report the redacted error. Do not disable verification or manually rename an archive to work around it. [Installation checks](/security/local-data#cloud-connections-and-installation).
 
 For manual design, execution, file and evidence problems, use the dedicated [manual troubleshooting guide](/manual-workspace/troubleshooting).

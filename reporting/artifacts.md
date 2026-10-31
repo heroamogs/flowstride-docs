@@ -27,7 +27,7 @@ Optional evidence includes:
 
 | Evidence | Enable/use | What it establishes |
 | --- | --- | --- |
-| Video/screenshots | `recordVideo`; failure captures | Visible execution and captured failure state |
+| Video/screenshots | `recordVideo`; automatic screenshots unless disabled by evidence policy | Visible execution and captured failure state |
 | Trace ZIP | `trace: true` or explicit trace commands | Browser operations, snapshots and screenshots; Flowstride assertions remain in the summary |
 | HAR | `har: true` | Recorded HTTP traffic, finalized on context close; eligible for local replay |
 | DOM HTML | `domSnapshots: true` | Diagnostic captured page markup; dashboard serves it as inert text |
@@ -48,6 +48,8 @@ The default output is a new `flowstride-merged` directory. Choose another unused
 
 The generated GitHub workflow uploads the artifact root even on failure and sets a retention period. Adjust it to your team's needs and repository access policy.
 
-Use test accounts and data that can be retained safely. Known sensitive log fields are redacted, but arbitrary text, attachments, screens and videos can contain business data. Keep raw cURL commands out of shared artifacts.
+Use test accounts and data that can be retained safely. Known sensitive log fields are redacted and local debugger-only captures are excluded from portable JSON. This does not sanitize arbitrary text, attachments, pixels, HAR or traces. Copied cURL is masked; adding credentials outside Flowstride makes it sensitive again. [Evidence and Replay privacy](/security/evidence-and-replay).
+
+Automatic engine evidence uses restricted local filesystem permissions. Those controls do not encrypt it or govern a later CI upload. Configure [capture controls](/security/evidence-and-replay#reduce-capture), upload only intended output directories, and review access/retention at each destination. Do not collect credentials, saved sessions or the whole project as a test artifact.
 
 Manual templates and run records live under `manual_flows`, not this CI directory. [Manual file lifecycle](/manual-workspace/files-and-history) covers backup and sharing.

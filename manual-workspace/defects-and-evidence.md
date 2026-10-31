@@ -13,7 +13,7 @@ The assignee field records a label in the run. It does not create a tracker tick
 | Media | Purpose | Location/access |
 | --- | --- | --- |
 | Design reference | Explain what to test: mockup, reference screen or expected behavior | Local `manual_flows/media` |
-| Defect evidence | Show what actually happened during a run | Local `manual_flows/defect_media`; authenticated Cloud upload may return a shareable URL |
+| Defect evidence | Show what actually happened during a run | Local `manual_flows/defect_media`; new Cloud uploads use private workspace-authorized references |
 
 Reference media is not automatically transferred when a template/run is shared through Cloud. A local `/media/...` URL is meaningful to that project server, not a remote teammate's machine.
 
@@ -37,7 +37,9 @@ Cloud eligibility and limits may be stricter. Do not treat the UI's 100 MB video
 
 The workspace keeps a local copy before attempting remote delivery. With credentials available, defect upload can request a Cloud upload ticket. If remote delivery fails, a local URL can remain in the run; local preservation does not establish that a remote reviewer can open it.
 
-**Manual defect Cloud URLs are shareable public evidence links in the current integration.** They do not use the authenticated playback boundary documented for automated videos. Use disposable test data and omit private information from captures.
+**New Cloud defect attachments are private and workspace-authorized.** Cloud reviewers need access to the owning workspace. The local editor uses its authenticated loopback server to fetch eligible media; do not put a machine token into an image/video URL. A copied short-lived media access link can remain usable until expiry, so keep it private too.
+
+**Historical public objects require a separate migration and access check.** An updated client or rewritten report reference does not establish that the old object is private. Use disposable test data and inspect captures before upload. [Cloud security boundaries](/security/cloud-and-access#new-videos-and-manual-attachments).
 
 Removing a local cache file or a link from the form does not by itself prove a previously shared Cloud object has been removed everywhere. Keep evidence referenced by historical runs unless your team's retention process intentionally removes it.
 

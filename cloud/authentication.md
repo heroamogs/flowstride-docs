@@ -14,9 +14,13 @@ Developer Tokens distinguishes token status and shows creation, expiry and last 
 
 ## Credential scope
 
-Local login saves credentials in the project's `.flowstride/credentials.json`. `login --global` saves a machine-wide credential in the user's `.flowstride` folder. Treat either file as sensitive and exclude project credentials from source control.
+Local login saves credentials in the project's `.flowstride/credentials.json`. `login --global` saves a machine-wide credential in the user's `.flowstride` folder. Treat either file as sensitive and exclude project credentials from source control. Flowstride restricts private-state filesystem access; it does not encrypt these local credentials. Protect the machine account and backups. [Local data](/security/local-data).
 
 `FLOWSTRIDE_TOKEN` takes precedence over saved credentials. If an old CI secret is set, logging in with another token may not change the token that CI uses. Replace the secret at its source.
+
+## Browser logout is separate
+
+Signing out of the dashboard or using **Logout all sessions** ends browser access; it does not revoke developer tokens used by the CLI/CI. Revoke those keys separately. Application login snapshots are a third credential type, controlled by your application. [Cloud access boundaries](/security/cloud-and-access#browser-sessions-and-developer-tokens).
 
 ## Rotate or revoke
 

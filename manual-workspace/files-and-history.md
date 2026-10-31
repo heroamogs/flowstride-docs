@@ -37,7 +37,7 @@ Preserve the template/run JSON **and** the local files its media URLs reference.
 
 Version-control reusable templates where appropriate. Review them for data and local links first. Store execution evidence and large media in a controlled artifact/backup system with an agreed retention period, rather than committing every video to Git.
 
-`.flowstride` credentials and environment secrets should not be included in a manual backup or shared project bundle.
+`.flowstride` credentials, persisted login sessions and environment secrets should not be included in a shared project bundle. Keep private backups under your own access and retention policy. A Cloud attachment reference does not grant the recipient workspace access, and local reference files still need to be copied deliberately. [Safe sharing](/security/ci-and-sharing).
 
 ## Portable input
 

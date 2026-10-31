@@ -20,13 +20,15 @@ Select a network entry to inspect headers, payload, response and step context. R
 
 The current implementation filters HTTP/2 pseudo-headers such as `:authority` and recalculates transport headers for an edited body. A malformed request shows a request error; an application error response is a separate result.
 
-Replay preserves the application's captured payload for editing. Flowstride does not add authentication modes or other business fields to that payload.
+Replay preserves non-sensitive application fields for editing; it does not add authentication modes or other business fields. Captured emails, passwords, tokens and cookies are masked. Verification flags such as `emailVerified` keep their actual value and type.
 
-## Copy raw cURL
+Replace required `[REDACTED]` placeholders with test credentials before **Send**. Both the dashboard and worker reject unresolved placeholders. Credentials entered for that resend are re-masked afterward; the original captured credentials are not silently reused. This does not change how automated `.flow` requests use their configured credentials.
 
-The displayed cURL stays `[REDACTED]`. The explicit copy action uses original headers and body held separately in **local interactive memory**. Treat the copied command as a secret if it includes passwords, cookies or bearer tokens.
+## Copy cURL
 
-CI and Cloud reports keep redaction. Already-redacted historical data cannot be reversed. Screenshots and videos may still contain visible application secrets.
+The displayed command and **Copy** both use a masked request template. Copy does not reveal the original credentials. The command omits invalid HTTP/2 pseudo-headers and transport-only metadata, and shell-quotes the remaining values.
+
+If you add real credentials to a copied command outside Flowstride, treat that edited command as sensitive. Historical redaction cannot be reversed. [Evidence and Replay privacy](/security/evidence-and-replay) explains manual resends, exported diagnostics and capture limits. Screenshots, videos, traces and HAR files can still contain application secrets.
 
 ## Reports and TestCase
 
@@ -48,12 +50,12 @@ The local runner binds to loopback and restricts dashboard origins. Keep it loca
 | Overview | URL/method/status, timing and available step context |
 | Headers | Captured request and response headers |
 | Payload | Captured request body/details |
-| cURL | Redacted display; explicit local Copy uses available original memory |
+| cURL | Masked request template in both the display and Copy; no automatic credential recovery |
 | Response | Captured response body |
 | Step Context | Description identifying the relevant execution context |
 | Replay | Editable request and separate live response/request error |
 
-Captured data remains available while the local process is alive. Retained CI/Cloud artifacts are separate records; stopping the process does not promise that raw interactive memory is recoverable later.
+Interactive history is available while the local process is alive. Retained CI/Cloud artifacts are separate records; local debugger-only request templates are excluded from portable reports and Cloud automation logs. Do not expect captured credentials to be recoverable later.
 
 ## Read report status and export PDF
 

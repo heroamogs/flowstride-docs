@@ -75,5 +75,10 @@ export const nav = [
     "text": "Cloud",
     "link": "/cloud/authentication",
     "activeMatch": "/cloud/"
+  },
+  {
+    "text": "Security",
+    "link": "/security/",
+    "activeMatch": "/security/"
   }
 ];

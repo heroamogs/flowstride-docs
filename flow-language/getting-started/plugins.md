@@ -57,7 +57,7 @@ A bare path resolves under `pluginsDir` (default `plugins`); an explicit path is
 | `log(message)` | Plugin log entry |
 | `utils.sleep(ms)`, `utils.generateId(length?)` | Explicit delay and simple generated ID |
 
-HTTP helpers update the adapter's latest state. Use a native API assertion afterward when status/header checks matter. An API helper returning a body does not itself establish HTTP or business success. Plugin SDK calls can access services and files with the runner's privileges: keep extensions small and reviewable.
+HTTP helpers update the adapter's latest state. Use a native API assertion afterward when status/header checks matter. An API helper returning a body does not itself establish HTTP or business success. Plugin SDK calls can access services and files with the runner's privileges: keep extensions small and reviewable. Plugins are trusted project code, not a sandbox; do not execute unreviewed plugins with application or Cloud secrets. [CI trust boundaries](/security/ci-and-sharing#trust-the-code-before-providing-secrets).
 
 `state` belongs to plugins; it is not automatically the same namespace as DSL `@name` extractions. A return value from an ordinary alias invocation is not automatically a new DSL variable. Use supported extraction or an explicit application contract instead of assuming a return-to-variable binding.
 

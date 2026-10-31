@@ -30,7 +30,7 @@ The current manual server accepts up to 40 MiB per defect upload. Compress or tr
 
 ## A teammate cannot open an image
 
-A `/media/...` or `/defect_media/...` URL may be local to your project. Share the corresponding files through an appropriate artifact system, or confirm the run's remote evidence upload completed. Manual remote defect URLs are shareable links, not the automated private-playback route.
+A `/media/...` or `/defect_media/...` URL may be local to your project. Share the corresponding files through an appropriate artifact system, or confirm the run's remote evidence upload completed. New Cloud defect attachments require workspace authorization. Confirm the reviewer's membership and credentials, and check whether the record still points to a local file or a historical attachment with different access behavior. [Media access](/security/cloud-and-access#new-videos-and-manual-attachments).
 
 ## Cloud synchronization failed after a local save
 

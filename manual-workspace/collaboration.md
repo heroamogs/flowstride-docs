@@ -17,7 +17,7 @@ These are recommended team practices. Record approvals in your normal review or 
 
 For local collaboration, share the template/run and all referenced local media. For Cloud review, confirm the record synchronized, the teammate can access the intended workspace, and evidence URLs are actually available from their environment.
 
-A localhost reference path cannot be opened by someone else's computer merely because it appears in a Cloud record. Manual Cloud defect URLs have shareable public behavior; use an approved location when the evidence must be confidential.
+A localhost reference path cannot be opened by someone else's computer merely because it appears in a Cloud record. New Cloud defect attachments require authorization for the owning workspace. Older public evidence needs separate access review; do not assume updating the client changed every historical link. Review content and recipient access before sharing. [Evidence privacy](/security/evidence-and-replay).
 
 ## Avoid conflicting edits
 
