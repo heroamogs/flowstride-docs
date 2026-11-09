@@ -27,6 +27,7 @@ Run these commands from your npm project using `npx flowstride`, for example `np
 | `--workers <number>` | Requested parallel workers; Cloud capability subject to workspace limits |
 | `--device <profile>` | `desktop`, `phone`, or `landscape`; [engine limits apply](/guide/browser-compatibility) |
 | `--browser <engine>` | Select `chromium` (default), `firefox`, or `webkit` |
+| `--tag <name>` | Select scenarios with the tag. Repeat the option to match any supplied tag. [Scenario tag examples](/reference/data-and-run-control#select-scenarios-by-tag) |
 | `--shard <index/total>` | Select one deterministic CI file shard, for example `1/3` |
 | `--shard-history <file>` | Use a complete merge's timing history for consistent shard balancing |
 | `--update-baselines` | Deliberately create/update ARIA baselines locally; refused in CI |
@@ -35,6 +36,7 @@ Run these commands from your npm project using `npx flowstride`, for example `np
 
 ```sh
 npx flowstride run flows/account.flow --ci --env staging
+npx flowstride run flows --tag smoke
 npx flowstride run flows --workers 4
 npx flowstride run flows --config flowstride.test.json
 ```

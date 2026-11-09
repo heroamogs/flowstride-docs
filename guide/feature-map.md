@@ -18,8 +18,11 @@ OS runs locally without an account. A free Cloud account connects workspace serv
 | Two independently logged-in users | Named browser profiles with separate cookies, storage, tabs and permissions | [Independent users](/guide/native-browser-workflows#separate-users-in-one-test) |
 | Repeatable login across runs | Save and restore cookies, localStorage and sessionStorage | [Saved sessions](/flow-language/getting-started/sessions) |
 | Reliable, precise checks | Retrying conditions with individual target/condition results and expected/actual diagnostics | [Assertions and failures](/guide/assertions-and-diagnostics) |
-| API contracts | Methods, headers, JSON bodies, GraphQL variables, extraction and chained response assertions | [API testing](/guide/api-testing) |
-| Slow, failed or controlled services | Browser route fulfill/patch/continue/abort and armed request/response waits | [Network control](/guide/native-browser-workflows#mock-requests-and-wait-for-network-events) |
+| API contracts | Structured HTTP requests, GraphQL, named clients, JSON Schema, polling and typed extraction | [API and network](/reference/structured-api) |
+| Slow, failed or controlled services | Browser route fulfillment, patching, request matching and delays, plus armed request/response waits | [Network control](/reference/structured-api#browser-network) |
+| Reusable setup and test data | Load files, repeat a scenario per row, seed generators, reuse fragments and register cleanup | [Files, data and run control](/reference/data-and-run-control) |
+| Inspect a run or choose which scenarios run | Logs, deliberate waits, dashboard pause, pacing, tags and recorded skips | [Execution controls](/reference/data-and-run-control#execution-controls) |
+| Application behavior beyond the page text | Console messages, WebSocket and SSE events, visual baselines and diff evidence | [Application evidence](/reference/application-evidence) |
 | A generated report or export | Arm a download, save it and check filename, size, content, JSON or hash | [Downloads](/guide/native-browser-workflows#downloads) |
 | Time-dependent behavior | Page clocks, controlled timers, function spies and return/throw stubs | [Time and functions](/guide/native-browser-workflows#control-time-and-observe-functions) |
 | Location, connectivity or browser settings | Runtime permissions, geolocation and offline recovery; profile-specific settings | [Browser environments](/guide/browser-environments) |
@@ -31,6 +34,8 @@ OS runs locally without an account. A free Cloud account connects workspace serv
 | A human-executed test | Canvas design, grouped steps, expected outcomes, statuses, defects, media and retained runs | [Manual testing](/manual-workspace/manual-testing) |
 
 ## Start with a real example
+
+[Browse every structured command](/reference/structured-commands) or go directly to [all structured assertions](/reference/assertions) for one example per browser condition, stored-value operator and specialized check.
 
 [Run the examples included in your npm installation](/guide/working-examples). They provide a local application and known passing/failing checks for API + UI, iframes, tables, variables and saved sessions. There is also a microphone fixture and a manual design. Service templates explain what your application must supply for real OTP delivery or speech recognition.
 

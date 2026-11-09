@@ -48,6 +48,27 @@ Then "The move is recorded"
 
 Coordinates must remain inside a visible, uncovered canvas. Relative coordinates use fractions of its bounds; 1.0 is the outside boundary, not an inclusive last pixel. Use Chromium and a touch-capable profile for touch dragging/swiping. Mouse/keyboard checks follow the selected browser's behavior. Gesture/key durations must be within the configured timeout.
 
+For a game that advances to the next board after a left swipe, run with a Chromium phone profile. The swipe starts near the right of the canvas and ends near the left.
+
+```flow
+game.swipe {
+  "canvas": "#board",
+  "from": {
+    "x": 0.8,
+    "y": 0.5
+  },
+  "to": {
+    "x": 0.2,
+    "y": 0.5
+  },
+  "duration": 250
+};
+game.expectState {
+  "path": "boardIndex",
+  "equals": 1
+};
+```
+
 ## Screens and pixel comparisons
 
 | Action | Purpose |
@@ -101,6 +122,8 @@ Then "The board changes visibly"
 | `fixture` | Run an application-registered named fixture in explicit test mode |
 
 `select`, state and fixture actions depend on [the browser bridge](/games/state-and-fixtures). Application-specific rules remain in your game or project plugin.
+
+See [game assertions](/reference/assertions#game-assertions) for one example each of state, persistence and canvas comparison.
 
 ## Keyboard chords and reviewed visual baselines
 

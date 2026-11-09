@@ -19,7 +19,7 @@ flow.type "Email" "$randomEmail@example.test";
 flow.type "Confirm email" "@randomEmail@example.test";
 ```
 
-`$` generates a fresh value and remembers it; `@` retrieves that generator's last value. Calling `$randomEmail` twice generates twice. Retrieval before generation fails. Generated data is random, not a seeded deterministic replay.
+`$` generates a fresh value and remembers it. `@` retrieves that generator's last value. Calling `$randomEmail` twice generates twice. Retrieval before generation fails. Random generation is the default. Use [`flow.data.seed`](/reference/data-and-run-control#seed-generated-values) for a reproducible sequence of fixture values.
 
 [Dynamic variables](/flow-language/dynamic-variables/dynamic-variables) lists the available generators.
 
@@ -39,6 +39,8 @@ flow.get "/api/customers/@global[customerId]";
 ```
 
 Globals are not a cross-process bus for parallel workers. Prefer independent setup for parallel files. Unknown custom local names can remain literal strings, so a downstream assertion should verify the value you expected to extract.
+
+Use [property and network extraction](/flow-language/flow-commands/flow.extract) for typed browser or captured network data. [Fixture loading](/reference/data-and-run-control#load-a-fixture) and [data rows](/reference/data-and-run-control#run-a-scenario-once-per-row) let you reference fields such as `@customer.name` or `@case.city`.
 
 ## Aliases register actions
 

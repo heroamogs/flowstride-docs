@@ -54,8 +54,12 @@ export const nav = [
         "link": "/reference/api-commands"
       },
       {
-        "text": "Native object commands",
-        "link": "/reference/native-browser-commands"
+        "text": "Structured commands",
+        "link": "/reference/structured-commands"
+      },
+      {
+        "text": "Structured assertions",
+        "link": "/reference/assertions"
       },
       {
         "text": "Browser games",

@@ -1,6 +1,6 @@
 # Native browser workflows
 
-OS and Cloud support these commands directly in `.flow` files. Existing commands, plugins and saved sessions continue to work. Use `flow.<area>.<action>` followed by a JSON object inside a complete Feature/Scenario. Unknown actions and options fail explicitly. The [native command reference](/reference/native-browser-commands) lists exact fields; [waiting and retries](/guide/waiting-and-retries) explains execution behavior.
+OS and Cloud support these commands directly in `.flow` files. Use the [complete structured command index](/reference/structured-commands) to find exact fields and examples. For a condition-by-condition guide, see [structured assertions](/reference/assertions).
 
 Keep both engine installations current when using these features. If an older Cloud installation cannot execute a requested native workflow, the launcher explains the selection and uses OS fallback for the run. Existing commands can still use an older compatible Cloud engine; Cloud-only services require a compatible Cloud installation.
 
@@ -97,37 +97,26 @@ Runtime commands include `flow.browser.offline` with `value`, `flow.browser.perm
 
 ```flow
 flow.assert.that {
-  "selector": "#order-status",
+  "target": "Order status",
   "condition": "text",
   "value": "Approved",
   "timeout": 10000
 };
 flow.assert.that {
-  "role": "button",
-  "name": "Submit",
+  "target": {
+    "text": "Submit",
+    "element": "button",
+    "inside": "Checkout"
+  },
   "condition": "enabled"
 };
 flow.assert.that {
-  "selector": ".loading",
-  "condition": "visible",
-  "not": true
+  "target": "Loading orders",
+  "condition": "hidden"
 };
 ```
 
-Choose one CSS/Playwright `selector` or accessible `role` with an optional exact `name`. An optional `frame` selects an iframe. Conditions include:
-
-| Conditions | Expected input |
-| --- | --- |
-| `visible`, `hidden`, `attached`, `enabled`, `disabled`, `editable`, `checked`, `empty`, `focused`, `inViewport` | No value |
-| `text`, `containsText`, `value`, `id`, `accessibleName`, `accessibleDescription` | `value`, or `matches` and optional regex `flags` |
-| `values` | Array of selected option values |
-| `count` | Nonnegative integer `value` |
-| `attribute` | `attribute`; optional expected `value`; omit it to check presence |
-| `css`, `property` | `property` and expected `value` |
-| `url`, `title` | Expected `value` or regex `matches`; no selector needed |
-| `localStorage`, `sessionStorage` | `key` and expected string `value`, or `null` for absence |
-
-Text comparisons normalize whitespace. Assertions retry until `timeout` or the configured default; they do not repeatedly click or repeat requests. Existing `flow.expect` syntax remains supported.
+The example assumes Order status names the status element and Checkout names the form. Start with readable text, then narrow by element, container or spatial relation. A role with an exact accessible name or an explicit selector is also supported. [All browser assertion conditions](/reference/assertions#flow-assert-that).
 
 ## Mock requests and wait for network events
 
@@ -353,7 +342,7 @@ An optional `css` array imports project styles. Supply required application prov
 
 Retries are disabled by default. A retry reruns the entire failed scenario, restores its starting browser profiles/storage, saved runner variables, in-memory sessions and API state, and retains previous attempt diagnostics. A later pass is marked `flaky`; `failOnFlaky` turns it into a failing CI outcome. Bail takes effect after the final failed attempt.
 
-[Waiting and retries](/guide/waiting-and-retries) explains attempt evidence and strict flaky outcomes. Generated data is not a seeded replay; prepare stable identifiers deliberately. Retries cannot undo backend writes, emails, payments, persistent files, or other external effects. Use idempotent test data and explicit application fixtures. Keep retries low while investigating unstable tests.
+[Waiting and retries](/guide/waiting-and-retries) explains attempt evidence and strict flaky outcomes. Use a [fixed seed](/reference/data-and-run-control#seed-generated-values) when you need the same generated values on another attempt. Application writes and external effects need their own fixtures or cleanup.
 
 ## Browser matrices and multiple CI machines
 

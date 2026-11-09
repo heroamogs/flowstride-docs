@@ -29,11 +29,14 @@ HTML boolean attributes often have an empty string value rather than `"true"`. C
 
 ## More native browser conditions
 
-Use [flow.assert.that](/reference/native-browser-commands#retrying-assertions) for enabled/checked/focused state, counts, CSS/properties, accessible names, URLs/titles and storage values. It polls the specified condition without rerunning the preceding action:
+Use [`flow.assert.that`](/reference/assertions#flow-assert-that) for enabled, checked and focused state, counts, CSS, properties, accessible names, URLs, titles and storage values. It polls the specified condition after the preceding action.
 
 ```flow
 flow.assert.that {
-  "selector": "#email",
+  "target": {
+    "text": "Email",
+    "element": "input"
+  },
   "condition": "value",
   "matches": "^reader@",
   "timeout": 5000

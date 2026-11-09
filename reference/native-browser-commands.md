@@ -2,7 +2,7 @@
 
 OS and Cloud share the commands below. Put them inside a complete [Feature/Scenario](/guide/core-concepts), using `flow.<area>.<action>` followed by a JSON object and an optional semicolon. Empty arguments are written `{}`. Unknown actions and fields fail explicitly.
 
-The examples in [native browser workflows](/guide/native-browser-workflows) explain ordering and application setup. This page lists the supported argument surface; it does not make arbitrary Playwright APIs valid DSL commands.
+The [structured command index](/reference/structured-commands) includes every object command and links to its examples. This page covers profiles, time control, downloads, accessibility, components and browser evidence. For setup and ordering, see [native browser workflows](/guide/native-browser-workflows).
 
 ## Names, paths and values
 
@@ -11,6 +11,8 @@ Names are 1–80 characters, start with a letter or number, and use only letters
 Timeouts are positive integer milliseconds. JSON booleans and numbers retain their types: use `true` for a boolean property check and `"true"` for an attribute that literally contains that string.
 
 ## Profiles and runtime settings
+
+A browser profile lets you keep a separate browser session for each test user. For example, stay signed in as a customer in one profile and as an administrator in another. Switching profiles takes you back to that user’s page and keeps their cookies and storage separate.
 
 | Command | Required fields | Optional fields / behavior |
 | --- | --- | --- |
@@ -24,6 +26,39 @@ Timeouts are positive integer milliseconds. JSON booleans and numbers retain the
 | `flow.browser.geolocation` | `latitude`, `longitude` | Nonnegative `accuracy`; grant the application's geolocation permission separately |
 
 Profiles reset between files. `flow.switchTo` selects tabs within the selected profile; saved sessions are snapshots applied to that profile.
+
+For a location test, create a separate profile and grant permission for the app’s origin. This example uses the configured base URL and a page that asks for location.
+
+```flow
+flow.browser.create {
+  "name": "lagos-customer",
+  "options": {
+    "locale": "en-NG"
+  }
+};
+flow.browser.permissions {
+  "permissions": ["geolocation"],
+  "origin": "{{env.BASE_URL}}"
+};
+flow.browser.geolocation {
+  "latitude": 6.5244,
+  "longitude": 3.3792
+};
+flow.open "/delivery";
+flow.browser.clearPermissions {};
+flow.browser.list {};
+flow.browser.use { "name": "default" };
+flow.browser.close { "name": "lagos-customer" };
+```
+
+To test offline behavior, open a page with an offline UI, toggle the current profile’s network and exercise a control that checks connectivity.
+
+```flow
+flow.browser.offline { "value": true };
+flow.click button "Check connection";
+flow.expect visible "You are offline";
+flow.browser.offline { "value": false };
+```
 
 ### Browser settings
 
@@ -56,29 +91,14 @@ Recording paths use Flowstride's evidence configuration. Callbacks, arbitrary br
 
 ## Retrying assertions
 
-`flow.assert.that` requires `condition`. Element conditions require exactly one `selector` or `role`; `role` can include an exact accessible `name`. Optional `frame` is an iframe selector. Page/storage conditions do not need an element selector.
-
-| Conditions | Additional input |
-| --- | --- |
-| `visible`, `hidden`, `attached`, `enabled`, `disabled`, `editable`, `checked`, `empty`, `focused`, `inViewport` | None |
-| `text`, `containsText`, `value`, `id`, `accessibleName`, `accessibleDescription`, `url`, `title` | Expected `value`, or regex `matches` with optional `flags` (`i`, `m`, `s`, `u`) |
-| `values` | Ordered array of selected-option values in `value` |
-| `count` | Nonnegative integer `value` |
-| `attribute` | `attribute`; optional `value`/`matches`; omit the expectation to check presence |
-| `css` | CSS `property` and expected `value`/`matches` |
-| `property` | JavaScript `property` and expected JSON `value` |
-| `localStorage`, `sessionStorage` | `key` and expected string `value`, or `null` for absence |
-
-Every condition accepts `not` and `timeout`. Text reads normalize whitespace. `inViewport` checks a positive-size element intersecting the viewport, not a configurable intersection ratio. `attached` checks that at least one match exists; use `count` to require an exact number. Most element-value checks require exactly one match.
-
-Assertions poll observations, not preceding commands. A stored value or captured event that cannot change is not made correct by polling. See [waiting and retries](/guide/waiting-and-retries).
+`flow.assert.that` retries a browser condition using readable text or label, a scoped readable target, a role and name, or a selector. See [every condition and example](/reference/assertions#flow-assert-that). To check already-extracted data, use [`flow.assert.value`](/reference/assertions#flow-assert-value).
 
 ## Network routes and events
 
 | Command | Required fields | Optional fields / behavior |
 | --- | --- | --- |
-| `flow.network.route` | `name`, `url` | `mode`, `method`, `times`; response/request options below |
-| `flow.network.unroute` | `name` | Remove a still-registered route |
+| `flow.network.route` | `name`, `url` | `mode`, `method`, `times`, `delay`, `requestBody` and the response or request options below |
+| `flow.network.unroute` | `name` | Remove a registered route, including one that exhausted its match count |
 | `flow.network.arm` | `name`, `url` | `kind`: `response` (default) or `request`; optional `method`, `timeout`, response `status` filter |
 | `flow.network.wait` | `name` | Consume the armed event and retain its captured data |
 | `flow.network.expect` | `name` plus an expectation | `status`, `method`, `header`, dotted body `path`, exact JSON `equals`, string `contains` |
@@ -92,7 +112,7 @@ Route modes:
 - `continue`: forward the request; optional `request` object can change `url`, `method`, string `headers` or text `body`.
 - `abort`: block the request; response and request-rewrite fields are invalid.
 
-`times` is a positive maximum match count; an exhausted route removes itself. Browser event URL matching supports `*` within a segment and `**` across segments; use simple patterns such as `**/api/customer`. Response/fixture captures have a 20 MiB content limit. Browser routes do not intercept direct API commands. Block service workers when they would otherwise handle requests outside the routing path.
+`times` is a positive maximum match count. After it is reached, subsequent requests fall through. `delay` adds latency and `requestBody` matches a typed JSON field before applying the route. See [body-aware route and capture examples](/reference/structured-api#browser-network).
 
 ## Downloads
 
@@ -104,7 +124,11 @@ Route modes:
 
 Arm before the click. A saved destination must not already exist; use a fresh name such as `downloads/report-$uuid.json` for repeatable runs. `filename` checks the browser's suggested filename, not your chosen destination name. Text/JSON checks have a 20 MiB limit; hash checks stream the file. Downloads are scoped to the profile; switch back before saving/asserting its event.
 
+See the [export, save and verify example](/reference/assertions#flow-download-expect).
+
 ## Browser clock
+
+If your app enables **Resend code** after a 60-second countdown, you can advance the browser clock and check that the button becomes available. This lets you exercise the countdown in seconds of real time.
 
 | Command | Fields | Behavior |
 | --- | --- | --- |
@@ -118,7 +142,27 @@ Arm before the click. A saved destination must not already exist; use a fresh na
 
 Advances are integer milliseconds from 0 through 86,400,000. Install before the application creates timers; pause explicitly when an exact tick count matters. These commands do not control backend or operating-system time.
 
+For a page with a countdown, install the clock, pause it at a known time and advance the page through five seconds of scheduled ticks. Resume when the page can proceed in real time.
+
+```flow
+flow.clock.install { "time": "2026-03-01T10:00:00Z" };
+flow.clock.pauseAt { "time": "2026-03-01T10:01:00Z" };
+flow.open "/countdown";
+flow.clock.runFor { "milliseconds": 5000 };
+flow.clock.resume {};
+```
+
+Use `fastForward` to model a jump such as the browser returning from sleep. A timer fires at most once during that jump. `setSystemTime` moves the system-time value without firing timers. For a fixed date label while timers continue, use `setFixedTime`.
+
+```flow
+flow.clock.fastForward { "milliseconds": 60000 };
+flow.clock.setSystemTime { "time": "2026-03-01T10:10:00Z" };
+flow.clock.setFixedTime { "time": "2026-03-01T10:30:00Z" };
+```
+
 ## Function spies and stubs
+
+If clicking **Place order** should send one analytics event, a spy can count the call while the original function runs. A stub controls what the function returns or what error it throws. For example, make the quote function throw so you can check that the page shows **Try again later**.
 
 | Command | Required fields | Optional fields / behavior |
 | --- | --- | --- |
@@ -126,11 +170,29 @@ Advances are integer milliseconds from 0 through 86,400,000. Install before the 
 | `flow.stub.expect` | `name` plus an expectation | Exact `count`, `minCount`, one matching argument array `args`, `timeout` |
 | `flow.stub.restore` | `name` | Restore the original function on the current page |
 
-The target must be a replaceable function reachable from `window`. A spy observes calls and invokes the original. A stub replaces its result or throws; `async: true` produces a promise result/rejection. `beforeLoad` installs an initializer, but cannot discover a function that application code has not defined yet. Module-private functions need a suitable application seam.
+The target must be a replaceable function reachable from `window`. Use `async: true` for a promise result or rejection. Use `beforeLoad` to install an initializer for functions available at that point in the page’s lifecycle. For module-private functions, expose a replaceable entry point in the test build.
 
 Doubles belong to the page; a same-name double on another profile/page is separate. Call arguments are compared with JSON-compatible captured values. Restore before replacing an existing name.
 
+The [spy, call assertion and restore example](/reference/assertions#flow-stub-expect) observes a real function. The example below installs the quote stub and restores the original function after checking the fallback.
+
+```flow
+flow.stub.install {
+  "name": "quote-outage",
+  "target": "shopQuotes.calculate",
+  "mode": "throw",
+  "error": "Quote service unavailable"
+};
+flow.click button "Get quote";
+flow.expect visible "Try again later";
+flow.stub.restore { "name": "quote-outage" };
+```
+
 ## Traces and HAR
+
+A **trace** helps you retrace what happened during a test. If checkout fails after **Review order**, you can inspect the click and what the page looked like at that point.
+
+A **HAR** (HTTP Archive) records the requests the browser made and the responses it got. For example, record the order list while the service is available, then replay that response in a later test of the order page.
 
 | Command | Fields | Behavior |
 | --- | --- | --- |
@@ -139,6 +201,24 @@ Doubles belong to the page; a same-name double on another profile/page is separa
 | `flow.har.replay` | `file`; optional `url`, `notFound` | Read an existing local HAR; unmatched requests `abort` by default, or explicitly `fallback` |
 
 Set configuration `trace: true` for automatic tracing or use explicit start/stop for a bounded trace. HAR **recording** is configured with `har: true` before context creation; there is no `flow.har.record` action. Replay reads a project-local HAR within 100 MiB and does not update it. See [evidence workflows](/guide/native-browser-workflows#traces-har-and-dom-evidence) and [browser limits](/guide/browser-compatibility).
+
+```flow
+flow.trace.start { "name": "checkout" };
+flow.open "/checkout";
+flow.click button "Review order";
+flow.trace.stop {};
+```
+
+In a separate run, use a HAR recorded for the same app origin to replay a specific GET endpoint before opening the page.
+
+```flow
+flow.har.replay {
+  "file": "fixtures/orders.har",
+  "url": "**/api/orders",
+  "notFound": "abort"
+};
+flow.open "/orders";
+```
 
 ## Accessibility and ARIA
 
@@ -152,7 +232,11 @@ Impacts are `minor`, `moderate`, `serious`, `critical`. The scan threshold count
 
 A snapshot without `baseline` captures evidence. With `baseline`, it compares a complete YAML tree. Deliberate writes require local `--update-baselines`; `update: true` does not bypass that CLI requirement. CI refuses baseline writes. `snapshot` compares its capture once; use `match` for a retrying inline tree comparison. These are exact comparisons, not a partial snapshot matcher or visual screenshot baseline.
 
+See [scan, inline YAML and file-baseline examples](/reference/assertions#accessibility-and-visuals).
+
 ## Components
+
+A component test loads one piece of the interface on its own. For example, you can give an order badge the status **Pending**, change it to **Approved**, and check that the displayed label updates.
 
 | Command | Required fields | Optional fields / behavior |
 | --- | --- | --- |
@@ -161,6 +245,26 @@ A snapshot without `baseline` captures evidence. With `baseline`, it compares a 
 | `flow.component.unmount` | `{}` | Unmount the current page's mounted component |
 
 Install the project's React/React DOM or Vue packages as appropriate. Flowstride manages a local Vite harness; it does not automatically load your app's Vite configuration, providers, router or backend. React updates follow React rendering; Vue replaces supplied prop keys; vanilla update remounts the factory. Mounting another component disposes the previous harness.
+
+This example uses a React component at `components/OrderBadge.tsx` that displays its `status` prop. See [component setup and complete examples](/guide/component-testing).
+
+```flow
+flow.component.mount {
+  "framework": "react",
+  "module": "components/OrderBadge.tsx",
+  "props": {
+    "status": "Pending"
+  }
+};
+flow.expect visible "Pending";
+flow.component.update {
+  "props": {
+    "status": "Approved"
+  }
+};
+flow.expect visible "Approved";
+flow.component.unmount {};
+```
 
 ## Interpret a failed command
 

@@ -869,6 +869,18 @@ export const sidebar = {
       ]
     },
     {
+      "text": "Structured commands",
+      "collapsed": false,
+      "items": [
+        { "text": "Complete command index", "link": "/reference/structured-commands" },
+        { "text": "All structured assertions", "link": "/reference/assertions" },
+        { "text": "Browser interactions", "link": "/reference/interaction-commands" },
+        { "text": "Files, data and run control", "link": "/reference/data-and-run-control" },
+        { "text": "API and network", "link": "/reference/structured-api" },
+        { "text": "Application evidence", "link": "/reference/application-evidence" }
+      ]
+    },
+    {
       "text": "Reference",
       "collapsed": false,
       "items": [

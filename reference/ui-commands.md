@@ -13,6 +13,10 @@
 | Independent users and context settings | [browser profiles](/reference/native-browser-commands#profiles-and-runtime-settings) |
 | Mock and observe browser requests | [network routes/events](/reference/native-browser-commands#network-routes-and-events) |
 | Wait for a condition | [flow.assert.that](/reference/native-browser-commands#retrying-assertions) |
+| Press keys, focus, scroll or navigate history | [Browser interactions](/reference/interaction-commands) |
+| Control a specific tab, frame or dialog | [Tabs, frames and dialogs](/reference/interaction-commands#named-tabs) |
+| Select multiple files or a folder | [File selection](/reference/data-and-run-control#select-files-and-folders) |
+| Verify console output, live messages or screenshots | [Application evidence](/reference/application-evidence) |
 | Control browser time/functions | [clock](/reference/native-browser-commands#browser-clock), [spies and stubs](/reference/native-browser-commands#function-spies-and-stubs) |
 | Inspect traces and replay traffic | [trace/HAR](/reference/native-browser-commands#traces-and-har) |
 | Accessibility/ARIA | [a11y scan/snapshot/match](/reference/native-browser-commands#accessibility-and-aria) |

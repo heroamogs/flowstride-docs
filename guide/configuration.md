@@ -58,6 +58,7 @@ Create `flowstride.config.json` in the project root when you want to customize e
 | `security.evidence.cloudVideo` | Enabled where eligible | Allow automatic Cloud video upload; separate from metrics and manual attachments |
 | `retries` | `0` | Whole-scenario retries; integer from 0 through 10 |
 | `failOnFlaky` | `false` | Fail CI if a scenario passed only after retrying |
+| `scenarioTags` | All eligible scenarios | Select scenarios matching any tag in a string array. [Tag syntax and CLI overrides](/reference/data-and-run-control#select-scenarios-by-tag) |
 | `shard` | Unset | CI file assignment such as `1/3`; CLI `--shard` takes precedence |
 | `shardHistory` | Unset | Project-local timing map from a complete merge |
 

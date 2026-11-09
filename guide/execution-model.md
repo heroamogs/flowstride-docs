@@ -12,7 +12,7 @@ Local extracted values, generated-value memory and unsaved local sessions reset 
 
 ## What happens on failure?
 
-A failed step marks its attempt failed and leaves that attempt's remaining steps untested. If `retries` is configured, Flowstride reruns that failed scenario before proceeding. After the final failed attempt, the runner continues to later scenarios by default. `--bail` stops later work after that final failure; Cloud uses sequential execution for bail runs.
+A required step failure marks its attempt failed and leaves that attempt's remaining steps untested. A [soft assertion](/reference/assertions#continue-after-a-failed-assertion) records the failure and allows subsequent steps in the same attempt to run. If `retries` is configured, Flowstride reruns the failed scenario before proceeding. After the final failed attempt, the runner continues to later scenarios by default. `--bail` stops later work after that final failure. Cloud uses sequential execution for bail runs.
 
 ```sh
 npx flowstride run flows --ci --bail
@@ -20,9 +20,13 @@ npx flowstride run flows --ci --bail
 
 `flow.try` makes an action optional. Reserve it for an optional banner or similar condition; using it around a required assertion can hide a defect.
 
+[Registered cleanup](/reference/data-and-run-control#register-cleanup) runs after each attempt. A [conditional skip](/reference/data-and-run-control#skip-a-scenario-for-one-browser) records that a scenario was deliberately skipped before actions started.
+
 ## Focus and debug stops
 
 `only.Scenario:` focuses one scenario within that file. Only one focus marker is allowed per file. Other files remain eligible. `stop.When` and other `stop.` blocks halt after the first successfully executed command in that block, even when the block contains further commands. They are debugging controls. Remove focus and stop markers before a complete acceptance run; CI records incomplete execution as a nonzero result.
+
+Use [scenario tags](/reference/data-and-run-control#select-scenarios-by-tag) to select part of a suite and [`flow.pause`](/reference/data-and-run-control#interactive-pause) to resume manually in the dashboard during a local run.
 
 ## Interactive and CI lifecycles
 

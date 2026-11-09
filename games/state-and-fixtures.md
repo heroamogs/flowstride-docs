@@ -37,6 +37,12 @@ Then "The stored campaign remains"
 
 The game must implement its own persistence. Flowstride compares observations; it does not add a save system to the game. State snapshot names are worker-local, not a shared parallel database.
 
+Use `game.state` for a direct read through the bridge. This example reads the current campaign level. To verify the value as part of a test outcome, use [`game.expectState`](/reference/assertions#game-expect-state).
+
+```flow
+game.state { "path": "campaign.level" };
+```
+
 ## Test-only fixtures
 
 ```ts

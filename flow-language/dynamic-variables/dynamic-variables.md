@@ -1,6 +1,6 @@
 # Dynamic data
 
-Use `$name` to generate a fresh value and `@name` to reuse its most recently generated value in the active generator memory. These are test-data helpers, not credentials for a real service or a seeded random replay system.
+Use `$name` to generate a fresh fixture value and `@name` to reuse its most recently generated value in the active generator memory. To reproduce a sequence of random fixture values, set a seed with [`flow.data.seed`](/reference/data-and-run-control#seed-generated-values).
 
 Generator memory resets for each file and can be reused by later scenarios in that file. Generating again replaces that generator's last value. Browser profiles do not create separate generator memory; use extracted names when users need distinct data.
 

@@ -11,6 +11,11 @@ Flowstride's API adapter uses Undici. Relative endpoints use `BASE_URL` from `.e
 | GraphQL | [flow.graphql](/flow-language/flow-commands/flow.graphql) |
 | Retain response data | [flow.extract](/flow-language/flow-commands/flow.extract) |
 | Check results | [flow.expect](/flow-language/flow-commands/flow.expect) |
+| Send JSON, form data, text, a multipart upload or binary | [flow.api.request](/reference/structured-api#requests) |
+| Isolate API users and cookies | [Named API contexts](/reference/structured-api#named-api-contexts) |
+| Validate a JSON response shape | [flow.api.expectSchema](/reference/assertions#flow-api-expect-schema) |
+| Wait for an API job or state transition | [flow.api.poll](/reference/structured-api#polling) |
+| Capture or mock a page request | [Browser network](/reference/structured-api#browser-network) |
 
 ```flow
 flow.post "/api/orders" with reqHeader "Authorization" "Bearer {{env.API_TOKEN}}" with reqBody

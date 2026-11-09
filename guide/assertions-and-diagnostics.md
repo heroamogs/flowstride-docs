@@ -2,16 +2,23 @@
 
 An action performs work. An assertion proves a specific outcome. Use both: clicking Login is useful, but the authenticated account appearing establishes that login succeeded.
 
+The [structured assertions reference](/reference/assertions) lists every object-based check and shows each condition or operator with a separate example.
+
 ## Choose the assertion form
 
 | Need | Use |
 | --- | --- |
 | Readable visible text, an exact input value, a DOM attribute or an API response | `flow.expect` |
 | Exact target state, CSS/property, count, accessibility name, URL/title or browser storage | `flow.assert.that` |
+| An extracted, generated or loaded value | `flow.assert.value` |
+| A browser dialog or console message | `flow.dialog.expect`, `flow.console.expect` |
 | A captured browser request/response | `flow.network.expect` |
+| A WebSocket or SSE message | `flow.channel.expect` |
 | A downloaded file | `flow.download.expect` |
 | Function calls/arguments | `flow.stub.expect` |
+| An API response contract | `flow.api.expectSchema` |
 | Accessibility violations or an ARIA tree | `flow.a11y.scan`, `flow.a11y.match`, or baseline comparison |
+| A page or element screenshot | `flow.visual.match` |
 | Game rules or rendering | `game.expectState`, `game.expectPreserved`, `game.expectVisual` |
 
 Both main assertion styles work in OS and Cloud. Use an intermediate `And` for checks before the final `Then`. Put all final checks inside the same `Then`; no `And` or other execution block can follow it. Final actions may also belong to `Then`. [Core concepts](/guide/core-concepts) defines the scenario rules.
@@ -31,7 +38,10 @@ Feature: Ready login form
 
     Then "The email is preserved and the Login button is ready"
       flow.assert.that {
-        "selector": "input[name='email']",
+        "target": {
+          "text": "Email",
+          "element": "input"
+        },
         "condition": "value",
         "value": "{{env.TEST_EMAIL}}"
       };

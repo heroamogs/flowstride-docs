@@ -1,14 +1,17 @@
 # Waiting, assertions and scenario retries
 
-Flowstride has three distinct behaviors. Understanding which one is happening makes a failure easier to diagnose.
+Choose the wait or retry that matches the behavior you want to test.
 
 | Behavior | What repeats or waits? | Example |
 | --- | --- | --- |
 | Browser action waiting | A supported action waits for its target to become usable within its timeout | A button appears, becomes enabled, then receives one click |
 | Retrying assertion | The assertion reads the current condition repeatedly | An order status changes from Processing to Approved |
+| Event expectation | An armed observer waits for the matching signal | An order update arrives over WebSocket |
+| API polling | A GET request repeats within one deadline | A background job reaches completed |
+| Deliberate delay | `flow.wait` waits a fixed number of milliseconds | A second click is sent within a debounce window |
 | Scenario retry | The whole failed scenario runs again, up to the configured limit | Login/setup/actions/assertions repeat after an attempt fails |
 
-These are execution controls, not a guarantee that an application is ready after every network request. Assert the result the user or API should actually observe.
+Assert the result the user or API should actually observe. For a deliberate delay, interactive pause or action pacing, see [execution controls](/reference/data-and-run-control#execution-controls).
 
 ## Wait for the visible result
 
@@ -60,7 +63,7 @@ One retry allows at most two attempts. `retries` accepts integers from 0 through
 
 Before a retry, Flowstride restores the scenario's starting browser profiles/storage, saved variables, in-memory sessions and API adapter state and cleans up native routes, waiters, function doubles and component harnesses. It does not restore arbitrary JavaScript heap state or undo backend writes, messages, persistent files or external services. Returning to a starting page can itself make requests.
 
-Generated data is not a seeded replay and is not a promise to regenerate identical values on another attempt. Use isolated test data and repeatable setup. A fixture that fails once must keep its attempt counter outside the restored browser state. Prepare it separately so retrying the scenario does not reset it to its first failure again.
+Use isolated test data and repeatable setup. Set [`flow.data.seed`](/reference/data-and-run-control#seed-generated-values) before generation when you want the same test values on a retry. A fixture that fails once must keep its attempt counter outside the restored browser state.
 
 ## Interpret the result
 
