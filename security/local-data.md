@@ -3,7 +3,7 @@ description: Protect Flowstride credentials, saved browser sessions and local ev
 ---
 # Local data and installation
 
-OS and Cloud both execute with the permissions of the account running Flowstride. Protect that account and review the project before executing its tests, plugins, package scripts or dependencies.
+Both engines execute with the permissions of the account running Flowstride. Protect that account and review the project before executing its tests, plugins, package scripts or dependencies.
 
 ## Credentials and saved state
 
@@ -56,4 +56,4 @@ Credential-bearing Cloud clients reject redirects. Configure the final HTTPS ser
 
 Cloud engine installation uses the authenticated private channel. The installer verifies the archive checksum before installation, checks package identity and archive paths, enforces size limits and disables package lifecycle scripts for that installation. Missing or mismatched checks stop the update, preserving the existing engine and launcher/fallback path.
 
-The checksum checks consistency with the authenticated service's response. It is not independent publisher signing or protection against a compromised publisher/service. [OS and Cloud selection](/guide/editions#engine-selection-and-fallback) explains normal installation and fallback.
+The checksum checks consistency with the authenticated service's response. It is not independent publisher signing or protection against a compromised publisher/service. [Engine selection](/guide/editions#engine-selection-and-fallback) explains normal installation and fallback.

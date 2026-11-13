@@ -2,7 +2,7 @@
 
 Flowstride can generate an email/password, prepare an account through APIs, sign in through the browser, retrieve an OTP from FlowMail and verify the resulting login in one `.flow` scenario.
 
-Browser and API composition is available in OS and Cloud. Delivered FlowMail OTP retrieval requires a valid Cloud login, an eligible workspace and a supported test inbox address. A free Cloud account can use the features included in its workspace limits.
+Browser and API composition is available in both engines. Delivered FlowMail OTP retrieval requires a valid Cloud login, an eligible workspace and a supported test inbox address. A free Cloud account can use the features included in its workspace limits.
 
 ## The full journey
 
@@ -50,4 +50,4 @@ Do not paste tokens or real OTPs into issues or screenshots. Local `.flowstride`
 
 The npm package includes `workflow-examples/api-ui-otp/templates` after [copying the examples](/guide/working-examples). Adapt the endpoints, credentials and labels to an authorized application. The shared local demo does not deliver real email; it supplies other browser/API fixtures.
 
-For existing-account OTP, reuse the supplied existing-account template instead of creating unnecessary accounts. Without FlowMail, OS can still automate your application's own authorized test-code mechanism and browser verification.
+For existing-account OTP, reuse the supplied existing-account template instead of creating unnecessary accounts. Without FlowMail, the open-source engine can still automate your application's own authorized test-code mechanism and browser verification.

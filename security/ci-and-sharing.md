@@ -9,7 +9,7 @@ Use the same reviewed `.flow` suite in local runs and CI. Security also depends 
 
 Tests, plugins, dependency installation and configured server commands run with the runner's privileges. Plugins are project code, not a sandbox. Do not provide Cloud tokens or application credentials to untrusted pull-request code.
 
-Use a separate trusted workflow/environment for jobs needing secrets. Public OS execution does not need a Cloud account. Do not change a pull-request workflow to run unreviewed code with elevated credentials just to make authentication available.
+Use a separate trusted workflow/environment for jobs needing secrets. Execution with the open-source engine does not need a Cloud account. Do not change a pull-request workflow to run unreviewed code with elevated credentials just to make authentication available.
 
 ## Review the generated workflow
 

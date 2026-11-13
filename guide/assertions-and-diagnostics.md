@@ -21,7 +21,7 @@ The [structured assertions reference](/reference/assertions) lists every object-
 | A page or element screenshot | `flow.visual.match` |
 | Game rules or rendering | `game.expectState`, `game.expectPreserved`, `game.expectVisual` |
 
-Both main assertion styles work in OS and Cloud. Use an intermediate `And` for checks before the final `Then`. Put all final checks inside the same `Then`; no `And` or other execution block can follow it. Final actions may also belong to `Then`. [Core concepts](/guide/core-concepts) defines the scenario rules.
+Both main assertion styles work in both engines. Use an intermediate `And` for checks before the final `Then`. Put all final checks inside the same `Then`; no `And` or other execution block can follow it. Final actions may also belong to `Then`. [Core concepts](/guide/core-concepts) defines the scenario rules.
 
 ## Check each intended outcome
 

@@ -63,9 +63,9 @@ The first two should pass. The last should fail, exit nonzero and retain the fai
 
 Use `--workers 1` for the cross-file variable example: its explicit global extraction belongs to one process. Run the session-saving file before the restore file, in separate CLI invocations.
 
-## OS, Cloud and browsers
+## Engine and browser requirements
 
-OS requires no login. To use Cloud, run `npx flowstride login`, accept the authenticated engine installation and use the same commands. Shared local examples do not need a paid account.
+You can run these examples locally without signing in. To use Cloud, run `npx flowstride login`, accept the authenticated engine installation and use the same commands. Shared local examples do not need a paid account.
 
 API/UI, table, iframe and variable examples work with the supported browser engines. Install and choose one explicitly:
 

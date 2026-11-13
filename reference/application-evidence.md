@@ -1,6 +1,6 @@
 # Console, live messages and visual evidence
 
-Use these commands in OS and Cloud to check behavior beyond visible text. Keep a visible outcome assertion when the user-facing result is also part of the test.
+Use these commands in both engines to check behavior beyond visible text. Keep a visible outcome assertion when the user-facing result is also part of the test.
 
 ## Console messages
 

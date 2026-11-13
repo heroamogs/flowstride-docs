@@ -1,6 +1,6 @@
 # table, tr, th and td
 
-Target an HTML table, row, header cell or data cell. Table interactions are available in OS and Cloud. Start with [Test tables and cells](/guide/table-testing) for a complete, runnable local example.
+Target an HTML table, row, header cell or data cell. Table interactions are available in both engines. Start with [Test tables and cells](/guide/table-testing) for a complete, runnable local example.
 
 ## Locate a table
 
@@ -35,4 +35,4 @@ This example clicks the button in the row containing order FS-102 and checks tha
 
 Element qualifiers guide target resolution; they are not a complete DOM-query language. Prefer a clear label, then add a stable selector or [spatial relationship](/flow-language/spatial-modifiers/inside) if the page is ambiguous.
 
-Use the application's search, sorting and pagination controls, then assert the resulting cells. Filtering does not automatically load records on other pages. For grids built from `div` elements or ARIA roles, use selectors matching their markup. See the [table guide](/guide/table-testing) for searching, extraction, row actions and runs across OS and Cloud.
+Use the application's search, sorting and pagination controls, then assert the resulting cells. Filtering does not automatically load records on other pages. For grids built from `div` elements or ARIA roles, use selectors matching their markup. See the [table guide](/guide/table-testing) for searching, extraction, row actions and runs across both engines.

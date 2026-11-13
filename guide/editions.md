@@ -1,12 +1,12 @@
-# OS and Cloud
+# Flowstride and Flowstride Cloud
 
-Flowstride has two options: **OS** and **Cloud**. OS runs locally without an account. Cloud includes free accounts, so you can connect a workspace and use its available features without a paid subscription. Feature availability and usage limits depend on your workspace plan.
+Flowstride runs locally without an account. Flowstride Cloud connects your workspace to account-based features and includes a free plan. Feature availability and usage limits depend on your workspace plan.
 
-Both options run tests on your computer or your CI runner. Cloud adds account-connected features, workspace services, and eligible result review.
+Tests run on your computer or your CI runner. Cloud adds workspace services and result review where your plan allows it.
 
 ## Choose the capability you need
 
-| Capability | OS | Cloud |
+| Capability | Open-source engine | With Flowstride Cloud |
 | --- | --- | --- |
 | Browser and API flows | Included | Included |
 | Table/cell targeting, search and assertions | Included | Included |
@@ -25,7 +25,7 @@ Both options run tests on your computer or your CI runner. Cloud adds account-co
 
 Use your workspace's current feature access and limits to confirm what is available. Free accounts include features within their workspace limits; additional features and higher limits depend on the plan.
 
-## Start with OS
+## Run Flowstride locally
 
 ```sh
 npm i flowstride
@@ -33,7 +33,7 @@ npx flowstride init
 npx flowstride run flows
 ```
 
-OS does not require a Cloud account for local execution. It includes the local dashboard, manual testing, native CI and browser-game APIs.
+You can use the local dashboard, manual testing, native CI and browser-game APIs without an account.
 
 ## Connect Cloud
 
@@ -48,9 +48,9 @@ Paste the developer token into the masked prompt and accept the Cloud engine ins
 
 ## Engine selection and fallback
 
-The launcher selects the Cloud engine when a compatible installation and valid account authorization are available. If the Cloud engine is missing, incompatible or cannot be authorized, it explains the selection and can fall back to OS.
+The launcher selects the Cloud engine when a compatible installation and valid account authorization are available. If the Cloud engine is missing, incompatible or cannot be authorized, it explains the selection and can fall back to the open-source engine.
 
-Read the engine banner at the start of a run. The native browser workflows use the same syntax in both engines. An older Cloud installation that cannot run a requested native workflow triggers an explained OS fallback. Fallback keeps OS capabilities available; account-connected features such as parallel execution and FlowMail require Cloud access within your workspace limits.
+Read the engine banner at the start of a run. The native browser workflows use the same syntax in both engines. If an older Cloud installation cannot run a requested native workflow, the CLI explains why it switched to the open-source engine. Parallel execution and FlowMail require Cloud access within your workspace limits.
 
 Installing project dependencies again may remove the Cloud engine. If that happens, run `npx flowstride login` after dependency installation. See [installation and updates](/guide/releases) and [authentication troubleshooting](/guide/troubleshooting).
 

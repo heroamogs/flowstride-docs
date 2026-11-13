@@ -15,13 +15,13 @@ manual_flows/
 
 **Save** in Design Mode writes a template containing canvas entities and metadata. Renaming a saved design can replace the physical template name; save a separate backup/version when you need to preserve an older design.
 
-The OS toolbar includes a browser-export path with an outer `metadata`/`canvas` wrapper, different from the project server's saved template. That path depends on the hosting window's engine bridge and is not guaranteed by the iframe-hosted workspace. Use confirmed project files as the authoritative backup, not an assumed browser download.
+The open-source engine’s toolbar includes a browser-export path with an outer `metadata`/`canvas` wrapper, different from the project server's saved template. That path depends on the hosting window's engine bridge and is not guaranteed by the iframe-hosted workspace. Use confirmed project files as the authoritative backup, not an assumed browser download.
 
 The last selected template is recorded in `.workspace_state.json`. This convenience state is not an autosave guarantee. Wait for Save confirmation before navigating away or stopping the server.
 
 ## Submitting a run
 
-**Save** in OS / **Submit Run** in Cloud mode writes a separate snapshot with canvas data, metadata and `executionReport`. The execution report includes per-step status, expected result, defect data and grouping. Local saving occurs before an attempted authenticated Cloud synchronization.
+**Save** in the open-source engine or **Submit Run** in Cloud mode writes a separate snapshot with canvas data, metadata and `executionReport`. The execution report includes per-step status, expected result, defect data and grouping. Local saving occurs before an attempted authenticated Cloud synchronization.
 
 Historical runs do not overwrite the reusable design. A submitted JSON file is still an ordinary file: it is not tamper-proof or digitally signed.
 

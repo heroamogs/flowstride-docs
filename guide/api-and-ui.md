@@ -2,7 +2,7 @@
 
 A single `.flow` scenario can create test data through an API, extract identifiers, approve or update that data through another API call, and continue through the browser. Generated credentials and extracted values can be reused throughout the file.
 
-This is native in OS and Cloud. You do not need separate API/UI runner files. The example below also uses FlowMail OTP retrieval, which requires Cloud access within your workspace limits.
+This is native in both engines. You do not need separate API/UI runner files. The example below also uses FlowMail OTP retrieval, which requires Cloud access within your workspace limits.
 
 ## Configure the test environment
 
@@ -96,7 +96,7 @@ The browser and direct API adapter are separate clients. Reusing an email/passwo
 
 For simultaneous customer/admin browser users, use [named profiles](/guide/native-browser-workflows#separate-users-in-one-test). For ordinary API-to-UI setup, no additional profile is required.
 
-Browser network mocks do not intercept direct API commands. [Network routes and waits](/guide/native-browser-workflows#mock-requests-and-wait-for-network-events) control browser traffic. Without FlowMail, the same API/UI pattern works in OS with an application-appropriate login or test-OTP mechanism.
+Browser network mocks do not intercept direct API commands. [Network routes and waits](/guide/native-browser-workflows#mock-requests-and-wait-for-network-events) control browser traffic. Without FlowMail, the same API/UI pattern works in the open-source engine with an application-appropriate login or test-OTP mechanism.
 
 ## Continue learning
 

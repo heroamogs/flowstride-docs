@@ -7,7 +7,7 @@ Please keep suspected security vulnerabilities private while they are assessed. 
 
 ## Find a private reporting route
 
-For the [public OS repository](https://github.com/heroamogs/flowstride-os), check **Security → Report a vulnerability**. Use that route **if the repository offers it**. Availability is controlled by the repository; this documentation does not claim private reporting is enabled for every Flowstride repository.
+For the [public Flowstride repository](https://github.com/heroamogs/flowstride), check **Security → Report a vulnerability**. Use that route **if the repository offers it**. Availability is controlled by the repository; this documentation does not claim private reporting is enabled for every Flowstride repository.
 
 If no private route or security contact is listed, ask the maintainer for a private channel without posting the vulnerability details. Do not use a public issue for an exploit, token, customer data or an attached private engine archive. [GitHub's private-reporting guidance](https://docs.github.com/en/code-security/how-tos/report-and-fix-vulnerabilities/report-privately) explains this distinction.
 

@@ -1,6 +1,6 @@
 # Native browser command reference
 
-OS and Cloud share the commands below. Put them inside a complete [Feature/Scenario](/guide/core-concepts), using `flow.<area>.<action>` followed by a JSON object and an optional semicolon. Empty arguments are written `{}`. Unknown actions and fields fail explicitly.
+Both engines share the commands below. Put them inside a complete [Feature/Scenario](/guide/core-concepts), using `flow.<area>.<action>` followed by a JSON object and an optional semicolon. Empty arguments are written `{}`. Unknown actions and fields fail explicitly.
 
 The [structured command index](/reference/structured-commands) includes every object command and links to its examples. This page covers profiles, time control, downloads, accessibility, components and browser evidence. For setup and ordering, see [native browser workflows](/guide/native-browser-workflows).
 

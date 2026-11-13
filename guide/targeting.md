@@ -1,6 +1,6 @@
 # Find the right control
 
-Start with a readable label. Add enough detail to identify the intended control when a page repeats the same text. These actions are available in OS and Cloud.
+Start with a readable label. Add enough detail to identify the intended control when a page repeats the same text. These actions are available in both engines.
 
 ## Choose a target deliberately
 

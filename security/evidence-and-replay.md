@@ -1,9 +1,9 @@
 ---
-description: Configure evidence capture and understand redaction, masked cURL copy and one-off manual API Replay in OS and Cloud.
+description: Configure evidence capture and understand redaction, masked cURL copy and one-off manual API Replay in both engines.
 ---
 # Evidence and Replay privacy
 
-Evidence can contain the same data as the application you test. A passing test and a redacted terminal log do not establish that a screenshot or diagnostic archive is safe to share. The following behavior applies to OS and Cloud engines.
+Evidence can contain the same data as the application you test. A passing test and a redacted terminal log do not establish that a screenshot or diagnostic archive is safe to share. The following behavior applies to both Flowstride engines.
 
 ## What masking covers
 

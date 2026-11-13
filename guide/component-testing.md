@@ -1,6 +1,6 @@
 # Component testing
 
-Mount a small UI component in Flowstride's local Vite harness, use normal browser actions/assertions, update its props and unmount it. OS and Cloud support vanilla JavaScript factories, React components and Vue single-file components.
+Mount a small UI component in Flowstride's local Vite harness, use normal browser actions/assertions, update its props and unmount it. Both engines support vanilla JavaScript factories, React components and Vue single-file components.
 
 Install the framework packages your component imports in the project. The harness does not automatically load your application's Vite configuration, router, backend or providers. Use a small wrapper component for required application context.
 

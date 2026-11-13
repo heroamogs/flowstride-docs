@@ -3,7 +3,7 @@ description: Understand Flowstride security boundaries, local data, Cloud access
 ---
 # Security and privacy
 
-Flowstride runs browser and API tests on your computer or your CI runner. OS works without an account. Cloud adds authenticated workspace services, including features available to free accounts. Connecting Cloud does not move your tests to a hosted execution machine.
+Flowstride runs browser and API tests on your computer or your CI runner. Flowstride works locally without an account. Cloud adds authenticated workspace services, including features available to free accounts. Connecting Cloud does not move your tests to a hosted execution machine.
 
 Security depends on what you test, what you capture, who can access your machine and workspace, and how you share the results. This section explains the controls and the decisions you still need to make.
 

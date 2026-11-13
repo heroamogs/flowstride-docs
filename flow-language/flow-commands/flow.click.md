@@ -16,7 +16,7 @@ flow.click button "View" inside "table[0] tr[1]";
 flow.click "#orders tbody tr:has(td:text-is('FS-102')) button";
 ```
 
-Coordinates start at zero and include header rows. Find a row by its unique contents when sorting or filtering can change its position. The [table and cell guide](/guide/table-testing) includes a local application and complete OS/Cloud tests for each approach.
+Coordinates start at zero and include header rows. Find a row by its unique contents when sorting or filtering can change its position. The [table and cell guide](/guide/table-testing) includes a local application and complete tests for both engines for each approach.
 
 ## Behavior and limits
 

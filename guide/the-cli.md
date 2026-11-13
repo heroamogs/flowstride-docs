@@ -41,7 +41,7 @@ npx flowstride run flows --workers 4
 npx flowstride run flows --config flowstride.test.json
 ```
 
-`--workers` is a run option, not a configuration-file field. Workspace and CPU limits may reduce the requested count. OS uses sequential execution.
+`--workers` is a run option, not a configuration-file field. Workspace and CPU limits may reduce the requested count. The open-source engine runs files sequentially.
 
 `--browser` selects the engine for this run; `install` only downloads it. For whole-scenario retries, use configuration `retries` and `failOnFlaky`; there is no `--retries` flag. [Native command reference](/reference/native-browser-commands) lists the JSON command options.
 
@@ -65,4 +65,4 @@ Run tests locally or in your own CI, with optional authenticated Cloud reporting
 
 ## Cloud cleanup
 
-The installed Cloud CLI additionally supports `reset --values`, `reset --sessions` and `run --fresh` for local runner state. These are not equivalent OS switches and do not delete application/backend data or Cloud login credentials. Read [the cleanup scope](/cloud/advanced-workflows#clear-local-runner-data) before using them.
+The installed Cloud CLI additionally supports `reset --values`, `reset --sessions` and `run --fresh` for local runner state. They clear local runner state and preserve application data and Cloud login credentials. Read [the cleanup scope](/cloud/advanced-workflows#clear-local-runner-data) before using them.

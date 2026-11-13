@@ -12,7 +12,7 @@ Choose a starting point:
 | Search a table or act on a specific cell | [Table and cell testing](/guide/table-testing) |
 | Verify speech-to-text in an application | [Audio-to-text testing](/guide/audio-to-text) |
 | Test a browser game                      | [Game testing](/games/getting-started)            |
-| Connect a Cloud account                  | [OS and Cloud](/guide/editions)                   |
+| Connect a Cloud account                  | [Flowstride and Cloud](/guide/editions)                   |
 | Combine API setup with browser login | [API and UI in one flow](/guide/api-and-ui) |
 | Use separate users, mocks or downloads | [Native browser workflows](/guide/native-browser-workflows) |
 
@@ -34,14 +34,14 @@ Replace the generated example with a flow for your own application. [Your first 
 
 ## Connect a Cloud account
 
-OS runs locally without an account. Cloud includes free accounts and additional features within your workspace limits. Create a Cloud account and developer token, then run:
+Flowstride runs locally without an account. Cloud includes free accounts and additional features within your workspace limits. Create a Cloud account and developer token, then run:
 
 ```sh
 npx flowstride login
 npx flowstride status
 ```
 
-Authenticate with a developer token and accept the Cloud engine installation when offered. See [OS and Cloud](/guide/editions) for engine selection and fallback.
+Authenticate with a developer token and accept the Cloud engine installation when offered. See [Flowstride and Cloud](/guide/editions) for engine selection and fallback.
 
 ## Run, inspect, repeat
 
@@ -53,4 +53,4 @@ npx flowstride open
 
 The first command opens the interactive automation dashboard. The second runs without a dashboard and writes CI reports. The third opens the separate Manual Workspace. Follow the localhost URL printed in the terminal; ports are allocated dynamically.
 
-You can use OS without a Cloud account, or connect a free Cloud account. Cloud features and usage limits depend on the workspace plan; the Cloud engine is installed through an authenticated private channel. [Learn how selection and fallback work](/guide/editions).
+You can run Flowstride locally without an account or connect a free Cloud account. Cloud features and usage limits depend on the workspace plan; the Cloud engine is installed through an authenticated private channel. [Learn how selection and fallback work](/guide/editions).

@@ -1,6 +1,6 @@
 # flow.hover
 
-Move the pointer over a target and trigger hover behavior without clicking. Available in OS and Cloud.
+Move the pointer over a target and trigger hover behavior without clicking. Available in both engines.
 
 ```flow
 flow.hover "Products";

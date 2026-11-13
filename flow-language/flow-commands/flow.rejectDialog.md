@@ -1,6 +1,6 @@
 # flow.rejectDialog
 
-Register handling to dismiss a subsequent browser dialog. Available in OS and Cloud. Register **before** the action that triggers the dialog:
+Register handling to dismiss a subsequent browser dialog. Available in both engines. Register **before** the action that triggers the dialog:
 
 ```flow
 flow.rejectDialog;

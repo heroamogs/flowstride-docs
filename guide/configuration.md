@@ -1,6 +1,6 @@
 # Configuration and environments
 
-Flowstride supports a project `.env` file and an optional `flowstride.config.json` file. Both OS and Cloud load `.env` when you run a flow.
+Flowstride supports a project `.env` file and an optional `flowstride.config.json` file. Both engines load `.env` when you run a flow.
 
 ## Set the base URL in .env
 

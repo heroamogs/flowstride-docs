@@ -1,6 +1,6 @@
 # flow.injectAudio
 
-Supply a local audio fixture as Chromium's microphone input. This command is available in OS and Cloud; your application performs any speech-to-text processing. Follow the [audio-to-text guide](/guide/audio-to-text) for a complete recording and transcript example.
+Supply a local audio fixture as Chromium's microphone input. This command is available in both engines; your application performs any speech-to-text processing. Follow the [audio-to-text guide](/guide/audio-to-text) for a complete recording and transcript example.
 
 ## Example
 

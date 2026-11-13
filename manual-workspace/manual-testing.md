@@ -25,7 +25,7 @@ From an installed Flowstride project:
 npx flowstride open
 ```
 
-Follow the localhost URL printed in the terminal. Leave the process running while you use the workspace. The public OS CLI can launch it without a login. In Cloud mode, the CLI verifies the account session before opening the local workspace.
+Follow the localhost URL printed in the terminal. Leave the process running while you use the workspace. The public CLI can launch it without a login. In Cloud mode, the CLI verifies the account session before opening the local workspace.
 
 The manual canvas and the automated runner are different workspaces. `run` executes `.flow` files; `open` launches the manual design/execution environment. A canvas arrow does not send a browser click.
 

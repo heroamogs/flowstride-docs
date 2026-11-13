@@ -1,6 +1,6 @@
 # A complete local manual test
 
-Practice the entire manual lifecycle against a small profile page: design review, human execution, evidence, saved results, history and a retest. This works in OS and Cloud.
+Practice the entire manual lifecycle against a small profile page: design review, human execution, evidence, saved results, history and a retest. This works in both engines.
 
 ## Prepare the application and template
 
@@ -36,7 +36,7 @@ Open `http://127.0.0.1:4107/profile` in a separate tab/window, then enter Execut
 
 After verifying each step, focus the canvas and press **Enter** to record Passed. The demo server keeps the changed value in memory; restarting it resets that state.
 
-Click **Save** in OS or **Submit Run** in Cloud. Wait for confirmation and find the new record under **Runs**. Expected: three Passed steps and a PASS summary. Saving the template and saving the execution record are different operations.
+Click **Save** in the open-source engine or **Submit Run** in Cloud. Wait for confirmation and find the new record under **Runs**. Expected: three Passed steps and a PASS summary. Saving the template and saving the execution record are different operations.
 
 ## Practice failure and evidence
 

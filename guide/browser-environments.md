@@ -1,6 +1,6 @@
 # Browser environments and independent users
 
-OS and Cloud support Chromium, Firefox and WebKit, named browser profiles and validated context settings. Choose the browser with `--browser`; choose separate profiles when users need independent cookies, storage, tabs and permissions.
+Both engines support Chromium, Firefox and WebKit, named browser profiles and validated context settings. Choose the browser with `--browser`; choose separate profiles when users need independent cookies, storage, tabs and permissions.
 
 ## Grant location and verify the application's result
 
@@ -24,7 +24,7 @@ flow.assert.that {
 };
 ```
 
-Set and assert the coordinates your application expects. Granting a permission is distinct from setting a position. Use `flow.browser.clearPermissions {};` under an action block to reset grants, then test your application's next request or denied-state behavior. Permissions differ across browser/OS combinations; verify the selected engine and origin.
+Set and assert the coordinates your application expects. Granting a permission is distinct from setting a position. Use `flow.browser.clearPermissions {};` under an action block to reset grants, then test your application's next request or denied-state behavior. Permissions differ across browser and operating system combinations; verify the selected engine and origin.
 
 ## Offline recovery
 

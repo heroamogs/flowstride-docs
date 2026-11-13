@@ -72,7 +72,7 @@ const references = [
   ['Commands & assertions', '/reference/ui-commands', 'Find the action or check you need'],
   ['Sessions & storage', '/flow-language/getting-started/sessions', 'Save and restore authentication state'],
   ['Dashboard & Replay', '/reporting/dashboard', 'Inspect a screen or replay a request'],
-  ['OS & Cloud', '/guide/editions', 'Understand the installation and handoff'],
+  ['Flowstride and Cloud', '/guide/editions', 'Understand the installation and handoff'],
   ['Native browser workflows', '/guide/native-browser-workflows', 'Profiles, mocks, downloads, accessibility and components'],
   ['API and UI together', '/guide/api-and-ui', 'Prepare data and verify the browser journey in one flow'],
   ['Troubleshooting', '/guide/troubleshooting', 'Resolve common execution problems']
@@ -130,6 +130,6 @@ const references = [
       <div class="reference-grid"><a v-for="[title,link,detail] in references" :key="link" :href="link"><span><strong>{{ title }}</strong><small>{{ detail }}</small></span><span class="ref-arrow" aria-hidden="true">↗</span></a></div>
     </section>
 
-    <aside class="home-release"><span class="release-mark" aria-hidden="true">i</span><p><strong>Start locally. Connect when you need more.</strong> Install Flowstride OS from npm. Connect a free Cloud account to use workspace features within your plan limits.</p><a href="/guide/releases">Installation &amp; updates <span aria-hidden="true">→</span></a></aside>
+    <aside class="home-release"><span class="release-mark" aria-hidden="true">i</span><p><strong>Start locally. Connect when you need more.</strong> Install Flowstride from npm. Connect a free Cloud account to use workspace features within your plan limits.</p><a href="/guide/releases">Installation &amp; updates <span aria-hidden="true">→</span></a></aside>
   </div>
 </template>

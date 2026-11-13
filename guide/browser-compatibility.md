@@ -1,6 +1,6 @@
 # Browser compatibility
 
-OS and Cloud use the same browser-selection commands. Chromium is the default; Firefox and WebKit are explicit choices. Install the matching binaries after installing or updating Flowstride:
+Both engines use the same browser-selection commands. Chromium is the default; Firefox and WebKit are explicit choices. Install the matching binaries after installing or updating Flowstride:
 
 ```sh
 npx flowstride install chromium firefox webkit
@@ -21,12 +21,12 @@ WebKit is the browser engine used by Safari. Selecting it does not automate your
 
 | Area | Current behavior |
 | --- | --- |
-| Ordinary browser workflows | Local checks cover Chromium, Firefox and WebKit in OS and Cloud, including profiles, routes, downloads, assertions, components and accessibility |
+| Ordinary browser workflows | Local checks cover Chromium, Firefox and WebKit in both engines, including profiles, routes, downloads, assertions, components and accessibility |
 | Desktop/phone/landscape | Device emulation; physical phones and every operating-system combination need separate acceptance |
 | Firefox mobile settings | Explicit `isMobile: true` is rejected; built-in phone profiles omit that flag. A small viewport is not a claim of identical mobile-browser behavior |
 | Touch dragging/swiping | Uses Chromium CDP; choose Chromium and a touch-capable profile |
 | Tables and cells | Search, coordinate targeting, row actions and assertions in all three engines; [runnable examples](/guide/table-testing) |
-| Audio-file microphone injection | Requires Chromium in OS and Cloud; [audio-to-text testing](/guide/audio-to-text) checks your application's transcription |
+| Audio-file microphone injection | Requires Chromium in both engines; [audio-to-text testing](/guide/audio-to-text) checks your application's transcription |
 | Three.js integration | Real scene fixtures are qualified on Chromium; qualify other engines against your actual game |
 | Custom locale in Chromium | Chromium's current stealth behavior can expose `en-US` despite a requested locale. Use Firefox/WebKit for locale-sensitive checks and verify the observed language |
 | HAR playback with forced offline mode | Firefox/WebKit can reject navigation when `flow.browser.offline` is true, before HAR fulfillment. Keep that flag unset for HAR playback and stop the real server to verify the recording |

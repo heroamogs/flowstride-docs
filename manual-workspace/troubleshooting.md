@@ -2,7 +2,7 @@
 
 ## The workspace will not open
 
-Run from the intended project and follow the printed localhost URL. Keep the terminal process running. If the Cloud engine says authentication is required, sign in with a valid workspace token or explicitly use the public OS launcher for local OS behavior.
+Run from the intended project and follow the printed localhost URL. Keep the terminal process running. If the Cloud engine says authentication is required, sign in with a valid workspace token or explicitly use the public CLI for local execution.
 
 ## The canvas is blank
 
@@ -22,7 +22,7 @@ Entering Execution Mode initializes a new execution state. Submit the current ru
 
 ## Save appeared to download a file
 
-The OS toolbar contains a browser-export path as well as the project save callback; the export depends on the hosting engine bridge. Check the save confirmation and `manual_flows/templates` or `manual_flows/runs`. A browser download alone is not proof a run was submitted successfully.
+The open-source engine’s toolbar contains a browser-export path as well as the project save callback; the export depends on the hosting engine bridge. Check the save confirmation and `manual_flows/templates` or `manual_flows/runs`. A browser download alone is not proof a run was submitted successfully.
 
 ## A clip under the UI's 100 MB limit is rejected
 

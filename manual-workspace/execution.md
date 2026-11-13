@@ -34,7 +34,7 @@ Each recorded outcome advances along the outgoing connection. Unconnected nodes 
 3. Record expected versus actual behavior, reproduction data and impact.
 4. Attach concise evidence and save the defect form with **Save Data**.
 5. Continue only where the remaining actions are still meaningful; mark dependent cases Blocked when they cannot be assessed.
-6. Click **Save** in OS / **Submit Run** in Cloud mode and wait for the local save confirmation.
+6. Click **Save** in the open-source engine or **Submit Run** in Cloud mode and wait for the local save confirmation.
 
 Saving a defect form updates the current canvas record; Saving the execution record persists the run snapshot. A local save confirmation and a Cloud synchronization confirmation are different signals.
 

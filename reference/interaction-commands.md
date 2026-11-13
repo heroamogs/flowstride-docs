@@ -1,6 +1,6 @@
 # Browser interactions, tabs and frames
 
-Use these commands in OS and Cloud with the browser selected for the run. The snippets assume a page with the controls named in each example. Start with readable labels, then add element types, containers or spatial cues. [Targeting syntax](/reference/structured-commands#readable-targeting).
+Use these commands in both engines with the browser selected for the run. The snippets assume a page with the controls named in each example. Start with readable labels, then add element types, containers or spatial cues. [Targeting syntax](/reference/structured-commands#readable-targeting).
 
 ## Keyboard and pointer
 
