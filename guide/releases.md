@@ -2,14 +2,14 @@
 
 Install Flowstride in the project that contains your tests. Use Node.js 22.12 or newer.
 
-## Install Flowstride OS
+## Install Flowstride
 
 ```sh
 npm i flowstride
 npx flowstride init
 ```
 
-The npm package provides Flowstride OS. It runs locally without a Cloud account. `init` creates the project folders and an example flow, and attempts Chromium installation. If that setup fails, install the matching browser explicitly.
+The npm package runs locally without a Cloud account. `init` creates the project folders and an example flow, and attempts Chromium installation. If that setup fails, install the matching browser explicitly.
 
 To install the browser explicitly:
 
@@ -51,7 +51,7 @@ Paste a valid developer token into the masked prompt and accept the Cloud engine
 
 ## Update your installation
 
-Update the OS dependency in your project:
+Update the `flowstride` dependency in your project:
 
 ```sh
 npm i flowstride
@@ -66,4 +66,4 @@ npx flowstride update
 
 Stop a running Flowstride process before restarting with an updated installation. Run a representative flow after updating and review its assertions, reports and evidence.
 
-If a dependency installation removes the Cloud engine, run `npx flowstride login` again after installing project dependencies. The launcher uses an authorized compatible Cloud engine when available and falls back to OS when the Cloud engine cannot be used. [Editions and capabilities](/guide/editions) explains the distinction.
+If a dependency installation removes the Cloud engine, run `npx flowstride login` again after installing project dependencies. The launcher uses an authorized compatible Cloud engine when available and falls back to the open-source engine when the Cloud engine cannot be used. [Editions and capabilities](/guide/editions) explains the distinction.

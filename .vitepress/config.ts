@@ -35,9 +35,9 @@ export default defineConfig({
     search: { provider: 'local' },
     outline: { level: [2, 3], label: 'On this page' },
     docFooter: { prev: 'Previous guide', next: 'Next guide' },
-    socialLinks: [{ icon: 'github', link: 'https://github.com/heroamogs/flowstride-os' }],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/heroamogs/flowstride' }],
     footer: {
-      message: 'OS: MIT licensed. Cloud includes free accounts and plan-based features.',
+      message: 'Flowstride is MIT licensed. Flowstride Cloud includes free accounts and plan-based features.',
       copyright: '© 2026 Flowstride · A TESTCRAFT TECH product'
     }
   }

@@ -1,6 +1,6 @@
 # Manual capabilities and current boundaries
 
-Use this guide to plan manual testing around the capabilities available in OS and Cloud modes of the local workspace. Cloud includes free accounts; connected services remain subject to workspace limits.
+Use this guide to plan manual testing around the capabilities available in open-source and Cloud modes of the local workspace. Cloud includes free accounts; connected services remain subject to workspace limits.
 
 | Area | Current behavior | Practical boundary |
 | --- | --- | --- |
@@ -8,7 +8,7 @@ Use this guide to plan manual testing around the capabilities available in OS an
 | Case details | Descriptions, steps, expected results, references, priority and flow metadata | No dedicated typed field for every test-management concept |
 | Execution | Human judgment, connected-path progression, six step states | Not conditional branching or automated application control |
 | Storage | Local templates, submitted run JSON and media directories | Save confirmation matters; local files are editable |
-| OS save | Server persistence; an additional toolbar export path depends on the hosting bridge | Download wrapper is not the same format as a submitted run |
+| Save in the open-source engine | Server persistence; an additional toolbar export path depends on the hosting bridge | Download wrapper is not the same format as a submitted run |
 | Cloud mode history | Saved report review with historical editing/toolbar locks | Not a resumable or cryptographically immutable run |
 | Cloud | Authenticated run synchronization where eligible | Not live collaborative canvas editing |
 | Assignees | Descriptive values attached to defects | No notification, directory validation or issue creation |
@@ -18,7 +18,7 @@ Use this guide to plan manual testing around the capabilities available in OS an
 
 ## Edition-specific launch behavior
 
-The OS `open` command launches the local workspace without authentication. Cloud mode checks the account session before opening the local workspace. Open the workspace from your project:
+With the open-source engine, the `open` command launches the local workspace without authentication. Cloud mode checks the account session before opening the local workspace. Open the workspace from your project:
 
 ```sh
 npx flowstride open

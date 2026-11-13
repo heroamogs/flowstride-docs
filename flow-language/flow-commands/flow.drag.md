@@ -1,6 +1,6 @@
 # flow.drag
 
-Drag a DOM target into a destination. Available in OS and Cloud.
+Drag a DOM target into a destination. Available in both engines.
 
 ```flow
 flow.drag "#task-102" into "#done-column";

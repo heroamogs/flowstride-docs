@@ -27,7 +27,7 @@ flow.autoheal "401" via flow.post "/api/auth/refresh" with reqBody
 
 Use it under setup/actions in a complete scenario, before the protected API request. Supported trigger statuses are `401` and `403`; supported refresh verbs are GET, POST, PUT, PATCH and DELETE. A failing refresh response fails explicitly. The adapter guards against recursive refresh and retries the original protected request once after successful refresh handling.
 
-Your application's refresh endpoint and credential/header update contract must be valid for the next request. This command does not automatically invent bearer-token extraction or exchange a Flowstride developer token for an application token. OS rejects this Cloud-only command at execution; the remaining base API commands work in OS.
+Your application's refresh endpoint and credential/header update contract must be valid for the next request. This command does not automatically invent bearer-token extraction or exchange a Flowstride developer token for an application token. This command requires the Cloud engine. Both engines support the base API commands.
 
 ## Clear local runner data
 
@@ -41,4 +41,4 @@ npx flowstride run flows --fresh
 
 `--values` removes the local `.flowstride/vault.json` file. `--sessions` removes the local saved-session directory. `run --fresh` clears both before the run. Back up useful test state first and prepare the required data again afterward.
 
-These are Cloud CLI options, not equivalent universal OS switches. They clear local runner data, not backend users, application databases or saved Cloud developer credentials. [Saved sessions](/flow-language/getting-started/sessions), [token rotation](/cloud/authentication) and [Cloud evidence](/guide/cloud-evidence) describe the separate lifecycles.
+These commands require the Cloud engine. They clear local runner data, not backend users, application databases or saved Cloud developer credentials. [Saved sessions](/flow-language/getting-started/sessions), [token rotation](/cloud/authentication) and [Cloud evidence](/guide/cloud-evidence) describe the separate lifecycles.

@@ -1,6 +1,6 @@
 # flow.close
 
-Dismiss a visible modal identified by its text. Available in OS and Cloud.
+Dismiss a visible modal identified by its text. Available in both engines.
 
 ```flow
 flow.close "Voice Recordings";

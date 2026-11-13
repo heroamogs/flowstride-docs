@@ -1,6 +1,6 @@
 # Test tables and cells
 
-Flowstride can search an application's table, select a row by its contents, click a cell or row action, and check or extract cell values. These commands use the same syntax in **OS and Cloud**, with Chromium, Firefox or WebKit.
+Flowstride can search an application's table, select a row by its contents, click a cell or row action, and check or extract cell values. These commands use the same syntax in **both engines**, with Chromium, Firefox or WebKit.
 
 Use a stable record identifier when the table can be filtered, sorted or paginated. Indexed coordinates are useful when the position itself is part of the test.
 
@@ -83,7 +83,7 @@ Create a project-root `.env` file:
 BASE_URL=http://127.0.0.1:3000
 ```
 
-OS and Cloud both load this value automatically. If port 3000 is occupied, change the port in the application and `.env` together.
+Both engines load this value automatically. If port 3000 is occupied, change the port in the application and `.env` together.
 
 ## 2. Search and act on the matching row
 
@@ -162,7 +162,7 @@ Header rows count as `tr` elements. `td` selects data cells; `th` selects header
 
 Coordinate indexing differs from CSS `:nth-child()`, which starts at **one**. For example, `td:nth-child(3)` means the third child when that child is a `td`. Sorting, filtering and pagination can change which record occupies an index; use the content-based example when the record's identity matters.
 
-## 4. Run in OS or Cloud
+## 4. Run the tests
 
 Run the exact example files without including the unrelated sample created by `init`:
 
@@ -173,7 +173,7 @@ npx flowstride run flows/table-coordinates.flow --browser chromium
 
 The first test should find FS-102 with status **Approved** and open its details. The coordinate test should select FS-102, then FS-101. The example application does not require a login.
 
-OS runs these tests without an account. To use Cloud, [connect your account](/cloud/authentication), accept the engine installation when offered, and run the same commands. Cloud includes free accounts; these table commands do not require a paid subscription.
+You can run these tests without an account. To use Cloud, [connect your account](/cloud/authentication), accept the engine installation when offered, and run the same commands. Cloud includes free accounts; these table commands do not require a paid subscription.
 
 For other browsers, install their matching binaries and select the engine explicitly:
 

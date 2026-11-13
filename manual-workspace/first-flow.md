@@ -26,15 +26,15 @@ Use **Arrow** to connect the first node to the second, then the second to the th
 
 The runtime starts with the lowest internal node ID and follows outgoing connections. Moving nodes or changing their displayed step labels does not redefine this order. Confirm that the highlighted first step and arrow path match the journey you intend.
 
-[![Three connected checkout steps in the OS Manual Workspace](/images/manual-design.png)](/images/manual-design.png)
+[![Three connected checkout steps in the local Manual Workspace](/images/manual-design.png)](/images/manual-design.png)
 
-*The example design in the OS Manual Workspace. Open the image to inspect the controls.*
+*The example design in the local Manual Workspace. Open the image to inspect the controls.*
 
 ## 4. Save the design
 
 Click **Save** in Design Mode and wait for confirmation. The project server saves the template under `manual_flows/templates`.
 
-Use the saved project template and media folders for a complete backup. The OS toolbar includes a separate browser-export path, but it depends on the hosting engine bridge; do not rely on a download as proof of a saved template or submitted run.
+Use the saved project template and media folders for a complete backup. The open-source engine’s toolbar includes a separate browser-export path, but it depends on the hosting engine bridge; do not rely on a download as proof of a saved template or submitted run.
 
 ## 5. Execute and submit
 
@@ -42,7 +42,7 @@ Switch to **Execution Mode**. The design is saved before this transition. Perfor
 
 For a real mismatch, use **Delete/Backspace** for Failed, **Tab** for Blocked, or **Escape** for Skipped. These are execution shortcuts; they have different meanings in Design Mode.
 
-Add a defect and evidence when needed, save the defect form, then click **Save** in OS / **Submit Run** in Cloud mode. The run goes into `manual_flows/runs`, separate from the template. [Execution details](/manual-workspace/execution) covers partial runs and status meaning.
+Add a defect and evidence when needed, save the defect form, then click **Save** in the open-source engine or **Submit Run** in Cloud mode. The run goes into `manual_flows/runs`, separate from the template. [Execution details](/manual-workspace/execution) covers partial runs and status meaning.
 
 ## 6. Reopen the record
 

@@ -17,7 +17,7 @@ Text checks locate visible text; they are not a two-string selector/expected-tex
 
 ### Attribute assertions
 
-Attribute assertions check the named DOM attribute in both OS and Cloud.
+Attribute assertions check the named DOM attribute in both engines.
 
 Exact comparisons are case-sensitive. `contains` checks a substring. The worker polls until the configured timeout for an expected value. A missing attribute fails even when the expected string is empty; an existing empty attribute can match `""`.
 
@@ -79,7 +79,7 @@ Except the two empty checks, conditions take an expected string. Use dotted/inde
 flow.expect transcript contains "Hello Flowstride. Your order is ready.";
 ```
 
-Available in OS and Cloud. The command polls the page body's rendered text, comparing after lowercasing, removing punctuation and collapsing whitespace. It checks a contained phrase, not an exact transcript or a word-error score. Your application performs the transcription.
+Available in both engines. The command polls the page body's rendered text, comparing after lowercasing, removing punctuation and collapsing whitespace. It checks a contained phrase, not an exact transcript or a word-error score. Your application performs the transcription.
 
 The normalizer keeps ASCII word characters and whitespace. For accented/non-Latin text, or to restrict the check to the new transcript, use a native assertion on a specific result element. A phrase already displayed in instructions or an old transcript could satisfy the whole-page helper. Input/textarea results need a value assertion.
 

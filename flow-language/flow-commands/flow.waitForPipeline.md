@@ -1,6 +1,6 @@
 # flow.waitForPipeline
 
-Estimate a recording wait using the active audio fixture's duration. Available in OS and Cloud alongside Chromium [audio injection](/flow-language/flow-commands/flow.injectAudio).
+Estimate a recording wait using the active audio fixture's duration. Available in both engines alongside Chromium [audio injection](/flow-language/flow-commands/flow.injectAudio).
 
 ## Example
 

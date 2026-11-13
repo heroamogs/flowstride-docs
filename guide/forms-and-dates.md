@@ -1,6 +1,6 @@
 # Forms, dropdowns and dates
 
-Use Flowstride's native commands to fill a form, select dependent values and verify what the application accepted. This workflow is available in OS and Cloud.
+Use Flowstride's native commands to fill a form, select dependent values and verify what the application accepted. This workflow is available in both engines.
 
 ## A complete travel form
 

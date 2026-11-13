@@ -529,7 +529,7 @@ export const sidebar = {
           "link": "/guide/native-ci-games"
         },
         {
-          "text": "OS & Cloud",
+          "text": "Flowstride and Cloud",
           "link": "/guide/editions"
         },
         {
@@ -727,7 +727,7 @@ export const sidebar = {
           "link": "/cloud/authentication"
         },
         {
-          "text": "OS & Cloud selection",
+          "text": "Engine selection",
           "link": "/guide/editions"
         },
         {
@@ -817,7 +817,7 @@ export const sidebar = {
           "link": "/guide/native-ci-games"
         },
         {
-          "text": "OS & Cloud",
+          "text": "Flowstride and Cloud",
           "link": "/guide/editions"
         },
         {
@@ -1191,7 +1191,7 @@ export const sidebar = {
           "link": "/guide/native-ci-games"
         },
         {
-          "text": "OS & Cloud",
+          "text": "Flowstride and Cloud",
           "link": "/guide/editions"
         },
         {
@@ -1405,7 +1405,7 @@ export const sidebar = {
           "link": "/guide/the-cli"
         },
         {
-          "text": "OS & Cloud",
+          "text": "Flowstride and Cloud",
           "link": "/guide/editions"
         },
         {

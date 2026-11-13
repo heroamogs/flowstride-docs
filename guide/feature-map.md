@@ -2,7 +2,7 @@
 
 Flowstride brings browser actions, APIs, reusable data, assertions and evidence into readable `.flow` scenarios. Use the same suite interactively and in CI. Use the separate Manual Workspace for cases that need a person's observation and judgment.
 
-OS runs locally without an account. A free Cloud account connects workspace services; access and usage depend on your workspace plan. Cloud is an account-connected engine and service layer, not a requirement to host the application or surrender control of your CI runner.
+Flowstride runs locally without an account. A free Cloud account connects workspace services; access and usage depend on your workspace plan. Cloud is an account-connected engine and service layer, not a requirement to host the application or surrender control of your CI runner.
 
 ## Choose the outcome you need
 

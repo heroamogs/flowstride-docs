@@ -1,6 +1,6 @@
 # Files, data and run control
 
-These commands work in Flowstride OS and Cloud. Use project-relative paths and small, synthetic fixtures. The examples put app controls and routes under test. Replace the names with your own app’s labels and endpoints.
+These commands work in both Flowstride engines. Use project-relative paths and small, synthetic fixtures. The examples put app controls and routes under test. Replace the names with your own app’s labels and endpoints.
 
 ## Select files and folders
 

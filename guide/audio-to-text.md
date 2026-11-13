@@ -1,6 +1,6 @@
 # Test audio-to-text workflows
 
-Flowstride can feed a prerecorded audio file into the browser's microphone input, interact with your recording controls, and check the transcript your application displays. The same commands are available in **OS and Cloud**. Audio-file microphone injection requires **Chromium**.
+Flowstride can feed a prerecorded audio file into the browser's microphone input, interact with your recording controls, and check the transcript your application displays. The same commands are available in **both engines**. Audio-file microphone injection requires **Chromium**.
 
 Your application's speech-to-text system performs the transcription. Flowstride supplies repeatable input and checks the outcome, so your test can cover the recording UI and the connected transcription service together.
 
@@ -73,7 +73,7 @@ The commands have distinct roles:
 
 `flow.waitForPipeline` waits approximately the clip's duration, with a half-second allowance. Check your application's recording timing if the last word is clipped. Use a deliberate test recording and verify the captured result; the duration helper does not observe actual playback or guarantee recording completion.
 
-## 3. Run in OS or Cloud
+## 3. Run the test
 
 Run just the audio example, explicitly selecting Chromium:
 
@@ -89,7 +89,7 @@ npx flowstride run flows/audio-to-text.flow --browser chromium --ci
 
 The test passes when the application renders the expected phrase before timeout. A missing or different transcript must fail. As a negative check, temporarily replace the expected phrase with an unrelated sentence and confirm the run fails, then restore it.
 
-OS runs this test without an account. To use Cloud, [connect your account](/cloud/authentication), accept the engine installation when offered, and run the same command. Cloud includes free accounts; these audio commands do not require a paid subscription. The application may independently require credentials or access to its transcription provider.
+You can run this test without an account. To use Cloud, [connect your account](/cloud/authentication), accept the engine installation when offered, and run the same command. Cloud includes free accounts; these audio commands do not require a paid subscription. The application may independently require credentials or access to its transcription provider.
 
 Firefox and WebKit cannot run `flow.injectAudio`. Keep these tests in their own Chromium run rather than including them in a browser matrix for every engine.
 

@@ -1,6 +1,6 @@
 # flow.acceptDialog
 
-Register handling to accept a subsequent browser dialog. Available in OS and Cloud. Register **before** the action that triggers the dialog:
+Register handling to accept a subsequent browser dialog. Available in both engines. Register **before** the action that triggers the dialog:
 
 ```flow
 flow.acceptDialog;

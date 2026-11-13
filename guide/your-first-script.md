@@ -32,7 +32,7 @@ TEST_EMAIL=tester@example.test
 TEST_PASSWORD=replace-with-your-test-account-password
 ```
 
-Flowstride loads `.env` automatically when you run a flow, in both OS and Cloud. `BASE_URL` is the base for relative browser and API URLs: with the value above, `flow.open "/login";` opens `http://127.0.0.1:3000/login`. You do not need a `flowstride.config.json` file for this setup; the default test folder is `flows`.
+Flowstride loads `.env` automatically when you run a flow, in both engines. `BASE_URL` is the base for relative browser and API URLs: with the value above, `flow.open "/login";` opens `http://127.0.0.1:3000/login`. You do not need a `flowstride.config.json` file for this setup; the default test folder is `flows`.
 
 For a local application, start it in a separate terminal using its normal startup command and leave it running. For a hosted application, set `BASE_URL` to its test environment URL.
 
@@ -117,6 +117,6 @@ For the complete signup → API approval → browser login → OTP pattern, see 
 
 ## Optional: use VS Code
 
-Open the project folder in VS Code and use the official **Flowstride Automation** extension from publisher **flowstride** for `.flow` highlighting, completions, snippets and the editor's **Run Test** action. The CLI is still installed in your project; the extension does not replace the runtime.
+Open **Extensions** in VS Code, search for **Flowstride Automation** from publisher **flowstride**, and select **Install**. The extension provides highlighting, formatting, diagnostics, completions, snippets, and a **Run Test** action that uses the CLI installed in your project. [Flowstride Automation on the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=flowstride.flowstride-vscode)
 
 The current extension requires a trusted workspace to run project code. If VS Code cannot find the intended Node executable, configure `flowstride.nodePath` to a Node.js 22.12+ executable. New runtime commands can arrive before editor completions, so the engine's parser and this command reference remain authoritative. You can also use any editor and the terminal commands above.

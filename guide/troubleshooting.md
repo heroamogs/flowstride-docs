@@ -46,7 +46,7 @@ A 401 means authentication was rejected; it does not establish expiry unless the
 
 A successful browser/API test can still have failed reporting. Check `.flowstride/cloud-sync.json` and the summary's Cloud status. Local evidence remains available.
 
-## Cloud unexpectedly falls back to OS
+## Cloud unexpectedly falls back to the open-source engine
 
 Check the token and workspace access, then run `npx flowstride login` after installing project dependencies. Read the engine banner on the next run. See [engine selection and fallback](/guide/editions#engine-selection-and-fallback).
 

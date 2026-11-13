@@ -1,6 +1,6 @@
 # flow.switchTo
 
-Select a page/tab in the current browser profile. Available in OS and Cloud.
+Select a page/tab in the current browser profile. Available in both engines.
 
 ```flow
 flow.click "Open receipt";

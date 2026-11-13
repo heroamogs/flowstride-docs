@@ -1,6 +1,6 @@
 # Structured API requests and network control
 
-Flowstride OS and Cloud can send direct API requests and observe requests made by the browser. Both can be used in the same scenario. Use [direct API commands](/reference/api-commands) for setup and service checks. Use browser routes and observers to test what the page sends and receives.
+Both Flowstride engines can send direct API requests and observe requests made by the browser. Both can be used in the same scenario. Use [direct API commands](/reference/api-commands) for setup and service checks. Use browser routes and observers to test what the page sends and receives.
 
 ## Requests
 

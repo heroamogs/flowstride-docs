@@ -1,6 +1,6 @@
 # Tabs, windows and iframes
 
-Flowstride supports browser tab switching and readable actions inside child frames in OS and Cloud. Tabs are separate pages within one browser profile. An iframe is a document embedded inside a page.
+Flowstride supports browser tab switching and readable actions inside child frames in both engines. Tabs are separate pages within one browser profile. An iframe is a document embedded inside a page.
 
 ## Open a tab and return
 

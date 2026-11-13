@@ -1,6 +1,6 @@
 # Extend a flow with plugins
 
-A TypeScript plugin adds a focused application action while Flowstride keeps browser lifecycle, scenario status, cleanup and evidence ownership. OS and Cloud support the common SDK below. Normal npm installation supplies the compatible TypeScript compiler used by the loader.
+A TypeScript plugin adds a focused application action while Flowstride keeps browser lifecycle, scenario status, cleanup and evidence ownership. Both engines support the common SDK below. Normal npm installation supplies the compatible TypeScript compiler used by the loader.
 
 ## Register and invoke an export
 
@@ -67,7 +67,7 @@ Use a simple filename such as `account-state.json`; path traversal names are rej
 
 ## Cloud extras and boundaries
 
-A directly used Cloud plugin manager can additionally expose helpers such as `env.require` and truth assertions. The OS launcher can supply its common PluginManager while executing a compatible Cloud worker, so portable plugins should use the common table above and explicitly validate required environment values.
+A directly used Cloud plugin manager can additionally expose helpers such as `env.require` and truth assertions. The public CLI can supply its common PluginManager while executing a compatible Cloud worker, so portable plugins should use the common table above and explicitly validate required environment values.
 
 The `db.connect` and `otp.generate` scaffold surfaces are not a production database driver or a real TOTP implementation. Use a real client in your own narrow plugin when needed. `utils.generateId` is not a security credential or a guaranteed globally unique identifier.
 

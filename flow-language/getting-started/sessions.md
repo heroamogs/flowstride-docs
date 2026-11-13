@@ -1,6 +1,6 @@
 # Save and restore browser sessions
 
-A saved session is a snapshot of the currently selected browser profile. OS and Cloud can retain cookies, localStorage and sessionStorage, then restore them for a later scenario or CLI invocation.
+A saved session is a snapshot of the currently selected browser profile. Both engines can retain cookies, localStorage and sessionStorage, then restore them for a later scenario or CLI invocation.
 
 ## Save after a verified login
 

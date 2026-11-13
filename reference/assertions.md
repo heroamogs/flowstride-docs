@@ -1,6 +1,6 @@
 # Structured assertions
 
-Use this page to find every built-in assertion that accepts a JSON object in Flowstride OS and Cloud. A structured assertion has named settings inside `{ }`, such as the target, the condition and the expected value. `flow.expect` is the shorter [keyword-style assertion](/flow-language/flow-commands/flow.expect). Both styles can appear in the same scenario.
+Use this page to find every built-in assertion that accepts a JSON object in both Flowstride engines. A structured assertion has named settings inside `{ }`, such as the target, the condition and the expected value. `flow.expect` is the shorter [keyword-style assertion](/flow-language/flow-commands/flow.expect). Both styles can appear in the same scenario.
 
 | What you want to verify | Where to look |
 | --- | --- |

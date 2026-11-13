@@ -1,6 +1,6 @@
 # Structured command index
 
-Flowstride OS and Cloud accept the same built-in structured commands. A **structured command** takes a JSON object containing named inputs. An **assertion** verifies a result. Other structured commands can send a request, configure a browser, capture evidence or prepare test data.
+Both Flowstride engines accept the same built-in structured commands. A **structured command** takes a JSON object containing named inputs. An **assertion** verifies a result. Other structured commands can send a request, configure a browser, capture evidence or prepare test data.
 
 ```flow
 flow.assert.that {
