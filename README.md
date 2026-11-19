@@ -4,7 +4,7 @@ search: false
 
 # Flowstride documentation
 
-The official Flowstride documentation site, built with VitePress. Guides cover open-source and Cloud capabilities, manual testing, automation, native CI, browser games, and evidence.
+The official Flowstride (FS) 2.0 documentation site, built with VitePress. Guides cover Flowstride and Flowstride Pro capabilities, manual testing, automation, native CI, browser games, and evidence.
 
 ## Run locally
 
@@ -25,7 +25,7 @@ npm run check
 
 Checks validate public content, JSON formatting, example asset hashes and the manual design structure, then build the site and verify rendered links and heading anchors, including navigation. Local search is generated during the build.
 
-CI installs the released open-source Flowstride parser to validate every Flow example, the homepage preview and independent language-rule checks. For local cross-engine validation, set `FLOWSTRIDE_OS_ROOT` and `FLOWSTRIDE_CLOUD_ROOT` to built engine folders before running the same command. Those local paths are not part of the site. Syntax validation does not establish that an illustrative endpoint, account or external service exists; runnable fixtures need execution checks too.
+CI installs the released public FS parser to validate every Flow example, the homepage preview and independent language-rule checks. For local cross-engine validation, set `FLOWSTRIDE_OS_ROOT` and `FLOWSTRIDE_CLOUD_ROOT` to built engine folders before running the same command. Those local paths are not part of the site. Syntax validation does not establish that an illustrative endpoint, account or external service exists; runnable fixtures need execution checks too.
 
 To serve the production build locally:
 
@@ -47,11 +47,11 @@ The first-flow guide uses the normal `npm i flowstride` and `npx flowstride init
 
 - Verify syntax against the parser and behavior against the relevant engine or UI.
 - Use two-space indentation in examples. Expand multi-field or nested JSON objects across lines; keep short single-field objects inline with consistent spacing.
-- Distinguish native features, project plugins, and suggested team practices.
+- Introduce Flowstride (FS) on entry pages. Use FS naturally in longer guides. Distinguish native commands, project JS/TS helpers, fixtures and SDK plugins.
 - Document installation through npm and Cloud account login, including free accounts.
 - Keep internal release identifiers and distribution infrastructure out of public content and downloads.
 - Never include real credentials, private source, local user paths, or customer data.
 - Preserve existing documentation routes where possible.
 - Describe evidence access and collaboration limits accurately.
 
-The open-source engine is MIT licensed. Cloud includes free accounts and plan-based features.
+The FS engine is MIT licensed. Cloud includes free accounts and plan-based features.

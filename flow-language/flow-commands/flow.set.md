@@ -1,6 +1,6 @@
 # flow.set
 
-Set a field's value directly, useful for controls such as date inputs. Available in both engines.
+Set a field's value directly, useful for controls such as date inputs. Available in Flowstride and Flowstride Pro.
 
 ```flow
 flow.set input "Date" to "2026-11-14";

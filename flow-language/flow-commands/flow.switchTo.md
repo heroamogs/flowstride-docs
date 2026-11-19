@@ -1,6 +1,6 @@
 # flow.switchTo
 
-Select a page/tab in the current browser profile. Available in both engines.
+Select a page/tab in the current browser profile. Available in Flowstride and Flowstride Pro.
 
 ```flow
 flow.click "Open receipt";

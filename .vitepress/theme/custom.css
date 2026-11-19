@@ -15,17 +15,83 @@
   --vp-layout-max-width: 1440px;
 }
 .dark {
-  --vp-c-bg: #13141c;
-  --vp-c-bg-alt: #101118;
-  --vp-c-bg-soft: #1b1c27;
-  --vp-c-text-1: #eeedf5;
-  --vp-c-text-2: #adaebb;
-  --vp-c-text-3: #8d8e9f;
-  --vp-c-divider: #2b2c3a;
-  --vp-c-brand-1: #b69af6;
-  --vp-c-brand-2: #c5acf9;
-  --vp-c-brand-3: #8b5fe2;
-  --vp-c-brand-soft: rgba(160, 121, 240, .13);
+  --vp-c-bg: #000;
+  --vp-c-bg-alt: #030712;
+  --vp-c-bg-soft: #101828;
+  --vp-c-bg-elv: #101828;
+  --vp-c-text-1: #fff;
+  --vp-c-text-2: #d1d5dc;
+  --vp-c-text-3: #99a1af;
+  --vp-c-divider: #1e2939;
+  --vp-c-border: #364153;
+  --vp-c-gutter: var(--vp-c-divider);
+  --vp-c-brand-1: oklch(70.2% 0.183 293.541);
+  --vp-c-brand-2: #c4b5fd;
+  --vp-c-brand-3: #6d28d9;
+  --vp-c-brand-soft: rgb(109 40 217 / 18%);
+  --vp-button-brand-hover-bg: #7c3aed;
+  --vp-button-brand-active-bg: #5b21b6;
+  --vp-sidebar-bg-color: var(--vp-c-bg);
+  --vp-local-search-bg: var(--vp-c-bg-alt);
+}
+.dark .VPNavBarTitle .logo {
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  padding: 6px;
+  margin-right: 12px;
+  border-radius: 8px;
+  background: #fff;
+}
+.dark .VPNavBarTitle .title {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: .025em;
+  text-transform: uppercase;
+}
+.dark .home-hero {
+  background: radial-gradient(ellipse closest-side at 56% 54%, var(--vp-c-brand-soft), transparent);
+}
+.dark .hero-copy h1 {
+  font-weight: 700;
+  letter-spacing: -.035em;
+}
+.dark .hero-lead {
+  color: var(--vp-c-text-3);
+  font-size: clamp(16px, 1.35vw, 18px);
+  line-height: 1.65;
+}
+.dark .home-button.primary {
+  border-color: transparent;
+  background: var(--vp-c-brand-3);
+}
+.dark .home-button.primary:hover {
+  background: var(--vp-button-brand-hover-bg);
+}
+.dark .home-button.secondary {
+  border-color: var(--vp-c-border);
+  background: transparent;
+}
+.dark .home-button.secondary:hover {
+  border-color: var(--vp-c-brand-1);
+  background: var(--vp-c-bg-soft);
+}
+.dark .flow-preview {
+  transform: none;
+  background: var(--vp-c-bg-alt);
+  border-color: color-mix(in srgb, var(--vp-c-brand-3) 35%, var(--vp-c-border));
+  box-shadow: 0 10px 40px rgb(109 40 217 / 9%);
+}
+.dark .flow-preview pre {
+  font-size: 12px;
+  line-height: 1.8;
+}
+.dark .preview-title, .dark .preview-bottom {
+  background: var(--vp-c-bg);
+}
+.dark .preview-status > span {
+  color: #86efac;
+  background: #052e16;
 }
 .VPNavBarTitle .logo { height: 28px; max-width: 50px; object-fit: contain; }
 .VPNavBarTitle .title { font-weight: 750; letter-spacing: -.4px; }

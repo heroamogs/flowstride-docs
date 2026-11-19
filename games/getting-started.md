@@ -81,4 +81,4 @@ Expected: seven passing commands covering navigation, fixture reset, an initial 
 
 For a deliberate negative check, copy the flow under a separate filename and change one expected state value to one the app cannot produce. Run only that file with `--ci`; it must fail with a nonzero exit and retain the failed step's diagnostic evidence. Restore or exclude the negative file from the passing suite.
 
-The same installed example can run with a connected Cloud engine. Device-emulation, touch and browser limits remain as described above; the example does not claim coverage of every game engine or a real phone.
+The same installed example can run with a connected Flowstride Pro engine. Device-emulation, touch and browser limits remain as described above; the example does not claim coverage of every game engine or a real phone.

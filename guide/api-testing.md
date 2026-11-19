@@ -1,6 +1,6 @@
 # API testing and reusable response data
 
-Use HTTP and GraphQL commands to prepare data, test a contract, extract values and continue through the UI. Both engines share these base commands. The direct API adapter and the browser are separate clients.
+Use HTTP and GraphQL commands to prepare data, test a contract, extract values and continue through the UI. Flowstride and Flowstride Pro share these base commands. The direct API adapter and the browser are separate clients.
 
 ## Methods, headers and a JSON body
 

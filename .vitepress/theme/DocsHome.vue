@@ -7,6 +7,11 @@ const paths = [
 ];
 const features = [
   {
+    "title": "Complex tests with JS and TS",
+    "detail": "Calculate discounts for 50 cars and verify each visible price by SKU.",
+    "link": "/guide/complex-tests"
+  },
+  {
     "title": "API + UI, together",
     "detail": "Create through an API, extract a value and verify the same record in the browser.",
     "link": "/guide/api-and-ui"
@@ -72,7 +77,7 @@ const references = [
   ['Commands & assertions', '/reference/ui-commands', 'Find the action or check you need'],
   ['Sessions & storage', '/flow-language/getting-started/sessions', 'Save and restore authentication state'],
   ['Dashboard & Replay', '/reporting/dashboard', 'Inspect a screen or replay a request'],
-  ['Flowstride and Cloud', '/guide/editions', 'Understand the installation and handoff'],
+  ['Flowstride & Flowstride Pro', '/guide/editions', 'Understand the installation and handoff'],
   ['Native browser workflows', '/guide/native-browser-workflows', 'Profiles, mocks, downloads, accessibility and components'],
   ['API and UI together', '/guide/api-and-ui', 'Prepare data and verify the browser journey in one flow'],
   ['Troubleshooting', '/guide/troubleshooting', 'Resolve common execution problems']
@@ -84,7 +89,7 @@ const references = [
       <div class="hero-copy">
         <p class="eyebrow"><span class="eyebrow-line"></span> THE FLOWSTRIDE HANDBOOK</p>
         <h1 id="home-title">Test the journey.<br><span>Keep the story.</span></h1>
-        <p class="hero-lead">Browser, API and game automation in readable flows. Manual tests with clear steps, outcomes and evidence. Learn the complete journey, from setup to CI and diagnosis.</p>
+        <p class="hero-lead">Write browser and API tests in Flowstride (FS) 2.0. Call JavaScript or TypeScript for custom checks, inspect each run in the live dashboard, and run the same flows in CI.</p>
         <div class="hero-actions">
           <a class="home-button primary" href="/guide/getting-started">Start building <span aria-hidden="true">↗</span></a>
           <a class="home-button secondary" href="/manual-workspace/manual-testing">Explore manual testing <span aria-hidden="true">→</span></a>

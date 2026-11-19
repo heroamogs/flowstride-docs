@@ -10,7 +10,8 @@ Use these guides when a basic browser/API scenario is working:
 | Wait for results or retry a failed scenario | [Waiting and retries](/guide/waiting-and-retries) |
 | Mock requests, wait for events or assert downloads | [Native command reference](/reference/native-browser-commands) |
 | Capture traces/HAR, check accessibility or mount components | [Native browser workflows](/guide/native-browser-workflows) |
-| Extend one action in TypeScript | [Plugins](/flow-language/getting-started/plugins) |
+| Calculate totals, branch or iterate over browser results | [JS/TS helpers in a complete catalog test](/guide/complex-tests) |
+| Attach an artifact or use runner services inside a reusable action | [Plugins](/flow-language/getting-started/plugins) |
 | Run in GitHub Actions | [Native CI](/guide/native-ci-games) |
 | Drive a canvas or Three.js game | [Games](/games/getting-started) |
 | Debug a captured request | [Dashboard and Replay](/reporting/dashboard) |
@@ -24,7 +25,7 @@ Keep fixture preparation, teardown and business-specific assertions in your proj
 
 ## Avoid relying on implementation details
 
-Use supported aliases and SDK methods instead of importing workers, adapters, orchestrators or internal globals into a custom `.cjs` harness. A plugin can access the current Playwright page where a native action is not yet provided. Check [capability boundaries](/reference/capabilities) before assuming parity with Playwright Test.
+Flowstride (FS) 2.0 accepts ordinary JS/TS named exports through `flow.call`. Request `page` as the first argument for custom browser work. SDK plugins additionally expose runner services such as attachments. Both approaches keep the runner in charge of browser lifecycle and reporting. Check [capability boundaries](/reference/capabilities) before assuming parity with Playwright Test.
 
 ## Workflow guides
 

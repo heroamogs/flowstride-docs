@@ -1,6 +1,6 @@
 # Browser environments and independent users
 
-Both engines support Chromium, Firefox and WebKit, named browser profiles and validated context settings. Choose the browser with `--browser`; choose separate profiles when users need independent cookies, storage, tabs and permissions.
+Flowstride and Flowstride Pro support Chromium, Firefox and WebKit, named browser profiles and validated context settings. Choose the browser with `--browser`; choose separate profiles when users need independent cookies, storage, tabs and permissions.
 
 ## Grant location and verify the application's result
 

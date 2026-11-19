@@ -1,6 +1,6 @@
 # Your first automated flow
 
-Install Flowstride with npm, initialize a project, and write a test for your application. This guide uses a login page to show browser actions and assertions. Use a test account and adapt the URL, labels, button text, and expected result to your application.
+Install Flowstride (FS) 2.0 with npm, initialize a project, and write a test for your application. This guide uses a login page to show browser actions and assertions. Use a test account and adapt the URL, labels, button text, and expected result to your application.
 
 ## 1. Install and initialize
 
@@ -8,13 +8,14 @@ In a new project folder, run:
 
 ```sh
 npm init -y
-npm i flowstride
+npm install --save-dev flowstride@2
 npx flowstride init
+npx flowstride run
 ```
 
 In an existing npm project, skip `npm init -y`.
 
-`init` creates the workspace folders and `flows/example.flow`, and attempts to install Chromium. It does not create your application or a test account. The generated flow targets a hosted demonstration site; replace its contents with your own test below.
+On a fresh install, `init` copies the starter and advanced `.flow` files and checks for Chromium. The first run opens the live dashboard and runs `browse-catalog.flow` followed by `login.flow` against the bundled local app. Once these pass, continue below to write a test for your own app. [Practice examples](/guide/working-examples#bundled-practice-app)
 
 If browser setup did not complete, run:
 
@@ -32,7 +33,7 @@ TEST_EMAIL=tester@example.test
 TEST_PASSWORD=replace-with-your-test-account-password
 ```
 
-Flowstride loads `.env` automatically when you run a flow, in both engines. `BASE_URL` is the base for relative browser and API URLs: with the value above, `flow.open "/login";` opens `http://127.0.0.1:3000/login`. You do not need a `flowstride.config.json` file for this setup; the default test folder is `flows`.
+Flowstride loads `.env` automatically when you run a flow. With this `BASE_URL`, `flow.open "/login";` opens `http://127.0.0.1:3000/login`. The starter configuration defaults to `flows/examples/starter`. Pass the path of your new test when you run it.
 
 For a local application, start it in a separate terminal using its normal startup command and leave it running. For a hosted application, set `BASE_URL` to its test environment URL.
 
@@ -44,7 +45,7 @@ You can set the same base URL in `flowstride.config.json` instead:
 
 ```json
 {
-  "testDir": "flows",
+  "testDir": "flows/application",
   "baseUrl": "http://127.0.0.1:3000"
 }
 ```
@@ -53,7 +54,7 @@ Choose either place for the base URL. If both are set, `BASE_URL` takes preceden
 
 ## 3. Write the flow
 
-Replace the contents of `flows/example.flow` with:
+Create `flows/application/account-login.flow` for this test.
 
 ```flow
 Feature: Account access
@@ -65,7 +66,7 @@ Given "The login page is open"
 
 When "The customer enters valid credentials"
   flow.type input "Email" "{{env.TEST_EMAIL}}";
-  flow.type input "Password" "{{env.TEST_PASSWORD}}";
+  flow.passcode input "Password" "{{env.TEST_PASSWORD}}";
   flow.click button "Sign in";
 
 Then "The customer is signed in"
@@ -79,17 +80,17 @@ This example assumes a `/login` page with inputs labeled **Email** and **Passwor
 ## 4. Run and inspect
 
 ```sh
-npx flowstride run flows/example.flow
+npx flowstride run flows/application/account-login.flow
 ```
 
-Follow the local dashboard URL printed in the terminal. Select a step to inspect its captured screen and network records. After execution, the dashboard stays open for inspection; stop it with Ctrl+C.
+The live dashboard opens in your browser. The terminal prints its local URL. Select a step to inspect its screen and network records. Close the dashboard or press Ctrl+C when you finish.
 
 ## 5. Run the same flow in CI mode
 
 With your application still available, run:
 
 ```sh
-npx flowstride run flows/example.flow --ci
+npx flowstride run flows/application/account-login.flow --ci
 ```
 
 A successful run exits with code 0 and writes reports under `flowstride-artifacts`. Change the expected **Logout** text to something that is absent, run again, and confirm that the assertion fails with a nonzero exit code. Restore the expected text afterward.
@@ -117,6 +118,6 @@ For the complete signup → API approval → browser login → OTP pattern, see 
 
 ## Optional: use VS Code
 
-Open **Extensions** in VS Code, search for **Flowstride Automation** from publisher **flowstride**, and select **Install**. The extension provides highlighting, formatting, diagnostics, completions, snippets, and a **Run Test** action that uses the CLI installed in your project. [Flowstride Automation on the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=flowstride.flowstride-vscode)
+Open the project folder in VS Code and install **Flowstride Automation** from publisher **flowstride** for highlighting, completions, diagnostics, **Go to Definition** for imported helpers, and **Run Test**. The extension uses the CLI installed in your project.
 
 The current extension requires a trusted workspace to run project code. If VS Code cannot find the intended Node executable, configure `flowstride.nodePath` to a Node.js 22.12+ executable. New runtime commands can arrive before editor completions, so the engine's parser and this command reference remain authoritative. You can also use any editor and the terminal commands above.

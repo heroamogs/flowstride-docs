@@ -1,14 +1,16 @@
 # CLI reference
 
-Run these commands from your npm project using `npx flowstride`, for example `npx flowstride --version`. Install Flowstride first with `npm i flowstride`.
+Run these Flowstride (FS) 2.0 commands from your npm project using `npx flowstride`, for example `npx flowstride --version`. Install Flowstride first with `npm i flowstride`.
 
 | Command | Purpose |
 | --- | --- |
 | `flowstride --version` | Print the CLI package version |
-| `flowstride init` | Create the project folders, sample flow and ignore entries; attempt Chromium setup |
+| `flowstride init` | Scaffold project folders and bundled examples in a fresh project, then check Chromium setup |
+| `flowstride init --practice` | Add a separate practice project under `.flowstride/practice` |
 | `flowstride install [browsers...]` | Install matching `chromium`, `firefox` or `webkit` binaries; defaults to Chromium |
 | `flowstride install --with-deps` | Also install operating-system dependencies, useful on Linux CI |
 | `flowstride run [path]` | Run a file or folder; defaults to configured `testDir` |
+| `flowstride report` | Open Saved Runs for native CI and Playwright Test results |
 | `flowstride open` | Launch the Manual Workspace |
 | `flowstride login` | Connect a Cloud account using a developer token and install its engine when needed |
 | `flowstride login --global` | Store credentials for use across projects on this machine |
@@ -41,7 +43,7 @@ npx flowstride run flows --workers 4
 npx flowstride run flows --config flowstride.test.json
 ```
 
-`--workers` is a run option, not a configuration-file field. Workspace and CPU limits may reduce the requested count. The open-source engine runs files sequentially.
+`--workers` is a run option, not a configuration-file field. Workspace and CPU limits may reduce the requested count. FS uses sequential execution.
 
 `--browser` selects the engine for this run; `install` only downloads it. For whole-scenario retries, use configuration `retries` and `failOnFlaky`; there is no `--retries` flag. [Native command reference](/reference/native-browser-commands) lists the JSON command options.
 
@@ -53,16 +55,18 @@ Use the masked interactive prompt for a local login:
 npx flowstride login
 ```
 
-CI can provide `FLOWSTRIDE_TOKEN` as a secret, then call `login` when the Cloud engine needs to be installed. A `--token` option also exists, but putting a token in a shell command can expose it in history.
+CI can provide `FLOWSTRIDE_TOKEN` as a secret, then call `login` when the Flowstride Pro engine needs to be installed. A `--token` option also exists, but putting a token in a shell command can expose it in history.
 
-## Legacy commands
+## Saved runs
 
-`report` remains a legacy command for the older `reports/latest` reporter; it is not a viewer for native CI's `summary.json`. Use the interactive TestCase/Reports views or your CI platform's JUnit/artifact tools for current runs.
+`npx flowstride report` opens Saved Runs from the current project. Use `--no-open` to print the URL. Use `--legacy` for older results written under `reports/latest`. [Playwright reporting](/reporting/playwright)
 
-For an installed Cloud engine, use `npx flowstride update` to check for updates. See [installation and updates](/guide/releases).
+For an active run, `npx flowstride run` opens the live dashboard in a regular local session. CI saves results and exits.
+
+For an installed Flowstride Pro engine, use `npx flowstride update` to check for updates. See [installation and updates](/guide/releases).
 
 Run tests locally or in your own CI, with optional authenticated Cloud reporting.
 
 ## Cloud cleanup
 
-The installed Cloud CLI additionally supports `reset --values`, `reset --sessions` and `run --fresh` for local runner state. They clear local runner state and preserve application data and Cloud login credentials. Read [the cleanup scope](/cloud/advanced-workflows#clear-local-runner-data) before using them.
+The installed Flowstride Pro CLI additionally supports `reset --values`, `reset --sessions` and `run --fresh` for local runner state. These are not equivalent FS switches and do not delete application/backend data or Cloud login credentials. Read [the cleanup scope](/cloud/advanced-workflows#clear-local-runner-data) before using them.

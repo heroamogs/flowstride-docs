@@ -8,6 +8,10 @@ export const nav = [
     "text": "Workflows",
     "items": [
       {
+        "text": "Complex tests with JS and TS",
+        "link": "/guide/complex-tests"
+      },
+      {
         "text": "API + UI in one flow",
         "link": "/guide/api-and-ui"
       },

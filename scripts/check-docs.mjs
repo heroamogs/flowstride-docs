@@ -73,7 +73,7 @@ const internalReleaseDetails = [
   /flowstride\s*@\s*(?:next|\d[^\s`"']*-(?:rc|alpha|beta))/i,
   /\b(?:rc[ .-]?\d+|\d+\.\d+\.\d+-(?:rc|alpha|beta)[.\d-]*)\b/i,
   /\bCloud\s+(?:version\s+|v)?\d+\.\d+/i,
-  /\bPro\b/i,
+  /(?<!\bFlowstride )\bPro\b/i,
   /flowstride(?:-pro)?-[\d][^\s`"']*\.tgz/i,
   /\b(?:local|release|acceptance)\s+candidates?\b|candidate documentation|documentation preview|preview channel/i,
   /\bdist-tags\b|@flowstride\/pro\b|\bOSS\b/,

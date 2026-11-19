@@ -5,7 +5,7 @@ import { sidebar } from './sidebar';
 export default defineConfig({
   title: 'Flowstride Docs',
   titleTemplate: ':title · Flowstride Docs',
-  description: 'Practical guides to browser and API automation, manual test design, native CI and browser-game testing with Flowstride.',
+  description: 'Learn Flowstride (FS) 2.0 with runnable browser and API tests, JavaScript and TypeScript helpers, fixtures and CI guides.',
   lang: 'en-GB',
   cleanUrls: true,
   ignoreDeadLinks: false,
@@ -22,9 +22,9 @@ export default defineConfig({
       patterns: [
         { name: 'comment.line.double-slash', match: '//.*$' },
         { name: 'string.quoted.double', begin: '"', end: '"', patterns: [{name:'constant.character.escape',match:'\\\\.'}] },
-        { name: 'keyword.control', match: '\\b(?:Feature|Scenario|Given|When|Then|And|let|only|stop)\\b' },
+        { name: 'keyword.control', match: '\\b(?:Feature|Scenario|Given|When|Then|And|let|import|from|as|only|stop)\\b' },
         { name: 'entity.name.function', match: '\\b(?:flow|game)\\.[A-Za-z_][A-Za-z0-9_.]*' },
-        { name: 'constant.language', match: '\\b(?:true|false|null|persist|global)\\b' },
+        { name: 'constant.language', match: '\\b(?:true|false|null|persist|global|page)\\b' },
         { name: 'constant.numeric', match: '\\b[0-9]+(?:\\.[0-9]+)?\\b' }
       ]
     }]
@@ -37,7 +37,7 @@ export default defineConfig({
     docFooter: { prev: 'Previous guide', next: 'Next guide' },
     socialLinks: [{ icon: 'github', link: 'https://github.com/heroamogs/flowstride' }],
     footer: {
-      message: 'Flowstride is MIT licensed. Flowstride Cloud includes free accounts and plan-based features.',
+      message: 'Flowstride is MIT licensed. Flowstride Cloud offers free and paid workspace plans.',
       copyright: '© 2026 Flowstride · A TESTCRAFT TECH product'
     }
   }

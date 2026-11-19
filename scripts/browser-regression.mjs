@@ -69,28 +69,24 @@ for (const [name, engine] of Object.entries({chromium, firefox, webkit})) {
       await page.locator('h1').first().waitFor();
       if (docs) {
         assert.match(await page.locator('h1').innerText(), /Test the journey/);
-        assert(await page.locator('a[href="https://github.com/heroamogs/flowstride"]').count() > 0);
         await page.locator('.VPNavBarSearch button').click();
         await page.locator('#localsearch-input').fill('session');
         await page.locator('#localsearch-list a.result').first().waitFor();
         await page.locator('#localsearch-list a.result').first().click();
         await page.waitForURL(url => url.pathname !== '/');
         assert.match(await page.locator('main').innerText(), /session/i);
-        for (const route of ['/guide/api-and-ui', '/guide/table-testing', '/guide/audio-to-text', '/manual-workspace/manual-testing', '/guide/native-browser-workflows']) {
+        for (const route of ['/guide/complex-tests', '/flow-language/getting-started/helpers', '/flow-language/getting-started/fixtures-and-handoffs', '/reporting/playwright', '/guide/api-and-ui', '/guide/table-testing', '/guide/audio-to-text', '/manual-workspace/manual-testing', '/guide/native-browser-workflows']) {
           assert((await page.goto(origin + route)).ok());
           await page.locator('main h1').waitFor();
           assert((await page.locator('main').innerText()).length > 300);
         }
-        assert((await page.goto(origin + '/guide/your-first-script')).ok());
-        const extension = page.getByRole('link', { name:'Flowstride Automation on the Visual Studio Marketplace', exact:true });
-        assert.equal(await extension.getAttribute('href'), 'https://marketplace.visualstudio.com/items?itemName=flowstride.flowstride-vscode');
         await page.getByRole('switch').first().click();
         await page.waitForFunction(() => document.documentElement.classList.contains('dark'));
       } else {
         assert.match(await page.title(), /Flowstride/);
         await page.getByRole('button', {name:'Copy', exact:true}).click();
         await page.waitForFunction(() => window.__copied === 'npm install -g flowstride');
-        assert(await page.locator('a[href="https://github.com/heroamogs/flowstride"], a[href="https://github.com/heroamogs/flowstride-os"]').count() > 0);
+        assert.equal(await page.locator('a[href="https://github.com/heroamogs/flowstride-os"]').count() > 0, true);
         // Image optimization still serves the existing local image after Next/sharp updates.
         const image = await context.request.get(origin + '/_next/image?url=%2Flogo.png&w=64&q=75');
         assert.equal(image.status(), 200); assert.match(image.headers()['content-type'], /^image\//);

@@ -47,7 +47,7 @@ Store `FLOWSTRIDE_TOKEN` as a repository/environment secret, not in YAML. Use th
 4. Run the suite.
 5. Retain artifacts with an always-run upload step.
 
-The generated workflow does not add your credentials or a private installation automatically. Keep untrusted pull requests away from Cloud tokens. A CI run with the open-source engine does not require a token.
+The generated FS workflow does not add your credentials or a private installation automatically. Keep untrusted pull requests away from Cloud tokens. A public FS CI run does not require a token.
 
 ## Browser matrices and shards
 
@@ -59,7 +59,7 @@ npx flowstride ci init github --browsers chromium,firefox,webkit --shards 3
 
 This makes nine jobs: three engines × three shards. It still refuses to overwrite an existing workflow; review and edit that workflow when your setup changes. The action identifiers after `@` are pinned source commit hashes, not secret keys. Keep Cloud tokens in CI secrets.
 
-A shard assigns a subset of files to one CI machine. Cloud `--workers` distributes files across processes on one machine; the two controls are different. The open-source engine can use CI shards while retaining its sequential execution inside each job.
+A shard assigns a subset of files to one CI machine. Cloud `--workers` distributes files across processes on one machine; the two controls are different. FS can use CI shards while retaining its sequential execution inside each job.
 
 For manual shard commands and merging, see [distributed native runs](/guide/native-browser-workflows#browser-matrices-and-multiple-ci-machines). Keep separate artifact directories and preserve each summary beside its `run-*` evidence. The generator retains matrix artifacts; it does not automatically create a final merge job. Merge complete sets for one browser configuration at a time, using the same engine/package, source suite and relevant settings.
 
@@ -75,7 +75,7 @@ CI Cloud reporting is optional. Set `cloudSync: true` and supply appropriate aut
 
 ## Protect secrets and evidence
 
-Keep jobs that execute untrusted pull-request code separate from jobs with Cloud or application secrets. Tests, plugins, dependency installation and configured server commands run with the runner's privileges. The plugin SDK is not a security sandbox.
+Keep jobs that execute untrusted pull-request code separate from jobs with Cloud or application secrets. Tests, JS/TS helpers, plugins, dependency installation and configured server commands run with the runner's privileges. The plugin SDK is not a security sandbox.
 
 The generated artifact upload requests 14 days of retention. Review the uploaded paths, repository access and retention policy. Disabling Cloud reporting does not disable your CI platform's own artifact upload. Never collect `.env`, saved credentials or login snapshots as test evidence. Use [evidence capture controls](/security/evidence-and-replay#reduce-capture) and review [CI and safe sharing](/security/ci-and-sharing).
 

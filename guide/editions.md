@@ -1,13 +1,14 @@
-# Flowstride and Flowstride Cloud
+# Flowstride and Flowstride Pro {#os-and-cloud}
 
-Flowstride runs locally without an account. Flowstride Cloud connects your workspace to account-based features and includes a free plan. Feature availability and usage limits depend on your workspace plan.
+**Flowstride (FS)** is the open-source framework on npm. **Flowstride Pro** is the workspace-connected engine. **Flowstride Cloud** hosts accounts, workspaces and billing. The Personal plan is free. Team and Business are paid plans. A workspace’s plan determines its features and limits.
 
-Tests run on your computer or your CI runner. Cloud adds workspace services and result review where your plan allows it.
+Both options run tests on your computer or your CI runner. Cloud adds account-connected features, workspace services, and eligible result review.
 
 ## Choose the capability you need
 
-| Capability | Open-source engine | With Flowstride Cloud |
+| Capability | Flowstride | Flowstride Pro |
 | --- | --- | --- |
+| Native JS/TS helper calls, fixtures and handoffs | Included | Included |
 | Browser and API flows | Included | Included |
 | Table/cell targeting, search and assertions | Included | Included |
 | Audio input and transcript checks (Chromium) | Included | Included |
@@ -25,15 +26,15 @@ Tests run on your computer or your CI runner. Cloud adds workspace services and 
 
 Use your workspace's current feature access and limits to confirm what is available. Free accounts include features within their workspace limits; additional features and higher limits depend on the plan.
 
-## Run Flowstride locally
+## Start with FS {#start-with-os}
 
 ```sh
 npm i flowstride
 npx flowstride init
-npx flowstride run flows
+npx flowstride run
 ```
 
-You can use the local dashboard, manual testing, native CI and browser-game APIs without an account.
+FS does not require a Cloud account for local execution. It includes the local dashboard, manual testing, native CI and browser-game APIs.
 
 ## Connect Cloud
 
@@ -44,15 +45,15 @@ npx flowstride login
 npx flowstride status
 ```
 
-Paste the developer token into the masked prompt and accept the Cloud engine installation when offered. Installation uses an authenticated private channel; no separate public package installation is required. Archive integrity and package/path checks run before installation, and failed checks preserve the existing installation. [Installation security](/security/local-data#cloud-connections-and-installation). Free accounts can use this connection flow too. See [Cloud authentication](/cloud/authentication).
+Paste the developer token into the masked prompt and accept the Flowstride Pro engine installation when offered. Installation uses an authenticated private channel; no separate public package installation is required. Archive integrity and package/path checks run before installation, and failed checks preserve the existing installation. [Installation security](/security/local-data#cloud-connections-and-installation). Free accounts can use this connection flow too. See [Cloud authentication](/cloud/authentication).
 
 ## Engine selection and fallback
 
-The launcher selects the Cloud engine when a compatible installation and valid account authorization are available. If the Cloud engine is missing, incompatible or cannot be authorized, it explains the selection and can fall back to the open-source engine.
+The launcher selects the Flowstride Pro engine when a compatible installation and valid account authorization are available. If the Flowstride Pro engine is missing, incompatible or cannot be authorized, it explains the selection and can fall back to FS.
 
-Read the engine banner at the start of a run. The native browser workflows use the same syntax in both engines. If an older Cloud installation cannot run a requested native workflow, the CLI explains why it switched to the open-source engine. Parallel execution and FlowMail require Cloud access within your workspace limits.
+Read the engine banner at the start of a run. The native browser workflows use the same syntax in both engines. An older Cloud installation that cannot run a requested native workflow triggers an explained FS fallback. Fallback keeps FS capabilities available; account-connected features such as parallel execution and FlowMail require Cloud access within your workspace limits.
 
-Installing project dependencies again may remove the Cloud engine. If that happens, run `npx flowstride login` after dependency installation. See [installation and updates](/guide/releases) and [authentication troubleshooting](/guide/troubleshooting).
+Installing project dependencies again may remove the Flowstride Pro engine. If that happens, run `npx flowstride login` after dependency installation. See [installation and updates](/guide/releases) and [authentication troubleshooting](/guide/troubleshooting).
 
 ## Where tests run
 

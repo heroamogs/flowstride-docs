@@ -4,6 +4,12 @@
 
 Check `npx flowstride --version`, the engine banner, the Cloud host printed during authentication, and whether the run says CI or interactive mode. Confirm that you are running from the intended project and using the intended workspace.
 
+## A helper import fails or a value is missing
+
+- **Module not found.** With the default settings, `from "catalog.ts"` looks in `helpers/`. A leading `./` looks beside the importing flow. Include the `.js` or `.ts` extension and check the filename’s case, especially on CI.
+- **Export not found.** Import the exact named function you exported. Match the JS module format to the nearest `package.json`. Put the import under `Feature` and the call inside a step.
+- **A later step has no value.** Capture the helper’s JSON result with `as "total"` and read it as `@total` in the same file. For a different file that must wait for a successful producer, declare a handoff. [Helper examples](/guide/complex-tests) · [Fixtures and handoffs](/flow-language/getting-started/fixtures-and-handoffs)
+
 ## Browser executable is missing
 
 Run `npx flowstride install` after updating Flowstride for Chromium, or `npx flowstride install firefox webkit` for those engines. On Linux add `--with-deps`. Matching the browser to the installed package matters more than installing a separate global Playwright version.
@@ -46,7 +52,7 @@ A 401 means authentication was rejected; it does not establish expiry unless the
 
 A successful browser/API test can still have failed reporting. Check `.flowstride/cloud-sync.json` and the summary's Cloud status. Local evidence remains available.
 
-## Cloud unexpectedly falls back to the open-source engine
+## Cloud unexpectedly falls back to FS {#cloud-unexpectedly-falls-back-to-os}
 
 Check the token and workspace access, then run `npx flowstride login` after installing project dependencies. Read the engine banner on the next run. See [engine selection and fallback](/guide/editions#engine-selection-and-fallback).
 

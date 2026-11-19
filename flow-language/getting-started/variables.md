@@ -1,6 +1,6 @@
 # Variables and scope
 
-Flowstride has environment interpolation, generated values, extracted state and command aliases. They solve different problems; `let` is not a general JavaScript-style variable declaration.
+Flowstride (FS) tests use the `.flow` extension. FS supports environment interpolation, generated values, extracted state, helper return values and command aliases.
 
 ## Environment values
 
@@ -41,6 +41,10 @@ flow.get "/api/customers/@global[customerId]";
 Globals are not a cross-process bus for parallel workers. Prefer independent setup for parallel files. Unknown custom local names can remain literal strings, so a downstream assertion should verify the value you expected to extract.
 
 Use [property and network extraction](/flow-language/flow-commands/flow.extract) for typed browser or captured network data. [Fixture loading](/reference/data-and-run-control#load-a-fixture) and [data rows](/reference/data-and-run-control#run-a-scenario-once-per-row) let you reference fields such as `@customer.name` or `@case.city`.
+
+## Capture a helper result
+
+Use `flow.call generateEmail() as "signupEmail"` to save a JS or TS helper's result, then read it as `@signupEmail`. A local result remains available to later scenarios in the same file. Use `as global "signupEmail"` and `@global[signupEmail]` when another flow in the same worker process needs the value. Use a handoff for dependencies across files and workers. [Helpers and scope](/flow-language/getting-started/helpers#capture-and-reuse-values), [Fixtures and handoffs](/flow-language/getting-started/fixtures-and-handoffs)
 
 ## Aliases register actions
 

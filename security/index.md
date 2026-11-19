@@ -3,7 +3,7 @@ description: Understand Flowstride security boundaries, local data, Cloud access
 ---
 # Security and privacy
 
-Flowstride runs browser and API tests on your computer or your CI runner. Flowstride works locally without an account. Cloud adds authenticated workspace services, including features available to free accounts. Connecting Cloud does not move your tests to a hosted execution machine.
+Flowstride runs browser and API tests on your computer or your CI runner. FS works without an account. Cloud adds authenticated workspace services, including features available to free accounts. Connecting Cloud does not move your tests to a hosted execution machine.
 
 Security depends on what you test, what you capture, who can access your machine and workspace, and how you share the results. This section explains the controls and the decisions you still need to make.
 
@@ -28,11 +28,11 @@ Security depends on what you test, what you capture, who can access your machine
 | Local state | Restricted filesystem permissions, guarded paths and atomic private-state replacement | Trusted machine/users, disk protection and backup controls |
 | Local dashboard | Loopback binding and local request checks | Keep it local; avoid public proxies, tunnels and shared browser sessions |
 | Cloud access | Authentication, workspace authorization and separate browser/machine credentials | Select the right workspace, limit membership and revoke exposed keys |
-| Installation | Authenticated Cloud engine delivery, archive checks and failure rollback | Use the intended service and review project dependencies |
+| Installation | Authenticated Flowstride Pro engine delivery, archive checks and failure rollback | Use the intended service and review project dependencies |
 | Logs and manual resend | Known-secret masking and masked Replay/cURL templates | Review arbitrary text and enter only the credentials needed for that resend |
 | Capture and sharing | Configurable evidence capture and controlled new Cloud media access | Review images/archives, historical links and your artifact platform's permissions |
 
-These controls do not make untrusted `.flow` files, plugins or project dependencies safe to execute. Run reviewed code on a machine or CI runner appropriate for that project.
+These controls do not make untrusted `.flow` files, JS/TS helpers, plugins or project dependencies safe to execute. Run reviewed code on a machine or CI runner appropriate for that project.
 
 ## Start with a safe setup
 

@@ -2,11 +2,11 @@
 
 ## Discovery and order
 
-`flowstride run` reads `testDir` (default `flows`). Supply a file or directory to narrow the target. Discovery includes nested folders. Files ending in `.first.flow` are setup files and run before ordinary files.
+`flowstride run` reads `testDir` (default `flows`). Supply a file or directory to narrow the target. Discovery includes nested folders. Files ending in `.first.flow` are prioritized for setup. An explicit handoff determines when a dependent file becomes eligible to run.
 
 Reports preserve paths relative to the flow root: `admin/login.flow` and `customer/login.flow` remain separate tests and have distinct evidence names.
 
-A sequential run uses one worker. Cloud can distribute files across workers, subject to workspace and machine limits. Do not use in-memory globals as communication between workers. Use independently seeded data or an explicit persisted artifact whose lifecycle you control.
+A sequential run uses one worker. Cloud can distribute files across workers, subject to workspace and machine limits. Use a [named handoff](/flow-language/getting-started/fixtures-and-handoffs) when a later file needs data from a successful earlier file. FS releases the consumer after the producer passes and marks it blocked if the producer exhausts its retries. Process-global values belong to one worker.
 
 Local extracted values, generated-value memory and unsaved local sessions reset between files, not between every scenario. Named browser profiles are also file-local. Use independent data and distinct names when scenarios or users share a file. [Variables](/flow-language/getting-started/variables) and [profiles](/guide/native-browser-workflows#separate-users-in-one-test) explain these boundaries.
 

@@ -1,10 +1,10 @@
 # Native browser workflows
 
-Both engines support these commands directly in `.flow` files. Use the [complete structured command index](/reference/structured-commands) to find exact fields and examples. For a condition-by-condition guide, see [structured assertions](/reference/assertions).
+Flowstride and Flowstride Pro support these commands directly in `.flow` files. Use the [complete structured command index](/reference/structured-commands) to find exact fields and examples. For a condition-by-condition guide, see [structured assertions](/reference/assertions).
 
-Keep both engine installations current when using these features. If an older Cloud installation cannot execute a requested native workflow, the launcher explains the selection and uses the open-source engine for the run. Existing commands can still use an older compatible Cloud engine; Cloud-only services require a compatible Cloud installation.
+Keep both engine installations current when using these features. If an older Cloud installation cannot execute a requested native workflow, the launcher explains the selection and uses FS fallback for the run. Existing commands can still use an older compatible Flowstride Pro engine; Cloud-only services require a compatible Cloud installation.
 
-For focused examples of existing browser actions, see [table and cell testing](/guide/table-testing) and [audio-to-text testing](/guide/audio-to-text). Both use the same syntax in both engines; audio injection requires Chromium.
+For focused examples of existing browser actions, see [table and cell testing](/guide/table-testing) and [audio-to-text testing](/guide/audio-to-text). Both use the same syntax in Flowstride and Flowstride Pro; audio injection requires Chromium.
 
 ## Separate users in one test
 

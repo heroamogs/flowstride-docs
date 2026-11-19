@@ -1,6 +1,6 @@
 # flow.close
 
-Dismiss a visible modal identified by its text. Available in both engines.
+Dismiss a visible modal identified by its text. Available in Flowstride and Flowstride Pro.
 
 ```flow
 flow.close "Voice Recordings";

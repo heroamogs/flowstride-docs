@@ -117,6 +117,18 @@ export const sidebar = {
           "link": "/flow-language/getting-started/variables"
         },
         {
+          "text": "Complex tests with JS and TS",
+          "link": "/guide/complex-tests"
+        },
+        {
+          "text": "JS and TS helpers",
+          "link": "/flow-language/getting-started/helpers"
+        },
+        {
+          "text": "Fixtures & handoffs",
+          "link": "/flow-language/getting-started/fixtures-and-handoffs"
+        },
+        {
           "text": "Dynamic data",
           "link": "/flow-language/dynamic-variables/dynamic-variables"
         },
@@ -529,7 +541,7 @@ export const sidebar = {
           "link": "/guide/native-ci-games"
         },
         {
-          "text": "Flowstride and Cloud",
+          "text": "Flowstride & Flowstride Pro",
           "link": "/guide/editions"
         },
         {
@@ -727,7 +739,7 @@ export const sidebar = {
           "link": "/cloud/authentication"
         },
         {
-          "text": "Engine selection",
+          "text": "Flowstride & Flowstride Pro selection",
           "link": "/guide/editions"
         },
         {
@@ -817,7 +829,7 @@ export const sidebar = {
           "link": "/guide/native-ci-games"
         },
         {
-          "text": "Flowstride and Cloud",
+          "text": "Flowstride & Flowstride Pro",
           "link": "/guide/editions"
         },
         {
@@ -861,6 +873,10 @@ export const sidebar = {
         {
           "text": "API contracts",
           "link": "/guide/api-testing"
+        },
+        {
+          "text": "Complex tests with JS and TS",
+          "link": "/guide/complex-tests"
         },
         {
           "text": "Included working examples",
@@ -943,6 +959,18 @@ export const sidebar = {
         {
           "text": "Variables & scope",
           "link": "/flow-language/getting-started/variables"
+        },
+        {
+          "text": "Complex tests with JS and TS",
+          "link": "/guide/complex-tests"
+        },
+        {
+          "text": "JS and TS helpers",
+          "link": "/flow-language/getting-started/helpers"
+        },
+        {
+          "text": "Fixtures & handoffs",
+          "link": "/flow-language/getting-started/fixtures-and-handoffs"
         },
         {
           "text": "Dynamic data",
@@ -1191,7 +1219,7 @@ export const sidebar = {
           "link": "/guide/native-ci-games"
         },
         {
-          "text": "Flowstride and Cloud",
+          "text": "Flowstride & Flowstride Pro",
           "link": "/guide/editions"
         },
         {
@@ -1297,6 +1325,10 @@ export const sidebar = {
         {
           "text": "Your first flow",
           "link": "/guide/your-first-script"
+        },
+        {
+          "text": "Complex tests with JS and TS",
+          "link": "/guide/complex-tests"
         },
         {
           "text": "Included working examples",
@@ -1405,7 +1437,7 @@ export const sidebar = {
           "link": "/guide/the-cli"
         },
         {
-          "text": "Flowstride and Cloud",
+          "text": "Flowstride & Flowstride Pro",
           "link": "/guide/editions"
         },
         {
@@ -1429,6 +1461,10 @@ export const sidebar = {
         {
           "text": "Reports & artifacts",
           "link": "/reporting/artifacts"
+        },
+        {
+          "text": "Playwright Test reporting",
+          "link": "/reporting/playwright"
         },
         {
           "text": "Manual testing",

@@ -3,7 +3,7 @@ description: Protect Flowstride credentials, saved browser sessions and local ev
 ---
 # Local data and installation
 
-Both engines execute with the permissions of the account running Flowstride. Protect that account and review the project before executing its tests, plugins, package scripts or dependencies.
+Flowstride and Flowstride Pro both execute with the permissions of the account running Flowstride. Protect that account and review the project before executing its tests, JS/TS helpers, plugins, package scripts or dependencies.
 
 ## Credentials and saved state
 
@@ -54,6 +54,6 @@ Remote connections made by Flowstride's Cloud clients require HTTPS. Loopback HT
 
 Credential-bearing Cloud clients reject redirects. Configure the final HTTPS service URL instead of a redirecting address. Existing Cloud host overrides remain supported; changing the host changes where you send credentials, so use only a service you trust.
 
-Cloud engine installation uses the authenticated private channel. The installer verifies the archive checksum before installation, checks package identity and archive paths, enforces size limits and disables package lifecycle scripts for that installation. Missing or mismatched checks stop the update, preserving the existing engine and launcher/fallback path.
+Flowstride Pro engine installation uses the authenticated private channel. The installer verifies the archive checksum before installation, checks package identity and archive paths, enforces size limits and disables package lifecycle scripts for that installation. Missing or mismatched checks stop the update, preserving the existing engine and launcher/fallback path.
 
-The checksum checks consistency with the authenticated service's response. It is not independent publisher signing or protection against a compromised publisher/service. [Engine selection](/guide/editions#engine-selection-and-fallback) explains normal installation and fallback.
+The checksum checks consistency with the authenticated service's response. It is not independent publisher signing or protection against a compromised publisher/service. [Flowstride and Flowstride Pro selection](/guide/editions#engine-selection-and-fallback) explains normal installation and fallback.

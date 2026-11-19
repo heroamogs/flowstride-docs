@@ -2,7 +2,7 @@
 
 ## A flow file describes behavior
 
-A `.flow` file has exactly one `Feature` declaration at the top, followed by one or more `Scenario` blocks. Each scenario groups commands under `Given`, `When`, optional intermediate `And` blocks, and a final `Then`.
+Flowstride (FS) uses the `.flow` extension. A `.flow` file has exactly one `Feature` declaration at the top, followed by one or more `Scenario` blocks. Each scenario groups commands under `Given`, `When`, optional intermediate `And` blocks, and a final `Then`.
 
 ```flow
 Feature: Account access
@@ -36,9 +36,13 @@ Then "The account is available"
 | Several final checks | Put their commands together inside the single `Then` |
 | Another journey | Begin a new `Scenario` after the final block |
 
+## Where JavaScript and TypeScript fit
+
+Import named functions under `Feature` and call them inside a step. A helper can apply a business rule to an array, throw an error that identifies a bad record, or receive the active Playwright page. The `.flow` file owns the sequence and its expected outcome. Use a fixture when FS should release a resource on retry or failure. Use the SDK when an extension needs runner services such as attaching a file. [Work through a real catalog test](/guide/complex-tests)
+
 ## The project is the execution boundary
 
-Run commands from your project folder. Configuration, fixtures, plugins, flow targets, and output paths must stay inside it, including symlink targets. Keep reusable assets in `fixtures/` rather than reaching outside the project.
+Run commands from your project folder. Configuration, helpers, fixtures, plugins, flow targets, and output paths must stay inside it, including symlink targets. Keep reusable assets in `fixtures/` rather than reaching outside the project.
 
 ## Variables have different jobs
 
@@ -51,7 +55,7 @@ Run commands from your project folder. Configuration, fixtures, plugins, flow ta
 | `@global[userId]` | Reuse an explicitly global extracted value in the same process |
 | `let game = "flowstride:game"` | Register a command alias, not a general variable assignment |
 
-See [variables](/flow-language/getting-started/variables) and [sessions](/flow-language/getting-started/sessions). Process memory is not a shared store between parallel Cloud workers.
+See [variables](/flow-language/getting-started/variables) and [sessions](/flow-language/getting-started/sessions). Process memory is not a shared store between parallel Flowstride Pro workers.
 
 ## API and UI share the journey
 

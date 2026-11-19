@@ -1,6 +1,6 @@
 # Configuration and environments
 
-Flowstride supports a project `.env` file and an optional `flowstride.config.json` file. Both engines load `.env` when you run a flow.
+Flowstride (FS) supports a project `.env` file and an optional `flowstride.config.json` file. Both Flowstride and Flowstride Pro load `.env` when you run a flow.
 
 ## Set the base URL in .env
 
@@ -36,7 +36,7 @@ Create `flowstride.config.json` in the project root when you want to customize e
 
 | Field | Default | Meaning |
 | --- | --- | --- |
-| `testDir` | `flows` | Folder discovered when no target is supplied |
+| `testDir` | `flows` | Folder used by plain `run`. Fresh practice projects set it to `flows/examples/starter` |
 | `baseUrl` | No configured value | Base for relative browser/API URLs; use an explicit HTTP(S) URL |
 | `timeout` | `30000` | Positive integer timeout in milliseconds |
 | `headless` | `true` | Browser visibility; CI forces `true` |
@@ -45,6 +45,7 @@ Create `flowstride.config.json` in the project root when you want to customize e
 | `browserOptions` | Empty object | Validated context settings for the default profile |
 | `viewport` | Profile viewport | Object with positive integer `width` and `height` |
 | `pluginsDir` | `plugins` at runtime | Folder containing project TypeScript plugins |
+| `helpersDir` | `helpers` | Base directory for named JS and TS imports without a relative path prefix |
 | `artifactsDir` | `flowstride-artifacts` | Project-local native CI output directory |
 | `recordVideo` | `true` | Record browser video |
 | `browserErrors` | `fail` | `fail` fails on uncaught page errors; `record` records them |
@@ -61,6 +62,8 @@ Create `flowstride.config.json` in the project root when you want to customize e
 | `scenarioTags` | All eligible scenarios | Select scenarios matching any tag in a string array. [Tag syntax and CLI overrides](/reference/data-and-run-control#select-scenarios-by-tag) |
 | `shard` | Unset | CI file assignment such as `1/3`; CLI `--shard` takes precedence |
 | `shardHistory` | Unset | Project-local timing map from a complete merge |
+
+The practice configuration sets `practiceApp` to `true`. Flowstride supplies the local app URL to its bundled examples. Other targets use the configured application URL.
 
 Paths, including symlink targets, must stay inside the project. The artifact directory cannot be the project root. Do not put tokens or application passwords in this file.
 

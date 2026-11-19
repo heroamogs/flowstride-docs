@@ -1,6 +1,6 @@
 # Why Flowstride?
 
-A useful test tells the next person what the user tried to do, what happened, and how to reproduce a failure. Flowstride keeps those three concerns close together.
+In Flowstride (FS), a useful test tells the next person what the user tried to do, what happened, and how to reproduce a failure. Flowstride keeps those three concerns close together.
 
 ## Describe intent in the flow
 
@@ -18,6 +18,10 @@ Readable targets make reviews easier. Element qualifiers, CSS selectors, and spa
 
 Create data with an API, extract a returned identifier, then use the UI to exercise the customer journey. Both parts share extracted/generated values in the flow file, so you can verify the same entity through each interface. [API and UI in one flow](/guide/api-and-ui) shows the complete journey.
 
+## When the assertion needs code
+
+Suppose a catalog has 50 cars and three discount rules. Put the calculation in a JavaScript function. Pass the active browser page to a TypeScript helper that matches each displayed price by SKU. The scenario still tells a reviewer which catalog was fetched, which prices were compared and how many matched. Both helpers are ordinary named exports. [Run the full example](/guide/complex-tests)
+
 ## Use one suite locally and in CI
 
 Interactive runs provide step history, network records, Replay, and local debugging. Native CI runs the `.flow` suite without a custom runner file and produces machine-readable reports. A small generated GitHub workflow handles installation and evidence retention.
@@ -28,4 +32,4 @@ Map a user journey, write observable expected results, execute it manually, and 
 
 ## Know the boundary
 
-Flowstride uses Playwright for browser control, but does not expose every Playwright feature as a native DSL command. It supports Chromium, Firefox and WebKit, with native profiles, retrying assertions, network control, downloads, evidence, accessibility, component tests and browser-game APIs. Browser/device qualification still has [explicit limits](/guide/browser-compatibility). See [capabilities and limits](/reference/capabilities) for the distinction between native features and plugin extensions.
+Flowstride uses Playwright for browser control, but does not expose every Playwright feature as a native DSL command. It supports Chromium, Firefox and WebKit, with native profiles, retrying assertions, network control, downloads, evidence, accessibility, component tests and browser-game APIs. Browser/device qualification still has [explicit limits](/guide/browser-compatibility). See [capabilities and limits](/reference/capabilities) for the distinction between native commands, JS/TS helpers and SDK plugins.

@@ -1,6 +1,6 @@
 # Tabs, windows and iframes
 
-Flowstride supports browser tab switching and readable actions inside child frames in both engines. Tabs are separate pages within one browser profile. An iframe is a document embedded inside a page.
+Flowstride supports browser tab switching and readable actions inside child frames in Flowstride and Flowstride Pro. Tabs are separate pages within one browser profile. An iframe is a document embedded inside a page.
 
 ## Open a tab and return
 
@@ -60,7 +60,7 @@ Feature: Embedded profile
 
 ## An exact action in a particular frame
 
-For repeated controls across frames or a CSS-only target, use a small plugin rather than assuming raw selectors search all child documents:
+For repeated controls across frames, pass the active page to a JS/TS helper and use `page.frameLocator(...)` to scope the action. If your project already groups these actions in an SDK plugin, the same locator is available through `sdk.browser.page()`. The packaged plugin example uses this form. [Calling a page helper](/flow-language/getting-started/helpers)
 
 ```ts
 export async function click(sdk: any, args: { frame: string; selector: string }) {
