@@ -1,6 +1,6 @@
 # Extend a flow with plugins
 
-A TypeScript plugin adds a focused application action while Flowstride keeps browser lifecycle, scenario status, cleanup and evidence ownership. Both engines support the common SDK below. Normal npm installation supplies the compatible TypeScript compiler used by the loader.
+A Flowstride (FS) SDK plugin is useful when an action needs runner services such as `sdk.run.attach` or `sdk.state`. Ordinary JavaScript and TypeScript functions are also first-class in FS 2.0. Import a named helper and call it with `flow.call` for loops, calculations or a Playwright page action. [Compare 50 prices with JS and TS](/guide/complex-tests) Flowstride and Flowstride Pro support the common SDK below. Normal npm installation supplies the compatible TypeScript compiler used by the loader.
 
 ## Register and invoke an export
 
@@ -67,8 +67,8 @@ Use a simple filename such as `account-state.json`; path traversal names are rej
 
 ## Cloud extras and boundaries
 
-A directly used Cloud plugin manager can additionally expose helpers such as `env.require` and truth assertions. The public CLI can supply its common PluginManager while executing a compatible Cloud worker, so portable plugins should use the common table above and explicitly validate required environment values.
+A directly used Flowstride Pro plugin manager can additionally expose helpers such as `env.require` and truth assertions. The FS launcher can supply its common PluginManager while executing a compatible Flowstride Pro worker, so portable plugins should use the common table above and explicitly validate required environment values.
 
 The `db.connect` and `otp.generate` scaffold surfaces are not a production database driver or a real TOTP implementation. Use a real client in your own narrow plugin when needed. `utils.generateId` is not a security credential or a guaranteed globally unique identifier.
 
-For [exact iframe actions](/guide/tabs-and-iframes), use `sdk.browser.page().frameLocator(...)`. Avoid importing private workers or building a custom `.cjs` runner for a single extension. Native [network, download, clock, accessibility and component commands](/reference/native-browser-commands) already cover many common extensions.
+For [exact iframe actions](/guide/tabs-and-iframes), use `page.frameLocator(...)` in a helper or `sdk.browser.page().frameLocator(...)` in a plugin. Avoid importing private workers or building a custom `.cjs` runner for a single extension. Native [network, download, clock, accessibility and component commands](/reference/native-browser-commands) already cover many common extensions.

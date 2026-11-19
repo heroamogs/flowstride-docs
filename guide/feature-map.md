@@ -1,13 +1,15 @@
 # What you can build with Flowstride
 
-Flowstride brings browser actions, APIs, reusable data, assertions and evidence into readable `.flow` scenarios. Use the same suite interactively and in CI. Use the separate Manual Workspace for cases that need a person's observation and judgment.
+Flowstride (FS) 2.0 brings browser actions, APIs, reusable data, assertions and evidence into readable `.flow` scenarios. Use the same suite interactively and in CI. Use the separate Manual Workspace for cases that need a person's observation and judgment.
 
-Flowstride runs locally without an account. A free Cloud account connects workspace services; access and usage depend on your workspace plan. Cloud is an account-connected engine and service layer, not a requirement to host the application or surrender control of your CI runner.
+FS runs locally without an account. A free Cloud account connects workspace services; access and usage depend on your workspace plan. Cloud is an account-connected engine and service layer, not a requirement to host the application or surrender control of your CI runner.
 
 ## Choose the outcome you need
 
-| What you want to verify | Native Flowstride workflow | Learn it |
+| What you want to verify | Flowstride workflow | Learn it |
 | --- | --- | --- |
+| Every price in a dynamic catalog | Calculate discounts in JS and match all 50 browser cards by SKU in TS | [Complex tests with helpers](/guide/complex-tests) |
+| A sign-in that depends on another test | Clean up failed attempts and hand off the account after its role is saved | [Fixtures and handoffs](/flow-language/getting-started/fixtures-and-handoffs) |
 | A complete customer journey | Browser actions, HTTP/GraphQL preparation, extraction and shared data in one scenario | [API + UI](/guide/api-and-ui) |
 | Signup and email verification | Generate an address, retrieve a delivered FlowMail OTP, enter it and assert successful login | [Email OTP](/guide/email-otp) |
 | A control with repeated text | Element qualifiers, spatial anchors, indexes and explicit selectors | [Targeting](/guide/targeting) |
@@ -43,4 +45,4 @@ The guides distinguish a runnable example from an application contract you must 
 
 ## Extend a focused action
 
-A [TypeScript plugin](/flow-language/getting-started/plugins) can use the current browser page, HTTP helpers, state and attachments. Keep suite orchestration, CI status, browser cleanup and evidence ownership in Flowstride. [Capabilities and boundaries](/reference/capabilities) records the supported limits.
+Import a [named JS or TS helper](/flow-language/getting-started/helpers) for loops, branching, calculations or work with the active Playwright page. A [TypeScript plugin](/flow-language/getting-started/plugins) can use the current browser page, HTTP helpers, state and attachments. Keep suite orchestration, CI status, browser cleanup and evidence ownership in Flowstride. [Capabilities and boundaries](/reference/capabilities) records the supported limits.

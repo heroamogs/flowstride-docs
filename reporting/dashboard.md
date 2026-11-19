@@ -1,12 +1,16 @@
 # The interactive dashboard
 
-Run `flowstride run` without CI mode and follow the localhost URL printed in the terminal. The dashboard is a local debugging workspace for the active run.
+In a local terminal, run `npx flowstride run` to open the live dashboard. The terminal also prints its localhost URL.
 
 ## Per-test screens and history
 
 The test tabs identify discovered `.flow` files. A completed test opens at its own last captured step. Selecting an earlier step preserves a separate history cursor for that file. Selecting a sidebar step also selects its owning file.
 
 **Return to Live** applies to the selected file. A rerun clears previous cursors and screens. A step with no screenshot shows an empty state rather than borrowing another file's view. Console/network panels follow the selected file; the full Logs view retains suite-wide records.
+
+## Test dependencies
+
+Both the admin and its dependent user test appear during a handoff. The user row shows **Waiting for admin-creates-user.flow** in the practice example and starts after the admin file passes. If the admin uses all its retries, the user row shows **Blocked** with the prerequisite name. [Practice handoff](/flow-language/getting-started/fixtures-and-handoffs#follow-an-admin-to-user-handoff)
 
 ## Profiles and retry attempts
 
@@ -29,6 +33,10 @@ Replace required `[REDACTED]` placeholders with test credentials before **Send**
 The displayed command and **Copy** both use a masked request template. Copy does not reveal the original credentials. The command omits invalid HTTP/2 pseudo-headers and transport-only metadata, and shell-quotes the remaining values.
 
 If you add real credentials to a copied command outside Flowstride, treat that edited command as sensitive. Historical redaction cannot be reversed. [Evidence and Replay privacy](/security/evidence-and-replay) explains manual resends, exported diagnostics and capture limits. Screenshots, videos, traces and HAR files can still contain application secrets.
+
+## Saved runs
+
+Use `npx flowstride report` to reopen completed native CI and Playwright Test runs. [Playwright reporting](/reporting/playwright)
 
 ## Reports and TestCase
 

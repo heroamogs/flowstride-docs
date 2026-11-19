@@ -21,7 +21,7 @@ The [structured assertions reference](/reference/assertions) lists every object-
 | A page or element screenshot | `flow.visual.match` |
 | Game rules or rendering | `game.expectState`, `game.expectPreserved`, `game.expectVisual` |
 
-Both main assertion styles work in both engines. Use an intermediate `And` for checks before the final `Then`. Put all final checks inside the same `Then`; no `And` or other execution block can follow it. Final actions may also belong to `Then`. [Core concepts](/guide/core-concepts) defines the scenario rules.
+Both main assertion styles work in Flowstride and Flowstride Pro. Use an intermediate `And` for checks before the final `Then`. Put all final checks inside the same `Then`; no `And` or other execution block can follow it. Final actions may also belong to `Then`. [Core concepts](/guide/core-concepts) defines the scenario rules.
 
 ## Check each intended outcome
 
@@ -95,6 +95,7 @@ All command failures carry relevant command/target or resource details, file/lin
 | Variable/environment failure | The named missing value, generation/extraction order and scope |
 | Session failure | Saved name, origin, expiry and whether backend data still exists |
 | Upload/download failure | Fixture path, chooser/armed event, file limits and resulting application state |
+| JS/TS helper failure | Named export, argument values and error location in the helper. Include the record ID and expected/actual value in the thrown message. [Catalog example](/guide/complex-tests) |
 | Plugin failure | Alias/export, arguments, thrown cause and public SDK method |
 | Game failure | Canvas bounds, occlusion, exposed state and fixture registration |
 | Audio/OTP failure | Fixture/service prerequisites, application state and delivery/processing timing |

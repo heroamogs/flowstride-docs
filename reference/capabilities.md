@@ -1,13 +1,15 @@
 # Capabilities and limits
 
-Flowstride provides native browser, API, manual-testing and CI workflows. Local execution works without an account. Cloud includes free accounts and adds workspace services within your plan limits. Keep your installations current through [installation and updates](/guide/releases).
+Flowstride (FS) 2.0 provides native browser, API, manual-testing and CI workflows. FS runs without an account. Cloud includes free accounts and adds workspace services within your plan limits. Keep your installations current through [installation and updates](/guide/releases).
 
 | Area | Native behavior | Boundary |
 | --- | --- | --- |
+| JS/TS helpers | Named imports, async calls, active Playwright page and captured JSON results | A call is one reported step. Use explicit FS actions when the steps should appear individually. [50-car example](/guide/complex-tests) |
+| Fixtures and dependencies | Attempt or worker fixtures, deferred cleanup and producer-to-consumer handoffs | Globals are per worker. A failed producer blocks its consumers. [Handoffs](/flow-language/getting-started/fixtures-and-handoffs) |
 | Browser engines | Chromium, Firefox and WebKit; explicit installation and selection | WebKit is an engine, not the installed Safari application; see [browser compatibility](/guide/browser-compatibility) |
 | Browser actions | Readable and spatial targets, configurable typing, keyboard and pointer actions, scrolling, history, named tabs, frame scopes and dialogs | Use distinguishable controls. [Interaction reference](/reference/interaction-commands) |
 | Tables and cells | Search through application controls, indexed table/row/cell targeting, row-scoped actions, cell extraction and assertions | Use record identifiers when rows move; virtualized or paginated records must first be rendered. [Examples](/guide/table-testing) |
-| Audio-to-text testing | Audio-file microphone input, duration-based waiting and rendered transcript assertions in both engines | Injection requires Chromium; your application performs transcription. [Examples and limits](/guide/audio-to-text) |
+| Audio-to-text testing | Audio-file microphone input, duration-based waiting and rendered transcript assertions in Flowstride and Flowstride Pro | Injection requires Chromium; your application performs transcription. [Examples and limits](/guide/audio-to-text) |
 | API and UI together | HTTP/GraphQL setup, extraction and browser actions in the same scenario | Browser and direct API clients do not automatically share every credential |
 | Structured API | Multipart, form, JSON, text and binary requests, named clients, schema checks and polling | Named clients stay on their configured origin. [API reference](/reference/structured-api) |
 | Retrying assertions | Element state, text/value, attributes, CSS/properties, accessible names, URL/title and storage | Polls the condition; does not repeat the preceding action or API call |
@@ -34,7 +36,7 @@ Flowstride has native commands for trace/HAR workflows, route mocking, network e
 
 Start with [native browser workflows](/guide/native-browser-workflows), then use the [structured command index](/reference/structured-commands) for arguments and examples. [Waiting and retries](/guide/waiting-and-retries) explains browser action waiting, polling and scenario retries.
 
-A plugin can still access `sdk.browser.page()` for a focused application extension. A Playwright `Page` does not supply the Playwright Test runner's fixture/project system or make every Playwright option a native Flowstride command. Use supported commands and the [plugin SDK](/flow-language/getting-started/plugins); keep runner ownership in Flowstride.
+For a custom Playwright action, pass the active `page` to an imported JS/TS helper. For an extension using SDK services, a plugin can get the same page through `sdk.browser.page()`. A Playwright `Page` does not supply the Playwright Test runner's fixture/project system or make every Playwright option a native Flowstride command. Use [project helpers](/flow-language/getting-started/helpers) for ordinary code and the [plugin SDK](/flow-language/getting-started/plugins) for services such as runner attachments.
 
 ## Test data and determinism
 

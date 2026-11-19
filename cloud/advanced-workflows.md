@@ -4,7 +4,7 @@ Cloud adds account-connected services to the same local and CI execution workflo
 
 ## Existing selector recovery
 
-The Cloud worker contains selector healing for supported UI actions that fail to locate or use a target. With workspace access and a configured `GEMINI_API_KEY`, it can send the failed selector, error and stripped page DOM to the configured external model service, receive a replacement selector and retry the action.
+The Flowstride Pro worker contains selector healing for supported UI actions that fail to locate or use a target. With workspace access and a configured `GEMINI_API_KEY`, it can send the failed selector, error and stripped page DOM to the configured external model service, receive a replacement selector and retry the action.
 
 This path is considered after a qualifying UI failure; it does not make a weak business assertion stronger. Verify the resulting application state with a required assertion and review a healed target before treating the test as stable.
 
@@ -27,11 +27,11 @@ flow.autoheal "401" via flow.post "/api/auth/refresh" with reqBody
 
 Use it under setup/actions in a complete scenario, before the protected API request. Supported trigger statuses are `401` and `403`; supported refresh verbs are GET, POST, PUT, PATCH and DELETE. A failing refresh response fails explicitly. The adapter guards against recursive refresh and retries the original protected request once after successful refresh handling.
 
-Your application's refresh endpoint and credential/header update contract must be valid for the next request. This command does not automatically invent bearer-token extraction or exchange a Flowstride developer token for an application token. This command requires the Cloud engine. Both engines support the base API commands.
+Your application's refresh endpoint and credential/header update contract must be valid for the next request. This command does not automatically invent bearer-token extraction or exchange a Flowstride developer token for an application token. FS rejects this Cloud-only command at execution; the remaining base API commands work in FS.
 
 ## Clear local runner data
 
-The installed Cloud CLI provides:
+The installed Flowstride Pro CLI provides:
 
 ```sh
 npx flowstride reset --values
@@ -41,4 +41,4 @@ npx flowstride run flows --fresh
 
 `--values` removes the local `.flowstride/vault.json` file. `--sessions` removes the local saved-session directory. `run --fresh` clears both before the run. Back up useful test state first and prepare the required data again afterward.
 
-These commands require the Cloud engine. They clear local runner data, not backend users, application databases or saved Cloud developer credentials. [Saved sessions](/flow-language/getting-started/sessions), [token rotation](/cloud/authentication) and [Cloud evidence](/guide/cloud-evidence) describe the separate lifecycles.
+These are Flowstride Pro CLI options, not equivalent universal FS switches. They clear local runner data, not backend users, application databases or saved Cloud developer credentials. [Saved sessions](/flow-language/getting-started/sessions), [token rotation](/cloud/authentication) and [Cloud evidence](/guide/cloud-evidence) describe the separate lifecycles.

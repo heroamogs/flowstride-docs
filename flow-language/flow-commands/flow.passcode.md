@@ -1,6 +1,6 @@
 # flow.passcode
 
-Enter an already obtained passcode into a single field or a supported segmented OTP control. Available in both engines.
+Enter an already obtained passcode into a single field or a supported segmented OTP control. Available in Flowstride and Flowstride Pro.
 
 ```flow
 flow.passcode input "Verification code" "@myOtp";

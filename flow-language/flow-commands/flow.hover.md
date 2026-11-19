@@ -1,6 +1,6 @@
 # flow.hover
 
-Move the pointer over a target and trigger hover behavior without clicking. Available in both engines.
+Move the pointer over a target and trigger hover behavior without clicking. Available in Flowstride and Flowstride Pro.
 
 ```flow
 flow.hover "Products";

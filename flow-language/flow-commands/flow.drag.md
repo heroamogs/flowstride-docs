@@ -1,6 +1,6 @@
 # flow.drag
 
-Drag a DOM target into a destination. Available in both engines.
+Drag a DOM target into a destination. Available in Flowstride and Flowstride Pro.
 
 ```flow
 flow.drag "#task-102" into "#done-column";

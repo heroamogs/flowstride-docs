@@ -29,7 +29,7 @@ jobs:
           npm audit --json > dependency-audit.json || test -s dependency-audit.json
           node scripts/check-dependency-audit.mjs dependency-audit.json
       - name: Install released public parser for example validation
-        run: npm i --ignore-scripts --prefix "$RUNNER_TEMP/flowstride-doc-validation" flowstride@1.0.23
+        run: npm i --ignore-scripts --prefix "$RUNNER_TEMP/flowstride-doc-validation" flowstride@2.0.0
       - name: Validate documentation and build
         env:
           FLOWSTRIDE_OS_ROOT: ${{ runner.temp }}/flowstride-doc-validation/node_modules/flowstride

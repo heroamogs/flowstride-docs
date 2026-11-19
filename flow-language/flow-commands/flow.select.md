@@ -1,6 +1,6 @@
 # flow.select
 
-Choose an option by its displayed label from a native select or a supported custom dropdown. Available in both engines.
+Choose an option by its displayed label from a native select or a supported custom dropdown. Available in Flowstride and Flowstride Pro.
 
 ```flow
 flow.select "Lagos" from "From";

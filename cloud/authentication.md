@@ -1,6 +1,6 @@
 # Connect a Cloud workspace
 
-Flowstride tests can run locally without an account. Cloud includes free accounts with access to workspace features within their plan limits. Use a Cloud developer token to connect the CLI, install the Cloud engine, and access eligible workspace services.
+FS tests can run locally without an account. Cloud includes free accounts with access to workspace features within their plan limits. Use a Cloud developer token to connect the CLI, install the Flowstride Pro engine, and access eligible workspace services.
 
 ## Create and use a developer token
 
