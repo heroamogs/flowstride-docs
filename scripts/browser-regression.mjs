@@ -2,7 +2,9 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
 import { createServer } from 'node:http';
-import { spawn } from 'node:child_process';
+import { execFile, spawn } from 'node:child_process';
+import { tmpdir } from 'node:os';
+import { promisify } from 'node:util';
 import { createRequire } from 'node:module';
 import { once } from 'node:events';
 import { before, after, test } from 'node:test';
@@ -54,6 +56,32 @@ after(async () => {
   if (child && child.exitCode === null) { child.kill('SIGTERM'); await once(child, 'close'); }
   if (server) { server.closeAllConnections(); await new Promise(resolve => server.close(resolve)); }
 });
+
+if (docs) {
+  test('published sign-in and sign-up examples run with the released CLI', async () => {
+    assert(process.env.FLOWSTRIDE_OS_ROOT, 'Set FLOWSTRIDE_OS_ROOT to the installed public engine directory.');
+    const cli = path.resolve(process.env.FLOWSTRIDE_OS_ROOT, 'dist/cli/index.js');
+    const project = fs.mkdtempSync(path.join(tmpdir(), 'fs-docs-password-'));
+    const env = { ...process.env, CI: 'true', SIGNUP_FORM_URL: origin + '/examples/password-visibility/sign-up.html' };
+    const run = args => promisify(execFile)(process.execPath, [cli, ...args], { cwd: project, env, timeout: 90000 });
+    try {
+      await run(['init']);
+      for (const target of ['flows/examples/sign-in.flow', 'flows/sign-up.flow']) {
+        const file = path.basename(target);
+        const download = await fetch(origin + '/examples/password-visibility/' + file);
+        assert.equal(download.status, 200, file);
+        fs.writeFileSync(path.join(project, target), await download.text());
+        await run(['run', target, '--ci']);
+        const report = JSON.parse(fs.readFileSync(path.join(project, 'flowstride-artifacts/summary.json'), 'utf8'));
+        assert.equal(report.status, 'passed', file);
+        assert(report.metrics.passed > 0, file);
+        assert.equal(report.metrics.incomplete, 0, file);
+      }
+    } finally {
+      fs.rmSync(project, { recursive: true, force: true });
+    }
+  });
+}
 
 for (const [name, engine] of Object.entries({chromium, firefox, webkit})) {
   test(`${docs ? 'Documentation' : 'Website'} production regression in ${name}`, { timeout:90000 }, async () => {

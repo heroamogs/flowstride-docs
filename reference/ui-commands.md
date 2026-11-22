@@ -30,6 +30,8 @@ Choose visible labels first, then [element qualifiers](/flow-language/flow-eleme
 
 Forced interactions are escape hatches. They can bypass actionability checks and should not replace a normal user journey. Use the [native workflow guide](/guide/native-browser-workflows) for complete ordering examples and [capabilities](/reference/capabilities) for the remaining boundaries.
 
+For a password eye control, use [`flow.click passToggle`](/flow-language/flow-commands/flow.click#show-or-hide-a-password) and check the [password display state](/reference/assertions#password-visibility).
+
 ## Workflow guides
 
 [Targeting](/guide/targeting) · [Forms and dates](/guide/forms-and-dates) · [Tabs and iframes](/guide/tabs-and-iframes) · [Email OTP](/guide/email-otp) · [Assertions and diagnostics](/guide/assertions-and-diagnostics) · [Included runnable examples](/guide/working-examples)

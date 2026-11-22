@@ -8,6 +8,14 @@ Click a target using a readable label, optional element qualifier, stable select
 flow.click button "Save" near "Profile";
 ```
 
+## Show or hide a password
+
+```flow
+flow.click passToggle for "Password";
+```
+
+Use the field label, even when the eye button has no visible text. After a click, assert [`revealed` or `masked` on the password input](/reference/assertions#password-visibility). See [password toggle targeting](/guide/targeting#password-toggles) for multiple matches, indexing and frames.
+
 ## Tables and row actions
 
 ```flow

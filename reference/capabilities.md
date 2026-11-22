@@ -1,6 +1,6 @@
 # Capabilities and limits
 
-Flowstride (FS) 2.0 provides native browser, API, manual-testing and CI workflows. FS runs without an account. Cloud includes free accounts and adds workspace services within your plan limits. Keep your installations current through [installation and updates](/guide/releases).
+Flowstride (FS) provides native browser, API, manual-testing and CI workflows. FS runs without an account. Cloud includes free accounts and adds workspace services within your plan limits. Keep your installations current through [installation and updates](/guide/releases).
 
 | Area | Native behavior | Boundary |
 | --- | --- | --- |

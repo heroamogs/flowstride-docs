@@ -1,6 +1,6 @@
 # Report Playwright Test results in Flowstride
 
-Flowstride (FS) 2.0 includes a reporter for existing Playwright Test suites. Add `flowstride/playwright-reporter` to the reporter list in your JS or TS Playwright configuration.
+Flowstride (FS) includes a reporter for existing Playwright Test suites. Add `flowstride/playwright-reporter` to the reporter list in your JS or TS Playwright configuration.
 
 ```js
 reporter: [

@@ -25,7 +25,7 @@ Keep fixture preparation, teardown and business-specific assertions in your proj
 
 ## Avoid relying on implementation details
 
-Flowstride (FS) 2.0 accepts ordinary JS/TS named exports through `flow.call`. Request `page` as the first argument for custom browser work. SDK plugins additionally expose runner services such as attachments. Both approaches keep the runner in charge of browser lifecycle and reporting. Check [capability boundaries](/reference/capabilities) before assuming parity with Playwright Test.
+Flowstride (FS) accepts ordinary JS/TS named exports through `flow.call`. Request `page` as the first argument for custom browser work. SDK plugins additionally expose runner services such as attachments. Both approaches keep the runner in charge of browser lifecycle and reporting. Check [capability boundaries](/reference/capabilities) before assuming parity with Playwright Test.
 
 ## Workflow guides
 

@@ -1,6 +1,6 @@
 # Test a 50-car catalog with JavaScript and TypeScript
 
-A pricing API can return the wrong discount and the browser can faithfully display it. The browser can also show the price of the car in the next row while the API is correct. This Flowstride (FS) 2.0 test catches both errors. It reads the local practice catalog once, calculates the expected price for every SKU, and compares each visible price with its own expected value.
+A pricing API can return the wrong discount and the browser can faithfully display it. The browser can also show the price of the car in the next row while the API is correct. This Flowstride (FS) test catches both errors. It reads the local practice catalog once, calculates the expected price for every SKU, and compares each visible price with its own expected value.
 
 You will use two ordinary named functions. The JavaScript helper knows the pricing rules. The TypeScript helper knows how a car is displayed. The `.flow` file ties them together and reports which check failed. You can use both helpers without registering a plugin.
 
@@ -9,7 +9,7 @@ You will use two ordinary named functions. The JavaScript helper knows the prici
 In a fresh npm project with Node.js 22.12 or newer, run:
 
 ```sh
-npm install --save-dev flowstride@2.0.0
+npm install --save-dev flowstride
 npx flowstride init
 npx flowstride run flows/examples/advanced/check-catalog-prices.flow
 ```

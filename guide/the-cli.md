@@ -1,6 +1,6 @@
 # CLI reference
 
-Run these Flowstride (FS) 2.0 commands from your npm project using `npx flowstride`, for example `npx flowstride --version`. Install Flowstride first with `npm i flowstride`.
+Run these Flowstride (FS) commands from your npm project using `npx flowstride`, for example `npx flowstride --version`. Install Flowstride first with `npm i flowstride`.
 
 | Command | Purpose |
 | --- | --- |

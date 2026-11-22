@@ -1,10 +1,12 @@
 # Run the included workflow examples
 
-Learn Flowstride (FS) 2.0 against a small local application before adapting the commands to your own project. Install through npm; the examples come with the package.
+Learn Flowstride (FS) against a small local application before adapting the commands to your own project. Install through npm; the examples come with the package.
 
 ## Bundled practice app
 
 After `npx flowstride init` in a fresh project, run the starter with `npx flowstride run`. FS starts the bundled app on a free localhost port and opens the live dashboard. It runs the catalog and seeded sign-in flows under `flows/examples/starter`. In an existing Flowstride project, run `npx flowstride init --practice` and change into `.flowstride/practice` first.
+
+The starter sign-in flow shows and hides the driver’s password. Follow the [password visibility walkthrough](/guide/forms-and-dates#test-password-visibility) to check both states and test a sign-up form with a confirmation field.
 
 Run all advanced examples with this command.
 

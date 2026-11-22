@@ -1,11 +1,11 @@
 # Installation and updates
 
-Install Flowstride (FS) 2.0 in the project that contains your tests. Use Node.js 22.12 or newer.
+Install Flowstride (FS) in the project that contains your tests. Use Node.js 22.12 or newer.
 
 ## Install Flowstride {#install-flowstride-os}
 
 ```sh
-npm install --save-dev flowstride@2
+npm install --save-dev flowstride
 npx flowstride init
 ```
 
@@ -26,7 +26,7 @@ npx flowstride run --browser firefox
 
 Keep the package and its matching browsers together when updating your project. [Browser compatibility](/guide/browser-compatibility) explains headed runs, dashboard windows and engine limits.
 
-## Move an existing project to 2.0
+## Bring the practice examples into an existing project {#move-an-existing-project-to-2-0}
 
 After updating your dependency, run `npx flowstride --version` in the project root. To try the new examples alongside your own suite, run `npx flowstride init --practice`. In an existing FS project this creates a separate practice workspace under `.flowstride/practice`. Change into that directory and run `npx flowstride run`. For the pricing and role-assignment examples, see [the practice walkthrough](/guide/working-examples#bundled-practice-app).
 
@@ -60,7 +60,7 @@ Paste a valid developer token into the masked prompt and accept the Flowstride P
 Update the FS dependency in your project:
 
 ```sh
-npm install --save-dev flowstride@2
+npm install --save-dev flowstride
 npx flowstride install chromium firefox webkit
 ```
 

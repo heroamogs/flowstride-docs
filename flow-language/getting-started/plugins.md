@@ -1,6 +1,6 @@
 # Extend a flow with plugins
 
-A Flowstride (FS) SDK plugin is useful when an action needs runner services such as `sdk.run.attach` or `sdk.state`. Ordinary JavaScript and TypeScript functions are also first-class in FS 2.0. Import a named helper and call it with `flow.call` for loops, calculations or a Playwright page action. [Compare 50 prices with JS and TS](/guide/complex-tests) Flowstride and Flowstride Pro support the common SDK below. Normal npm installation supplies the compatible TypeScript compiler used by the loader.
+A Flowstride (FS) SDK plugin is useful when an action needs runner services such as `sdk.run.attach` or `sdk.state`. Ordinary JavaScript and TypeScript functions are also first-class in FS. Import a named helper and call it with `flow.call` for loops, calculations or a Playwright page action. [Compare 50 prices with JS and TS](/guide/complex-tests) Flowstride and Flowstride Pro support the common SDK below. Normal npm installation supplies the compatible TypeScript compiler used by the loader.
 
 ## Register and invoke an export
 

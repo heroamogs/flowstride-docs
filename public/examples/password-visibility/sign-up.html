@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign-up password practice · Flowstride</title>
+  <style>
+    body { font: 1rem/1.5 system-ui, sans-serif; max-width: 32rem; margin: 3rem auto; padding: 0 1rem; }
+    label { display: block; margin-top: 1rem; font-weight: 600; }
+    input, button { font: inherit; padding: .45rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Sign-up password practice</h1>
+    <p>Use a fictional password to try each visibility control.</p>
+    <div>
+      <label for="password">Password</label>
+      <input id="password" placeholder="Enter password" type="password" autocomplete="new-password">
+      <button type="button" aria-controls="password">Show password</button>
+    </div>
+    <div>
+      <label for="confirmation">Confirm password</label>
+      <input id="confirmation" placeholder="Re-enter password" type="password" autocomplete="new-password">
+      <button type="button" aria-controls="confirmation">Show confirmation password</button>
+    </div>
+  </main>
+  <script>
+    for (const button of document.querySelectorAll('button[aria-controls]')) {
+      const input = document.getElementById(button.getAttribute('aria-controls'));
+      const name = input.id === 'password' ? 'password' : 'confirmation password';
+      button.addEventListener('click', () => {
+        const reveal = input.type === 'password';
+        input.type = reveal ? 'text' : 'password';
+        button.textContent = (reveal ? 'Hide ' : 'Show ') + name;
+      });
+    }
+  </script>
+</body>
+</html>
