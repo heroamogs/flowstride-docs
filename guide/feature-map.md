@@ -1,6 +1,6 @@
 # What you can build with Flowstride
 
-Flowstride (FS) 2.0 brings browser actions, APIs, reusable data, assertions and evidence into readable `.flow` scenarios. Use the same suite interactively and in CI. Use the separate Manual Workspace for cases that need a person's observation and judgment.
+Flowstride (FS) brings browser actions, APIs, reusable data, assertions and evidence into readable `.flow` scenarios. Use the same suite interactively and in CI. Use the separate Manual Workspace for cases that need a person's observation and judgment.
 
 FS runs locally without an account. A free Cloud account connects workspace services; access and usage depend on your workspace plan. Cloud is an account-connected engine and service layer, not a requirement to host the application or surrender control of your CI runner.
 

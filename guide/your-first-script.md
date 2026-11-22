@@ -1,6 +1,6 @@
 # Your first automated flow
 
-Install Flowstride (FS) 2.0 with npm, initialize a project, and write a test for your application. This guide uses a login page to show browser actions and assertions. Use a test account and adapt the URL, labels, button text, and expected result to your application.
+Install Flowstride (FS) with npm, initialize a project, and write a test for your application. This guide uses a login page to show browser actions and assertions. Use a test account and adapt the URL, labels, button text, and expected result to your application.
 
 ## 1. Install and initialize
 
@@ -8,7 +8,7 @@ In a new project folder, run:
 
 ```sh
 npm init -y
-npm install --save-dev flowstride@2
+npm install --save-dev flowstride
 npx flowstride init
 npx flowstride run
 ```
@@ -76,6 +76,8 @@ Then "The customer is signed in"
 This example assumes a `/login` page with inputs labeled **Email** and **Password**, a **Sign in** button, and visible **Logout** text after successful login. Change those values to match your application.
 
 `Given` establishes the starting state. `When` performs the customer action. `Then` checks the visible result. Keep the assertion specific enough to distinguish a successful login from the page merely loading.
+
+To test the password eye control before submitting, follow the [password visibility walkthrough](/guide/forms-and-dates#test-password-visibility). It uses the bundled practice account.
 
 ## 4. Run and inspect
 

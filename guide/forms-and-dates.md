@@ -60,6 +60,32 @@ Use `flow.type` for ordinary text entry. It can retry and tolerate formatting, s
 
 A date widget can still reject direct changes. The calendar fallback looks for matching day controls; it is not a universal month/year navigation algorithm. For a custom calendar, use explicit previous/next-month and day controls, then assert the resulting date.
 
+## Test password visibility
+
+### Sign in with a masked password
+
+On the bundled practice app, the driver can reveal a password to catch a typing mistake and hide it again before submitting. `flow.passcode` enters the value. `flow.click passToggle for "Password"` clicks the visibility control associated with that field. Assert `revealed` or `masked` on the **input** to check what the driver can see. Use fictional credentials because a revealed password can appear in screenshots or video.
+
+In a [freshly initialized practice project](/guide/working-examples#bundled-practice-app), save <a href="/examples/password-visibility/sign-in.flow" download>the sign-in flow</a> as `flows/examples/sign-in.flow`. Run `npx flowstride run flows/examples/sign-in.flow`. FS starts the local practice app and opens the dashboard.
+
+<<< @/public/examples/password-visibility/sign-in.flow
+
+### Sign up with two password fields
+
+On a form with both **Password** and **Confirm password**, each control should affect only its own field. This example reveals the confirmation and checks both inputs. It catches a toggle mistakenly wired to the first input, even if the toggle’s own label changed.
+
+Open the <a href="/examples/password-visibility/sign-up.html" target="_blank" rel="noopener">two-field sign-up demo</a> to try it by hand. It accepts fictional text locally in the browser. Save <a href="/examples/password-visibility/sign-up.flow" download>the sign-up flow</a> as `flows/sign-up.flow`. The two `flow.passcode` steps use the placeholders **Enter password** and **Re-enter password**. The toggle and assertions use the field labels. Set the demo URL in your project's `.env`. To use your own sign-up page, change the URL and match those placeholders and labels to your form.
+
+```dotenv
+SIGNUP_FORM_URL=https://docs.flowstride.io/examples/password-visibility/sign-up.html
+```
+
+Run `npx flowstride run flows/sign-up.flow`. Add `--ci` to either example for a headless run.
+
+<<< @/public/examples/password-visibility/sign-up.flow
+
+For repeated forms or multiple eye icons, see [choosing a password toggle](/guide/targeting#password-toggles).
+
 ## Checkboxes and custom toggles
 
 ```flow

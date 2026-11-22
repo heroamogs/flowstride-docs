@@ -5,7 +5,7 @@ import { sidebar } from './sidebar';
 export default defineConfig({
   title: 'Flowstride Docs',
   titleTemplate: ':title · Flowstride Docs',
-  description: 'Learn Flowstride (FS) 2.0 with runnable browser and API tests, JavaScript and TypeScript helpers, fixtures and CI guides.',
+  description: 'Learn Flowstride (FS) with runnable browser and API tests, JavaScript and TypeScript helpers, fixtures and CI guides.',
   lang: 'en-GB',
   cleanUrls: true,
   ignoreDeadLinks: false,

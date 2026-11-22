@@ -1,0 +1,33 @@
+Feature: Password visibility at sign-up
+
+Scenario: Revealing a confirmation leaves the original password masked
+  Given "Both sign-up fields contain the same practice password"
+    flow.open "{{env.SIGNUP_FORM_URL}}";
+    flow.passcode input "Enter password" "demo-only-passphrase";
+    flow.passcode input "Re-enter password" "demo-only-passphrase";
+    flow.assert.that {
+      "target": {
+        "element": "input",
+        "text": "Confirm password"
+      },
+      "condition": "masked"
+    };
+
+  When "The user reveals only the confirmation"
+    flow.click passToggle for "Confirm password";
+
+  Then "The confirmation is readable and the original password is still masked"
+    flow.assert.that {
+      "target": {
+        "element": "input",
+        "text": "Confirm password"
+      },
+      "condition": "revealed"
+    };
+    flow.assert.that {
+      "target": {
+        "element": "input",
+        "text": "Password"
+      },
+      "condition": "masked"
+    };

@@ -28,8 +28,8 @@ jobs:
         run: |
           npm audit --json > dependency-audit.json || test -s dependency-audit.json
           node scripts/check-dependency-audit.mjs dependency-audit.json
-      - name: Install released public parser for example validation
-        run: npm i --ignore-scripts --prefix "$RUNNER_TEMP/flowstride-doc-validation" flowstride@2.0.0
+      - name: Install the released Flowstride CLI for example validation
+        run: npm i --ignore-scripts --prefix "$RUNNER_TEMP/flowstride-doc-validation" flowstride@2.1.0
       - name: Validate documentation and build
         env:
           FLOWSTRIDE_OS_ROOT: ${{ runner.temp }}/flowstride-doc-validation/node_modules/flowstride
@@ -38,8 +38,11 @@ jobs:
         run: |
           npm install --prefix "$RUNNER_TEMP/flowstride-browser-tools" --ignore-scripts --no-audit --no-fund playwright@1.59.1
           node "$RUNNER_TEMP/flowstride-browser-tools/node_modules/playwright/cli.js" install --with-deps chromium firefox webkit
+      - name: Install Chromium for the released Flowstride CLI
+        run: node "$RUNNER_TEMP/flowstride-doc-validation/node_modules/flowstride/dist/cli/index.js" install chromium --with-deps
       - name: Browser regression
         env:
+          FLOWSTRIDE_OS_ROOT: ${{ runner.temp }}/flowstride-doc-validation/node_modules/flowstride
           FLOWSTRIDE_BROWSER_TOOLS: ${{ runner.temp }}/flowstride-browser-tools
         run: npm run test:browser
       - name: Retain audit evidence

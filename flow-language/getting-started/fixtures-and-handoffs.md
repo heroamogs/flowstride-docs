@@ -1,6 +1,6 @@
 # Fixtures and handoffs
 
-In Flowstride (FS) 2.0, a fixture is a named JS or TS function that sets up a resource and registers its cleanup with Flowstride. Its first argument is a fixture context. Use the context's `signal` for setup, and the signal given to the cleanup callback for cleanup.
+In Flowstride (FS), a fixture is a named JS or TS function that sets up a resource and registers its cleanup with Flowstride. Its first argument is a fixture context. Use the context's `signal` for setup, and the signal given to the cleanup callback for cleanup.
 
 ## Choose the fixture lifetime
 

@@ -4,7 +4,7 @@ search: false
 
 # Flowstride documentation
 
-The official Flowstride (FS) 2.0 documentation site, built with VitePress. Guides cover Flowstride and Flowstride Pro capabilities, manual testing, automation, native CI, browser games, and evidence.
+The official Flowstride (FS) documentation site, built with VitePress. Guides cover Flowstride and Flowstride Pro capabilities, manual testing, automation, native CI, browser games, and evidence.
 
 ## Run locally
 
@@ -25,7 +25,7 @@ npm run check
 
 Checks validate public content, JSON formatting, example asset hashes and the manual design structure, then build the site and verify rendered links and heading anchors, including navigation. Local search is generated during the build.
 
-CI installs the released public FS parser to validate every Flow example, the homepage preview and independent language-rule checks. For local cross-engine validation, set `FLOWSTRIDE_OS_ROOT` and `FLOWSTRIDE_CLOUD_ROOT` to built engine folders before running the same command. Those local paths are not part of the site. Syntax validation does not establish that an illustrative endpoint, account or external service exists; runnable fixtures need execution checks too.
+CI installs the released public FS CLI to validate every Flow example, the homepage preview and independent language-rule checks. For local cross-engine validation, set `FLOWSTRIDE_OS_ROOT` and `FLOWSTRIDE_CLOUD_ROOT` to built engine folders before running the same command. Those local paths are not part of the site. The browser regression runs the published password visibility examples against the bundled sign-in page and the locally served sign-up demo. To run it locally, set `FLOWSTRIDE_OS_ROOT` to the installed public engine and `FLOWSTRIDE_BROWSER_TOOLS` to the project containing the browser test tools, install the matching browsers, then run `npm run test:browser` after the site build.
 
 To serve the production build locally:
 

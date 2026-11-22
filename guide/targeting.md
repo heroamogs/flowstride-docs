@@ -36,6 +36,14 @@ flow.assert.that {
 
 Typing can tolerate application formatting, such as punctuation removal. Pair it with an exact value assertion when format matters.
 
+## Password toggles
+
+Use `flow.click passToggle for "Password";` to click the show/hide control associated with **Password**. On a sign-up form, use `flow.click passToggle for "Confirm password";` for the second field. The quoted text names the input. FS can recognize controls through their relationship to a field, show/hide semantics or a nearby eye icon. The control must be visible and identifiable.
+
+If several controls match, FS stops before clicking and reports the number of matches. Give the field label first. When several candidates still match that field, use the reported zero-based index. For example, `flow.click passToggle[1] for "Password";` selects the second match for **Password**. On a form with stable ordering, `flow.click passToggle[0];` selects the first matching control across the search scope. An out-of-range index fails.
+
+FS can find a password field inside nested iframes. When more than one frame contains the same form, select the intended frame with `flow.frame.use`, perform the click and assertions there, then return with `flow.frame.main {}`. [Frame scoping](/reference/interaction-commands#frames) · [Runnable password examples](/guide/forms-and-dates#test-password-visibility)
+
 ## Spatial relationships
 
 Use `near`, `above`, `below`/`under`, `leftOf`, `rightOf`, and `inside`/`in` to distinguish controls. These depend on rendered layout or containment. A viewport change can alter the geometry.

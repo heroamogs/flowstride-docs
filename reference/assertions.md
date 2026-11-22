@@ -56,7 +56,7 @@ Add a `message` to explain the intent, for example “Checkout should allow subm
 
 | Group | Conditions |
 | --- | --- |
-| State | [`visible`](#visible), [`hidden`](#hidden), [`attached`](#attached), [`enabled`](#enabled), [`disabled`](#disabled), [`editable`](#editable), [`checked`](#checked), [`empty`](#empty), [`focused`](#focused), [`inViewport`](#inviewport) |
+| State | [`visible`](#visible), [`hidden`](#hidden), [`attached`](#attached), [`enabled`](#enabled), [`disabled`](#disabled), [`editable`](#editable), [`masked` and `revealed`](#password-visibility), [`checked`](#checked), [`empty`](#empty), [`focused`](#focused), [`inViewport`](#inviewport) |
 | Element content and metadata | [`text`](#text), [`containsText`](#containstext), [`value`](#value), [`values`](#values), [`count`](#count), [`attribute`](#attribute), [`css`](#css), [`id`](#id), [`property`](#property), [`accessibleName`](#accessiblename), [`accessibleDescription`](#accessibledescription) |
 | Page and storage | [`url`](#url), [`title`](#title), [`localStorage`](#localstorage), [`sessionStorage`](#sessionstorage) |
 
@@ -139,6 +139,23 @@ flow.assert.that {
   "condition": "editable"
 };
 ```
+
+### Password display · `masked` and `revealed` {#password-visibility}
+
+Target a visible password field. Use `masked` when its characters should be hidden and `revealed` when the user should be able to read them. Neither condition takes a `value`. FS checks the field's display state without comparing the password text. A plain email or text field does not qualify as a revealed password.
+
+```flow
+flow.click passToggle for "Password";
+flow.assert.that {
+  "target": {
+    "element": "input",
+    "text": "Password"
+  },
+  "condition": "revealed"
+};
+```
+
+[Run the sign-in and sign-up examples](/guide/forms-and-dates#test-password-visibility).
 
 ### Selected checkbox or radio · `checked` {#checked}
 

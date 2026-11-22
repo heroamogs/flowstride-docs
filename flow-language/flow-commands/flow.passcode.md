@@ -16,4 +16,6 @@ flow.expect visible "My account";
 
 Replace the field/container label with the application's actual target. The helper supports a single input, split inputs within a matching container and its supported OTP-input fallback. It does not retrieve a code or establish its validity; the application validates the submitted code.
 
+For a sign-in password, use `flow.passcode` to enter the test value and `flow.click passToggle` to change its visibility. [Run the password example](/guide/forms-and-dates#test-password-visibility).
+
 Use [FlowMail](/guide/email-otp) for delivered OTP retrieval with an eligible Cloud account, or your application's authorized test-code source. `$randomOtp` is generated test data, not the code a service issued.

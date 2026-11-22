@@ -1,6 +1,6 @@
 # Start with a workflow
 
-Flowstride (FS) 2.0 lets you write browser and API tests in readable `.flow` files, inspect a run in a local dashboard, and run the same suite in CI. The Manual Workspace helps you design and carry out tests that still need a person.
+Flowstride (FS) lets you write browser and API tests in readable `.flow` files, inspect a run in a local dashboard, and run the same suite in CI. The Manual Workspace helps you design and carry out tests that still need a person.
 
 Choose a starting point:
 
@@ -24,7 +24,7 @@ Use **Node.js 22.12 or newer** and an npm project. In a new folder:
 
 ```sh
 npm init -y
-npm install --save-dev flowstride@2
+npm install --save-dev flowstride
 npx flowstride init
 npx flowstride run
 ```

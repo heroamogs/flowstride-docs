@@ -1,0 +1,44 @@
+Feature: Password visibility at sign-in
+
+Scenario: A driver checks their password before signing in
+  Given "The practice sign-in form opens with the password masked"
+    flow.open "/login";
+    flow.assert.that {
+      "target": {
+        "element": "input",
+        "text": "Password"
+      },
+      "condition": "masked"
+    };
+
+  When "The driver enters their practice credentials and reveals the password"
+    flow.type input "Email" "driver@example.test";
+    flow.passcode input "Password" "practice-driver";
+    flow.click passToggle for "Password";
+
+  And "The password field is revealed"
+    flow.assert.that {
+      "target": {
+        "element": "input",
+        "text": "Password"
+      },
+      "condition": "revealed"
+    };
+
+  When "The driver hides the password again"
+    flow.click passToggle for "Password";
+
+  And "The password field is masked again"
+    flow.assert.that {
+      "target": {
+        "element": "input",
+        "text": "Password"
+      },
+      "condition": "masked"
+    };
+
+  When "The driver signs in"
+    flow.click button "Sign in";
+
+  Then "The practice driver's account opens"
+    flow.expect text "Signed in as Practice Driver";
